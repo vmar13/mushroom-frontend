@@ -10,6 +10,7 @@ import Mushroom from '../components/Mushroom'
 import MushShowPage from '../components/MushShowPage'
 import BYOT from '../components/BYOT'
 import Popular from '../components/Popular'
+// import HealthBenefit from '..components/HealthBenefit'
 
 const App = (props) => {
   return (

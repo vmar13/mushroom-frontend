@@ -1,7 +1,17 @@
 import React from 'react'
 
-const HealthBenefit = () => {
-        return('Health Benefit goes here')
+class HealthBenefit extends React.Component {
+
+  
+
+    render() {
+        return(
+            <div>
+                {/* {this.state.healthBenefits.name} */}
+            </div>
+        )
     }
+        
+}
 
 export default HealthBenefit
