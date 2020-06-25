@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,136 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+body
+{
+  background: #eddedb;
+   margin: 0;
 }
+
+.main-header {
+  margin: auto;
+  width: 75%;
+  min-height: 90px;
+  padding: 1em 2em;
+  border-radius: 0 0 5px 5px;
+    background: rgb(8, 12, 39);
+}
+  .main-header:after {
+    content: " ";
+    display: table;
+    clear: both;
+  } 
+
+.main-nav {
+    background: #30a53f;
+    padding: 0px;
+    padding-top: 0px;
+    border: none;
+    text-align: right;
+    position: relative;
+    height: 50px;
+  }
+
+  .card
+  {
+
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 400px;
+    height: 250px;
+    margin: 20px;
+    text-align: center;
+    
+    
+  
+
+       /* position: relative;
+  
+      border-radius: 10px;
+      /* box-shadow: 2px 2px 4px rgba(43, 41, 42, 0.568); */
+      /* width: 400px;
+      height: 250px;
+      margin: 20px;     */
+  }
+
+  .container {
+    display: grid;
+    /* grid-template-columns: 400px 400px 400px; */
+    grid-template-columns: auto auto;
+
+    /* background-color: linear-gradient( 135deg, #FDCFCF 10%, rgb(243, 176, 176) 100%); */
+    padding: 11px;
+    margin-top: 100px;
+    grid-gap: 5px;
+  }
+  
+  /* .dog-img {
+    max-height: 360px;
+    max-width: 360px;
+    border-radius: 10px;
+  } */
+
+  .mush-img {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: center;
+    width: 80%;
+    height: 90%;
+    border-radius: 4px;
+
+  }
+  
+  .name-container {
+    padding: 2px 16px;
+  }
+
+  
+/* .search {
+  width: 100%;
+  position: relative;
+  left: -470px;
+  top: -270px;
+  display: flex;
+}
+
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #010e0f;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
