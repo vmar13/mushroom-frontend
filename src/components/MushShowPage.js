@@ -1,6 +1,6 @@
 import React from 'react'
 // import Mushroom from '../components/Mushroom'
-// import HealthBenefit from '../components/HealthBenefit'
+import HealthBenefit from '../components/HealthBenefit'
 // import Comments from '../components/Comments'
 
 const API_ENDPOINT = `http://localhost:3000/api/v1/mushrooms`
@@ -30,6 +30,7 @@ class MushShowPage extends React.Component {
                     <h3>Tea flavor: {this.state.mushroom.flavor}</h3>
                     <br>
                     </br>
+                    <HealthBenefit />
                  </div>
             </div>
         )
