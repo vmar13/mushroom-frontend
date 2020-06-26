@@ -58,8 +58,8 @@ class MushroomContainer extends React.Component {
         }
             fetch(`${API_health_benefits}/${event.target.value}`)
             .then(res => res.json())
-            .then(data => {
-                this.setState({ mushrooms: data.mushrooms })
+            .then(healthBene => {
+                this.setState({ mushrooms: healthBene.mushrooms })
         })
             
     }
@@ -74,21 +74,6 @@ class MushroomContainer extends React.Component {
         //     this.setState({ mushrooms: healthBeneObj.mushrooms })
         // })
     // }
-
-    // updateFilter = type => {
-    //     this.setState({ filter: type })
-    // }
-
-    // displayFilteredMush = () => {
-    //     let filteredMushrooms = [...this.state.mushrooms]
-    //     if(this.state.filter !== 'Select Item') {
-    //         filteredMushrooms = filteredMushrooms.filter(mush => mush.health_benefit === this.state.filter)
-    //     }
-    // }
-
-    // let mushArrNotYet = mushHealthArr.filter(mHobj => mHobj.health_benefit.name === selectedHealthBeneId)
-    // let mushArr = mushArrNotYet.map(mushObj => mushObj.mushroom)
-    // this.setState({ mushrooms: mushArr})
 
     // handleSelectChange = selectedHealthBeneId => {
     //     this.setState({
