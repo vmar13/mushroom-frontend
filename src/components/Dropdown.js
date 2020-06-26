@@ -2,10 +2,10 @@ import React from 'react'
 
 class Dropdown extends React.Component {
 
-    handleChange = event => {
-        let selectedValue = event.target.value;
-        this.props.onSelectChange(selectedValue);
-    }
+    // handleChange = event => {
+    //     let selectedValue = event.target.value;
+    //     this.props.onSelectChange(selectedValue);
+    // }
 
     render() {
 
@@ -19,8 +19,8 @@ class Dropdown extends React.Component {
                 </option>
             )
         return (
-            <select name="customSearch" className="custom-search-select" onChange={this.handleChange}>
-                <option>Select Item</option>
+            <select className="custom-search-select" onChange={this.props.onSelectChange}>
+                <option value=''>Select Item</option>
                 {options}
            </select>
         )

@@ -39,8 +39,12 @@
 
 body
 {
-  background: #eddedb;
+  background: black;
    margin: 0;
+}
+
+.filter-title {
+  color: white;
 }
 
 .main-header {
@@ -79,6 +83,8 @@ body
     height: 250px;
     margin: 20px;
     text-align: center;
+    color: white 
+    
     
     
   
@@ -103,11 +109,6 @@ body
     grid-gap: 5px;
   }
   
-  /* .dog-img {
-    max-height: 360px;
-    max-width: 360px;
-    border-radius: 10px;
-  } */
 
   .mush-img {
     position: relative;
