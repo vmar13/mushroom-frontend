@@ -24,10 +24,10 @@ class MushShowPage extends React.Component {
             <div className='flex-column'>
                 <div className='card'>
                     <img src={this.state.mushroom.image} alt={this.state.mushroom.name} className='mush-img'/>
-                    <h3>Name: {this.state.mushroom.name}</h3>
-                    <h3>Scientific Name: {this.state.mushroom.scientific_name}</h3>
-                    <h3>Location: {this.state.mushroom.location}</h3>
-                    <h3>Tea flavor: {this.state.mushroom.flavor}</h3>
+                    <h3>{this.state.mushroom.name}</h3>
+                    <p><em>Scientific Name: {this.state.mushroom.scientific_name}</em></p>
+                    <p>Location: {this.state.mushroom.location}</p>
+                    <p>Tea flavor: {this.state.mushroom.flavor}</p>
                     <br>
                     </br>
                     <HealthBenefit />
