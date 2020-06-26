@@ -24,7 +24,7 @@ class MushShowPage extends React.Component {
         return(
             <div className='flex-column'>
                 <div className='card'>
-                    <img src={this.state.mushroom.image} alt={this.state.mushroom.name} className='mush-img'/>
+                    <img src={`http://localhost:3000/${this.state.mushroom.image_url}`} alt={this.state.mushroom.name} className='mush-img'/>
                     <h3>{this.state.mushroom.name}</h3>
                     <p><em>Scientific Name: {this.state.mushroom.scientific_name}</em></p>
                     <p>Location: {this.state.mushroom.location}</p>

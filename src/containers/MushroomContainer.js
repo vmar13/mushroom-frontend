@@ -14,21 +14,6 @@ class MushroomContainer extends React.Component {
         filter: 'Select Item'
     }
 
-    // componentDidMount() {
-    //     fetch(API_mushrooms)
-    //     .then(res => res.json())
-    //     .then(mushData => {
-    //         this.setState({ mushrooms: mushData })
-    //     })
-    //     .then(fetch('http://localhost:3000/api/v1/mush_health_benefits')
-    //     .then(res => res.json())
-    //     .then(mushHealthBenes => {
-    //         const healthBeneOptions = mushHealthBenes.map(mHb => (mHb.health_benefit.name))
-    //         // console.log(healthBeneOptions)
-    //         this.setState({ healthBenefits: healthBeneOptions })
-    //     }))
-    // }
-
     componentDidMount() {
         fetch(API_mushrooms)
         .then(res => res.json())
@@ -59,6 +44,7 @@ class MushroomContainer extends React.Component {
             fetch(`${API_health_benefits}/${event.target.value}`)
             .then(res => res.json())
             .then(healthBene => {
+                // console.log(healthBene)
                 this.setState({ mushrooms: healthBene.mushrooms })
         })
             
@@ -90,12 +76,7 @@ class MushroomContainer extends React.Component {
 
     render() {
         console.log(this.state)
-        // const filterMushrooms = this.state.mushrooms.filter(mushroom => console.log(mushroom))
-            // mushroom.health_benefit.name === this.state.selectedValue)
-        // console.log(filterMushrooms)
-        // let displayMush = this.displayFilteredMush()
-
-
+     
         return(
             <div>
                 <h3 className='filter-title'>Filter by health benefit:</h3>
