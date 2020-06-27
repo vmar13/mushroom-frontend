@@ -5,9 +5,13 @@ class HealthBenefit extends React.Component {
   
 
     render() {
+
+        const { name } = this.props.healthBenefit 
+
+        console.log(this.props)
         return(
             <div>
-                {/* {this.state.healthBenefits.name} */}
+                {name}
             </div>
         )
     }
