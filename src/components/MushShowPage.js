@@ -16,22 +16,26 @@ class MushShowPage extends React.Component {
         fetch(`${API_ENDPOINT}/${this.props.match.params.id}`)
         .then(res => res.json())
         .then(mushObj => {
-            this.setState({ mushroom: mushObj})
+            this.setState({ 
+                mushroom: mushObj,
+                healthBenefits: mushObj.health_benefits
+            })
         })
     }
     render() {
         console.log(this.state)
+        const { mushroom, healthBenefits } = this.state
         return(
             <div className='flex-column'>
                 <div className='card'>
-                    <img src={`http://localhost:3000/${this.state.mushroom.image_url}`} alt={this.state.mushroom.name} className='mush-img'/>
-                    <h3>{this.state.mushroom.name}</h3>
-                    <p><em>Scientific Name: {this.state.mushroom.scientific_name}</em></p>
-                    <p>Location: {this.state.mushroom.location}</p>
-                    <p>Tea flavor: {this.state.mushroom.flavor}</p>
+                    <img src={mushroom.image} alt={mushroom.name} className='mush-img'/>
+                    <h3>{mushroom.name}</h3>
+                    <p><em>Scientific Name: {mushroom.scientific_name}</em></p>
+                    <p>Location: {mushroom.location}</p>
+                    <p>Tea flavor: {mushroom.flavor}</p>
                     <br>
                     </br>
-                    <HealthBenefit />
+                    {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)}
                  </div>
             </div>
         )
