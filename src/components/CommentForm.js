@@ -1,15 +1,16 @@
 import React from 'react'
 
-const Comments = () => {
+const CommentForm = (props) => {
+
+    const { commentText, handleChange, handleSubmit } = props 
         return(
             <div className="modal-guts">
-                    <form  >
+                    <form onSubmit={handleSubmit}>
                         <div className='form-group'>
                             <br></br>
                             <br></br>
                             <h3>Comments</h3>
-                            {/* <input name='name' placeholder="Dog Walker's Name"  /> */}
-                            <input type='text' name='comment'value='comment' placeholder="Share your opinion"  />
+                            <textarea name='commentText' value={commentText} placeholder="Share your opinion" onChange={handleChange} />
                             <input type="submit" value="Submit" />
                         </div>
                     </form>
@@ -17,4 +18,4 @@ const Comments = () => {
         )
     }
 
-export default Comments
+export default CommentForm
