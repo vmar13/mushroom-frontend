@@ -2,7 +2,7 @@ import React from 'react'
 
 const CommentForm = (props) => {
 
-    const { commentText, handleChange, handleSubmit } = props 
+    const { content, handleChange, handleSubmit } = props 
         return(
             <div className="modal-guts">
                     <form onSubmit={handleSubmit}>
@@ -10,7 +10,7 @@ const CommentForm = (props) => {
                             <br></br>
                             <br></br>
                             <h3>Comments</h3>
-                            <textarea name='commentText' value={commentText} placeholder="Share your opinion" onChange={handleChange} />
+                            <textarea name='content' value={content} placeholder="Share your opinion" onChange={handleChange} />
                             <input type="submit" value="Submit" />
                         </div>
                     </form>
