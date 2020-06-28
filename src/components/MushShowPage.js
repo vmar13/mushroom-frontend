@@ -2,26 +2,31 @@ import React from 'react'
 // import Mushroom from '../components/Mushroom'
 import HealthBenefit from '../components/HealthBenefit'
 import Sources from '../components/Sources'
-import Comments from '../components/Comments'
+import CommentForm from './CommentForm'
+import CommentsContainer from './CommentsContainer'
 
-const API_ENDPOINT = `http://localhost:3000/api/v1/mushrooms`
+const API_MUSHROOMS = `http://localhost:3000/api/v1/mushrooms`
+const API_COMMENTS = `http://localhost:3000/api/v1/comments`
 
 class MushShowPage extends React.Component {
 
     state = {
         mushroom: {},
         healthBenefits: [],
-        sources: []
+        sources: [],
+        comments: [],
+        commentText: ''
     }
 
     //fetch mushroomANDHealthBenes
     getMushAndHB = () => {
-        fetch(`${API_ENDPOINT}/${this.props.match.params.id}`)
+        fetch(`${API_MUSHROOMS}/${this.props.match.params.id}`)
         .then(res => res.json())
         .then(mushObj => {
             this.setState({ 
                 mushroom: mushObj,
-                healthBenefits: mushObj.health_benefits
+                healthBenefits: mushObj.health_benefits,
+                comments: mushObj.comments
             })
         })
     }
@@ -69,11 +74,43 @@ class MushShowPage extends React.Component {
         //         this.setState({ sources: citAoA }) 
         //     })
         // }
-               
+
         componentDidMount() {
             this.getMushAndHB()
             this.getSources()
         }
+
+        addNewComment = newComment => { 
+            this.setState({
+              comments: [...this.state.comments, newComment]
+            })
+          }
+
+        handleChange = event => {
+            this.setState({ [event.target.name]: event.target.value })
+        }
+
+        handleSubmit = event => {
+            event.preventDefault()
+        
+            const newComment = {
+              commentText: this.state.commentText
+            }
+        
+            fetch(`${API_MUSHROOMS}/${this.props.match.params.id}`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(newComment)
+            })
+              .then(res => res.json())
+              .then(newComment => {
+                this.addNewComment(newComment)
+              })
+              .then( () => this.setState({ commentText: '' }))
+          }
 
     render() {
         console.log(this.state)
@@ -113,15 +150,21 @@ class MushShowPage extends React.Component {
                 <div className='card'>
                     <img src={mushroom.image} alt={mushroom.name} className='mush-img'/>
                     <h3>{mushroom.name}</h3>
-                    <p><em>Scientific Name: {mushroom.scientific_name}</em></p><img src={require("../images/listen.png")} alt="listen" className='listen' onClick={speak}/>
-
+                    <p><em>Scientific Name: {mushroom.scientific_name}</em></p>
+                    <img src={require("../images/listen.png")} alt="listen" className='listen' onClick={speak}/>
                     <p>Location: {mushroom.location}</p>
                     <p>Tea flavor: {mushroom.flavor}</p>
                     <br>
                     </br>
                     {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)} <br /><br />
                     <Sources /> <br /><br />
-                    <Comments />
+                    <CommentForm 
+                    commentText={this.state.commentText} 
+                    handleChange={this.handleChange} 
+                    handleSubmit={this.handleSubmit}
+                    />
+                    <br /><br />
+                    <CommentsContainer comments={this.state.comments} />
                  </div>
             </div>
         )
