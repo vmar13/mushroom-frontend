@@ -126,6 +126,10 @@ body
     padding: 2px 16px;
   }
 
+  .listen {
+    width: auto;
+    height: 2em;
+  }
   
 /* .search {
   width: 100%;
