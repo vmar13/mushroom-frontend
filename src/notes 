@@ -1,0 +1,12 @@
+ // getSources = () => {
+    //     fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
+    //     .then(res => res.json())
+    //     .then(mushHealthBenes => {
+    //         let mushHB = mushHealthBenes.filter(mushHB => mushHB.mushroom.name === this.state.mushroom.name)
+    //         let sourcesAoA = mushHB.map(mushHealthObj => mushHealthObj.sources)  
+    //         let citAoA = sourcesAoA.map(arr => arr.map(arrObj => arrObj.citation)) 
+    //         let array = citAoA.map(arr => arr.map(arrElement => arrElement))
+
+    //         this.setState({ sources: array }) 
+    //     })
+    // }
