@@ -1,0 +1,38 @@
+//fetch mushroomHealthBenes
+    componentDidMount() {
+        fetch(`${API_ENDPOINT}/${this.props.match.params.id}`)
+        .then(res => res.json())
+        .then(mushObj => {
+            this.setState({ 
+                mushroom: mushObj,
+                healthBenefits: mushObj.health_benefits
+            })
+        })
+
+        //fetch sources
+            .then(fetch('http://localhost:3000/api/v1/mush_health_benefits')
+            .then(res => res.json())
+            .then(mushHealthBenes => {
+                // return mushHealthBenes.filter(mushHB => mushHB.mushroom.name === this.state.mushroom.name 
+                //     && mushHB.health_benefit.name.includes(this.state.healthBenefits)) 
+                    
+                //do logic below, set stuff to variables, THEN setState
+                this.setState({
+                    sources: mushHealthBenes.filter(mushHB => mushHB.mushroom.name === this.state.mushroom.name) 
+                    //  sources.map(sourceObj => sourceObj.citation)    
+                    .map(mushHealthObj => mushHealthObj.sources.map(sourceObj.citation))    
+
+                })
+
+                 
+            })
+            
+         
+            )
+
+    }
+
+    //call both fetches inside componentDidMount here
+
+    
+
