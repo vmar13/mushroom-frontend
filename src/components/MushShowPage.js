@@ -1,9 +1,9 @@
 import React from 'react'
 // import Mushroom from '../components/Mushroom'
 import HealthBenefit from '../components/HealthBenefit'
-import Sources from '../components/Sources'
+import SourcesContainer from '../containers/SourcesContainer'
 import CommentForm from './CommentForm'
-import CommentsContainer from './CommentsContainer'
+import CommentsContainer from '../containers/CommentsContainer'
 
 const API_MUSHROOMS = `http://localhost:3000/api/v1/mushrooms`
 const API_COMMENTS = `http://localhost:3000/api/v1/comments`
@@ -31,49 +31,31 @@ class MushShowPage extends React.Component {
         })
     }
 
-    getSources = () => {
+      getSources = () => {
         fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
         .then(res => res.json())
         .then(mushHealthBenes => {
             let mushHB = mushHealthBenes.filter(mushHB => mushHB.mushroom.name === this.state.mushroom.name)
             let sourcesAoA = mushHB.map(mushHealthObj => mushHealthObj.sources)  
-            let citAoA = sourcesAoA.map(arr => arr.map(arrObj => arrObj.citation)) 
-            // let array = citAoA.map(arr => arr.map(arrElement => console.log(arrElement)))
-            let array = citAoA.map(arr => arr.map(arrElement => arrElement))
+            let citAoA = sourcesAoA.map(arr => arr.map(arrObj => arrObj)) 
 
-            console.log(array)
-            this.setState({ sources: array }) 
+            this.setState({ sources: citAoA }) 
         })
     }
 
-        // getSources = () => {
-        //     fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
-        //     .then(res => res.json())
-        //     .then(mushHealthBenes => {
-        //         let mushHB = mushHealthBenes.filter(mushHB => mushHB.mushroom.name === this.state.mushroom.name)
-        //         let sourcesAoA = mushHB.map(mushHealthObj => mushHealthObj.sources)  
-        //         let citAoA = sourcesAoA.map(arr => arr.map(arrObj => arrObj.citation)) 
-        //         let array = citAoA.map(arr => arr.forEach(arrElement => console.log(arrElement)))
-        //         console.log(array)
-        //         this.setState({ sources: array }) 
-        //     })
-        // }
+    // getSources = () => {
+    //     fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
+    //     .then(res => res.json())
+    //     .then(mushHealthBenes => {
+    //         let mushHB = mushHealthBenes.filter(mushHB => mushHB.mushroom.name === this.state.mushroom.name)
+    //         let sourcesAoA = mushHB.map(mushHealthObj => mushHealthObj.sources)  
+    //         let citAoA = sourcesAoA.map(arr => arr.map(arrObj => arrObj.citation)) 
+    //         let array = citAoA.map(arr => arr.map(arrElement => arrElement))
 
-        //     getSources = () => {
-        //     fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
-        //     .then(res => res.json())
-        //     .then(mushHealthBenes => {
-        //         let mushHB = mushHealthBenes.filter(mushHB => mushHB.mushroom.name === this.state.mushroom.name)
-        //         let sourcesAoA = mushHB.map(mushHealthObj => mushHealthObj.sources) 
-        //         let citAoA = sourcesAoA.map(arr => arr.map(arrObj => arrObj.citation)) 
- 
-        //         for (const arr of citAoA) {
-        //             return arr.map(obj => {console.log(obj)})
-        //         }
+    //         this.setState({ sources: array }) 
+    //     })
+    // }
 
-        //         this.setState({ sources: citAoA }) 
-        //     })
-        // }
 
         componentDidMount() {
             this.getMushAndHB()
@@ -114,7 +96,7 @@ class MushShowPage extends React.Component {
           }
 
     render() {
-        console.log(this.state)
+        console.log(this.state.sources)
         const { mushroom, healthBenefits } = this.state
 
     let timeout;
@@ -158,7 +140,8 @@ class MushShowPage extends React.Component {
                     <br>
                     </br>
                     {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)} <br /><br />
-                    <Sources /> <br /><br />
+                    {/* {this.state.sources.map(source => <p>{source}</p>)} */}
+                    <SourcesContainer sources={this.state.sources} /> <br /><br />
                     <CommentForm 
                     content={this.state.content} 
                     handleChange={this.handleChange} 
