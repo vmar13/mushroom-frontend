@@ -15,7 +15,7 @@ class MushShowPage extends React.Component {
         healthBenefits: [],
         sources: [],
         comments: [],
-        commentText: ''
+        content: ''
     }
 
     //fetch mushroomANDHealthBenes
@@ -94,10 +94,11 @@ class MushShowPage extends React.Component {
             event.preventDefault()
         
             const newComment = {
-              commentText: this.state.commentText
+                mushroom_id: this.state.mushroom.id,
+                content: this.state.content
             }
         
-            fetch(`${API_MUSHROOMS}/${this.props.match.params.id}`, {
+            fetch(`${API_COMMENTS}`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -109,7 +110,7 @@ class MushShowPage extends React.Component {
               .then(newComment => {
                 this.addNewComment(newComment)
               })
-              .then( () => this.setState({ commentText: '' }))
+              .then( () => this.setState({ content: '' }))
           }
 
     render() {
@@ -159,7 +160,7 @@ class MushShowPage extends React.Component {
                     {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)} <br /><br />
                     <Sources /> <br /><br />
                     <CommentForm 
-                    commentText={this.state.commentText} 
+                    content={this.state.content} 
                     handleChange={this.handleChange} 
                     handleSubmit={this.handleSubmit}
                     />
