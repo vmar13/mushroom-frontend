@@ -6,7 +6,7 @@ const Source = (props) => {
 
         return(
             <div>
-                {citation}<br></br>   
+                <p>{citation}</p>  
             </div>
         )
     }

@@ -15,7 +15,8 @@ class MushShowPage extends React.Component {
         healthBenefits: [],
         sources: [],
         comments: [],
-        content: ''
+        content: '',
+        displaySources: true
     }
 
     //fetch mushroomANDHealthBenes
@@ -42,20 +43,6 @@ class MushShowPage extends React.Component {
             this.setState({ sources: citAoA }) 
         })
     }
-
-    // getSources = () => {
-    //     fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
-    //     .then(res => res.json())
-    //     .then(mushHealthBenes => {
-    //         let mushHB = mushHealthBenes.filter(mushHB => mushHB.mushroom.name === this.state.mushroom.name)
-    //         let sourcesAoA = mushHB.map(mushHealthObj => mushHealthObj.sources)  
-    //         let citAoA = sourcesAoA.map(arr => arr.map(arrObj => arrObj.citation)) 
-    //         let array = citAoA.map(arr => arr.map(arrElement => arrElement))
-
-    //         this.setState({ sources: array }) 
-    //     })
-    // }
-
 
         componentDidMount() {
             this.getMushAndHB()
@@ -95,8 +82,12 @@ class MushShowPage extends React.Component {
               .then( () => this.setState({ content: '' }))
           }
 
+          toggleSources = () => {
+              this.setState({ displaySources: !this.state.displaySources })
+          }
+
     render() {
-        console.log(this.state.sources)
+        console.log(this.state)
         const { mushroom, healthBenefits } = this.state
 
     let timeout;
@@ -141,7 +132,11 @@ class MushShowPage extends React.Component {
                     </br>
                     {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)} <br /><br />
                     {/* {this.state.sources.map(source => <p>{source}</p>)} */}
-                    <SourcesContainer sources={this.state.sources} /> <br /><br />
+                    <button onClick={this.toggleSources}>{this.state.displaySources ? '-' : '+' }</button>
+                    {this.state.displaySources ? 
+                    <SourcesContainer 
+                    sources={this.state.sources} 
+                    /> : null}
                     <CommentForm 
                     content={this.state.content} 
                     handleChange={this.handleChange} 
