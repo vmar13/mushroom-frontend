@@ -15,7 +15,6 @@ import Favorites from '../components/Favorites'
 
 
 
-
 const App = (props) => {
   return (
     <Router>
