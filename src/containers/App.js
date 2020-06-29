@@ -9,8 +9,12 @@ import MushroomContainer from '../containers/MushroomContainer'
 import Mushroom from '../components/Mushroom'
 import MushShowPage from '../components/MushShowPage'
 import BYOT from '../components/BYOT'
-import Popular from '../components/Popular'
+import Favorites from '../components/Favorites'
 // import HealthBenefit from '..components/HealthBenefit'
+
+
+
+
 
 const App = (props) => {
   return (
@@ -21,7 +25,7 @@ const App = (props) => {
         <Route exact path='/mushroom' component={Mushroom} />
         <Route exact path='/mushrooms/:id' component={MushShowPage} />
         <Route exact path='/byot' component={BYOT} />
-        <Route exact path='/popular' component={Popular} />
+        <Route exact path='/favorites' component={Favorites} />
 
       </div>
     </Router>

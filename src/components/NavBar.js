@@ -6,10 +6,9 @@ const NavBar = () => {
             <div className='main-nav'>
             {/* <NavLink to='/'>Home </NavLink> */}
          
-            <NavLink to='/mushrooms'>Mushroom Teas</NavLink> 
-            <NavLink to='/popular'>Popular</NavLink> 
+            <NavLink to='/mushrooms'>Mushroom Teas</NavLink>
             <NavLink to='/byot'>BYOT</NavLink> 
-
+            <NavLink to='/favorites'>Favorites</NavLink>
           </div>
         )
     }

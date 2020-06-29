@@ -37,11 +37,13 @@
   }
 } */
 
+
+
 body
 {
-  background: black;
-   margin: 0;
-}
+  background: black; 
+   /* margin: 0;  */
+}  
 
 .filter-title {
   color: white;
@@ -71,6 +73,7 @@ body
     height: 50px;
   }
 
+
   .card
   {
 
@@ -84,18 +87,6 @@ body
     margin: 20px;
     text-align: center;
     color: white 
-    
-    
-    
-  
-
-       /* position: relative;
-  
-      border-radius: 10px;
-      /* box-shadow: 2px 2px 4px rgba(43, 41, 42, 0.568); */
-      /* width: 400px;
-      height: 250px;
-      margin: 20px;     */
   }
 
   .container {
@@ -139,27 +130,27 @@ body
   display: flex;
 }
 
-
-.searchTerm {
+.searchTerm, input {
   width: 100%;
-  border: 3px solid #00B4CC;
+  border: 3px solid solid hsla(91, 80%, 8%, 0.918);
   border-right: none;
   padding: 5px;
   height: 20px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #9DBFAF;
+  color: white;
+  background-color: hsla(98, 11%, 15%, 0.918);
 }
 
 .searchTerm:focus{
-  color: #010e0f;
+  color: white;
 }
 
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
+  border: 1px solid solid hsla(91, 80%, 8%, 0.918);
+  background: hsla(98, 11%, 15%, 0.918);
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
@@ -167,9 +158,13 @@ body
   font-size: 20px;
 }
 
+
+
 .wrap{
-  width: 30%;
+  width: 40%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
+  top: 60%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+
+} */

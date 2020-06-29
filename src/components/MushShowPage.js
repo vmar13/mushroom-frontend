@@ -87,7 +87,7 @@ class MushShowPage extends React.Component {
           }
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         const { mushroom, healthBenefits } = this.state
 
     let timeout;
