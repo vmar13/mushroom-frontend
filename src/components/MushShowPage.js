@@ -130,8 +130,10 @@ class MushShowPage extends React.Component {
                     <p>Tea flavor: {mushroom.flavor}</p>
                     <br>
                     </br>
+                    <h3>Health Benefits</h3>
                     {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)} <br /><br />
                     {/* {this.state.sources.map(source => <p>{source}</p>)} */}
+                    <h3>Sources</h3>
                     <button onClick={this.toggleSources}>{this.state.displaySources ? '-' : '+' }</button>
                     {this.state.displaySources ? 
                     <SourcesContainer 

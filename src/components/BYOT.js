@@ -1,11 +1,10 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
-import YouTube from '../API/YouTube'
 import SearchBar from '../components/SearchBar'
 import VideoDetail from '../components/VideoDetail'
 import VideoList from '../components/VideoList'
 
-
+const REACT_APP_YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY
 
 class BYOT extends React.Component {
 
@@ -14,19 +13,20 @@ class BYOT extends React.Component {
         selectedVideo: null
     }
 
-    handleSubmit = async (searchTerm) => {
-        const response = await YouTube.get('search', {
-            params: {
-                part: 'snippet',
-                maxResults: 5,
-                key: 'AIzaSyDjjFkdxBSz_E7ntNCKM4lsSaExD1d93us',
-                q: searchTerm
-            }
-        })
-        
-        this.setState({ videos: response.data.items, selectedVideo: response.data.items[0]})
+    handleSubmit = (searchTerm) => {
+        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchTerm}&key=${REACT_APP_YOUTUBE_API_KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ videos: data.items, selectedVideo: data.items[0]})
 
-    }
+            })
+        }
+           
+    
+        
+        // console.log(response)
+    
+
 
     onVideoSelect = (video) => {
         this.setState({ selectedVideo: video })
