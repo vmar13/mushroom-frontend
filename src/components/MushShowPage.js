@@ -21,7 +21,7 @@ class MushShowPage extends React.Component {
 
     //fetch mushroomANDHealthBenes
     getMushAndHB = () => {
-        fetch(`${API_MUSHROOMS}/${this.props.match.params.id}`)
+        fetch(`${API_MUSHROOMS}/${this.props.mushId}`)
         .then(res => res.json())
         .then(mushObj => {
             this.setState({ 
@@ -112,7 +112,7 @@ class MushShowPage extends React.Component {
         utt.voice = voices[28]
         utt.volume = 0.1
         utt.pitch = 0.8
-        utt.rate = .8
+        utt.rate = .7
 
         window.speechSynthesis.cancel()? 
         window.speechSynthesis.resume() : window.speechSynthesis.speak(utt)

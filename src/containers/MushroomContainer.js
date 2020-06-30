@@ -27,9 +27,9 @@ class MushroomContainer extends React.Component {
         }))
     }
 
-    sendToMushShowPage = mushId => {
-        this.props.history.push(`/mushrooms/${mushId}`)
-    }
+    // sendToMushShowPage = mushId => {
+    //     this.props.history.push(`/mushrooms/${mushId}`)
+    // }
 
     handleSelectChange = event => {
         // console.log(event.target.value)
@@ -50,39 +50,18 @@ class MushroomContainer extends React.Component {
             
     }
 
-        // handleSelectChange = selectedHealthBene => {
-        //     this.setState({ selectedValue: selectedHealthBene})        
-        //     const id =
-
-        // }
-
-        // .then(healthBeneObj => {
-        //     this.setState({ mushrooms: healthBeneObj.mushrooms })
-        // })
-    // }
-
-    // handleSelectChange = selectedHealthBeneId => {
-    //     this.setState({
-    //         selectedValue: selectedHealthBeneId
-    //     })
-    //     let healthBeneId = this.state.selectedValue 
-    //     fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
-    //     .then(res => res.json())
-    //     .then(mushHealthArr => {
-    //         let mushArr = mushHealthArr.filter(mHobj => mHobj.health_benefit.name === healthBeneId)
-    //         this.setState({ mushrooms: mushArr})
-    //     })
-    // }
 
     render() {
         // console.log(this.state)
      
+        // console.log(history)
+
         return(
             <div>
                 <h3 className='filter-title'>Filter by health benefit:</h3>
                 <Dropdown healthBenefits={this.state.healthBenefits} onSelectChange={this.handleSelectChange} /> <br /><br />
                 <div className='container'>
-                {this.state.mushrooms.map(mushroom => <Mushroom key={mushroom.id} {...mushroom} sendToMushShowPage={this.sendToMushShowPage}/>)}
+                {this.state.mushrooms.map(mushroom => <Mushroom key={mushroom.id} {...mushroom} />)}
                 </div>
             </div>
             
@@ -91,4 +70,6 @@ class MushroomContainer extends React.Component {
 }
 
 export default MushroomContainer
+
+// {this.state.mushrooms.map(mushroom => <Mushroom key={mushroom.id} {...mushroom} sendToMushShowPage={this.sendToMushShowPage}/>)}
 

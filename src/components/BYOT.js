@@ -18,21 +18,18 @@ class BYOT extends React.Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({ videos: data.items, selectedVideo: data.items[0]})
-
+                console.log(data.items)
             })
         }
            
     
         
-        // console.log(response)
-    
-
-
     onVideoSelect = (video) => {
         this.setState({ selectedVideo: video })
     }
     
     render() {
+        // console.log(this.state.selectedVideo)
         return(
             
                 <Grid justify='center' container spacing={10}>
@@ -42,7 +39,7 @@ class BYOT extends React.Component {
                                 <SearchBar  onSubmit={this.handleSubmit} />
                             </Grid>
                             <Grid item xs={8}>
-                                <VideoDetail video={this.state.selectedVideo}/>
+                                <VideoDetail video={this.state.selectedVideo} addPopVideo={this.props.addPopVideo}/>
                             </Grid>
                             <Grid item xs={4}>
                                 <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />

@@ -49,6 +49,10 @@ body
   color: white;
 }
 
+.home {
+  color: white;
+}
+
 .main-header {
   margin: auto;
   width: 75%;
@@ -122,6 +126,9 @@ body
     height: 2em;
   }
   
+  .popular {
+    color: white; 
+  }
 /* .search {
   width: 100%;
   position: relative;
