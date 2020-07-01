@@ -16,12 +16,11 @@ import React from 'react';
 import '../App.css';
 import { Route, Switch } from 'react-router-dom'
 import NavBar from '../components/NavBar'
-import Home from './Home'
+import Login from './Login'
 import MushroomContainer from '../containers/MushroomContainer'
 import Mushroom from '../components/Mushroom'
 import MushShowPage from '../components/MushShowPage'
 import BYOT from '../components/BYOT'
-import VideoDetail from '../components/VideoDetail'
 import Popular from '../components/Popular'
 
 const API_VIDEOS = `http://localhost:3000/api/v1/videos`
@@ -29,8 +28,25 @@ const API_VIDEOS = `http://localhost:3000/api/v1/videos`
 class App extends React.Component {
 
   state = {
-    videos: []
+    videos: [],
+    currentUser: null,
+    password: ''
   }
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
+  handleLogin = event => {
+
+  }
+
+  //when hit login, consider if that user exists with a find_by (which returns object)
+  //when you hit login, setState of currentUser with user object (username AND password)
+  //after hit login, link to mush index page
+  //if user doesn't exist OR wrong info, create alert 
+  //create sign up page =>  /signup
+  //signup page will create a user (POST request)
 
   addNewVideo = newVideo => { 
     this.setState({
@@ -84,7 +100,7 @@ render() {
           <Route  path='/mushroom' render={ () => <Mushroom />} />
           <Route  path='/byot' render={ (props) => <BYOT addPopVideo={this.addPopVideo}/>} />
           <Route  path='/popular' render={ (props) => <Popular videos={this.state.videos}/>} />
-          <Route  path="/" render={ () => <Home />} />
+          <Route  path="/" render={ (props) => <Login username={this.state.username} password={this.state.password} onChange={this.handleChange} />} />
 
         </Switch>
 

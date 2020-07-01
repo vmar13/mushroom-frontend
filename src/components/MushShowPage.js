@@ -26,11 +26,31 @@ class MushShowPage extends React.Component {
         .then(mushObj => {
             this.setState({ 
                 mushroom: mushObj,
-                healthBenefits: mushObj.health_benefits,
-                comments: mushObj.comments
+                healthBenefits: mushObj.health_benefits
+                // comments: mushObj.comments
             })
         })
     }
+
+    getComments = () => {
+        fetch('http://localhost:3000/api/v1/comments')
+        .then(res => res.json())
+        .then(commentsData => {
+            let newArr = commentsData.filter(comment => {
+                if (comment.mushroom_id === this.props.mushId) {
+                return comment
+            
+                } else {
+                    return null 
+                }
+            })
+            this.setState({ comments: newArr })
+        })
+    }
+
+    //fetch all comments and map comment that matches mushroom_id
+    //comment.mushroom.id === this.props.mushId
+    //comment.user.username
 
       getSources = () => {
         fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
@@ -47,6 +67,7 @@ class MushShowPage extends React.Component {
         componentDidMount() {
             this.getMushAndHB()
             this.getSources()
+            this.getComments()
         }
 
         addNewComment = newComment => { 
@@ -87,7 +108,8 @@ class MushShowPage extends React.Component {
           }
 
     render() {
-        // console.log(this.state)
+        console.log(this.state.comments)
+
         const { mushroom, healthBenefits } = this.state
 
     let timeout;
@@ -118,6 +140,7 @@ class MushShowPage extends React.Component {
         window.speechSynthesis.resume() : window.speechSynthesis.speak(utt)
     }
 
+    console.log("comments", this.state.comments)
 
         return(
             <div className='flex-column'>
