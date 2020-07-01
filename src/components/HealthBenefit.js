@@ -8,7 +8,7 @@ class HealthBenefit extends React.Component {
 
         const { name } = this.props.healthBenefit 
 
-        console.log(this.props)
+        // console.log(this.props)
         return(
             <div>
                 {name}

@@ -9,7 +9,7 @@ class CommentsContainer extends React.Component {
         return(
             <div className='comments-container'>
             {   
-               comments.map(comment => <Comment key={comment.id} {...comment} />)
+               comments.map(comment => <Comment key={comment.id} comment={comment} />)
             }
             </div>
         )
