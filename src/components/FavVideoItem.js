@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const PopularVideoItem = ({ video }) => {
+const FavVideoItem = ({ video }) => {
 
     return(
         <div>
@@ -11,4 +11,4 @@ const PopularVideoItem = ({ video }) => {
     ) 
 }
 
-export default PopularVideoItem
+export default FavVideoItem

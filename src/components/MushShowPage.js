@@ -17,7 +17,8 @@ class MushShowPage extends React.Component {
         comments: [],
         users: [],
         content: '',
-        displaySources: true
+        displaySources: true,
+        currentComment: ''
     }
 
     //fetch mushroomANDHealthBenes
@@ -97,34 +98,35 @@ class MushShowPage extends React.Component {
             this.setState({ [event.target.name]: event.target.value })
         }
 
-        handleSubmit = event => {
-            event.preventDefault()
-            const { currentUser } = this.props
-            if(currentUser !== null) {
-                const newComment = {
-                    user_id: currentUser.id,
-                    mushroom_id: this.state.mushroom.id,
-                    content: this.state.content
-                }
-            
-                fetch(`${API_COMMENTS}`, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                  },
-                  body: JSON.stringify(newComment)
-                })
-                  .then(res => res.json())
-                  .then(newComment => {
-                    this.addNewComment(newComment)
-                    // this.addNewUser(newComment.user)
-                    this.addNewUser((newComment || {}).user)
+            handleSubmit = event => {
+                event.preventDefault()
+                const { currentUser } = this.props
+                if(currentUser !== null) {
+                    const newComment = {
+                        user_id: currentUser.id,
+                        mushroom_id: this.state.mushroom.id,
+                        content: this.state.content
+                    }
+                
+                    fetch(`${API_COMMENTS}`, {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                      },
+                      body: JSON.stringify(newComment)
+                    })
+                      .then(res => res.json())
+                      .then(newComment => {
+                        this.addNewComment(newComment)
+                        this.addNewUser((newComment || {}).user)
+    
+                      })
+                      .then( () => this.setState({ content: '' }))
+                  }
+                } 
 
-                  })
-                  .then( () => this.setState({ content: '' }))
-              }
-            }
+
         
           toggleSources = () => {
               this.setState({ displaySources: !this.state.displaySources })
@@ -198,7 +200,7 @@ class MushShowPage extends React.Component {
                     handleSubmit={this.handleSubmit}
                     />
                     <br /><br />
-                    <CommentsContainer comments={this.state.comments} />
+                    <CommentsContainer currentUser={this.props.currentUser} comments={this.state.comments} />
                  </div>
             </div>
         )

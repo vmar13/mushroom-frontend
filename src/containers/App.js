@@ -20,8 +20,9 @@ import MushroomContainer from '../containers/MushroomContainer'
 import Mushroom from '../components/Mushroom'
 import MushShowPage from '../components/MushShowPage'
 import BYOT from '../components/BYOT'
-import Popular from '../components/Popular'
+import Popular from '../components/Favorites'
 import Auth from '../components/Auth'
+import Favorites from '../components/Favorites';
 
 const API_VIDEOS = `http://localhost:3000/api/v1/videos`
 const usersURL =  `http://localhost:3000/api/v1/users`
@@ -95,7 +96,7 @@ render() {
           <Route  path='/mushrooms' render={ (history) => <MushroomContainer />} />
           <Route  path='/mushroom' render={ () => <Mushroom />} />
           <Route  path='/byot' render={ (props) => <BYOT addPopVideo={this.addPopVideo}/>} />
-          <Route  path='/popular' render={ (props) => <Popular videos={this.state.videos}/>} />
+          <Route  path='/favorites' render={ (props) => <Favorites videos={this.state.videos}/>} />
           <Route  path="/" render={ (routerProps) => <Auth {...routerProps} currentUser={this.state.currentUser} updateUser={this.updateUser} />} />
 
         </Switch>
