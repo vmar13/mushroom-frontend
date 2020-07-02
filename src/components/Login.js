@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Login = ({ username, password, onChange}) => {
+const Login = ({ username, password, onChange, onSubmit }) => {
     return(
         <div className='home'>
             <h2>Login/Sign Up</h2>
-            <form>
+            <form onSubmit={onSubmit}>
                 <label>Username</label><br></br>
                 <input name='username' value={username} onChange={onChange} /><br></br>
                 <br></br>
@@ -18,3 +18,4 @@ const Login = ({ username, password, onChange}) => {
 }
 
 export default Login
+
