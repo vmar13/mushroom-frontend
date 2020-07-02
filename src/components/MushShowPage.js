@@ -15,6 +15,7 @@ class MushShowPage extends React.Component {
         healthBenefits: [],
         sources: [],
         comments: [],
+        users: [],
         content: '',
         displaySources: true
     }
@@ -36,7 +37,7 @@ class MushShowPage extends React.Component {
         fetch('http://localhost:3000/api/v1/comments')
         .then(res => res.json())
         .then(commentsData => {
-            let newArr = commentsData.filter(comment => {
+            let commentArr = commentsData.filter(comment => {
                 if (comment.mushroom_id === this.props.mushId) {
                 return comment
             
@@ -44,7 +45,23 @@ class MushShowPage extends React.Component {
                     return null 
                 }
             })
-            this.setState({ comments: newArr })
+            this.setState({ comments: commentArr })
+        })
+    }
+
+    getUsers = () => {
+        fetch('http://localhost:3000/api/v1/users')
+        .then(res => res.json())
+        .then(usersData => {
+            let userArr
+            userArr = usersData.filter(user => {
+                if (user.mushrooms.map(mushroom => mushroom.id === this.props.mushId)) {
+                    return userArr
+                } else {
+                    return null
+                }
+            })
+            this.setState({ users: userArr })
         })
     }
 
@@ -64,10 +81,10 @@ class MushShowPage extends React.Component {
         })
     }
 
-        componentDidMount() {
-            this.getMushAndHB()
-            this.getSources()
-            this.getComments()
+        addNewUser = newUser => {
+            this.setState({
+                users: [...this.state.users, newUser]
+            })
         }
 
         addNewComment = newComment => { 
@@ -82,30 +99,43 @@ class MushShowPage extends React.Component {
 
         handleSubmit = event => {
             event.preventDefault()
-        
-            const newComment = {
-                mushroom_id: this.state.mushroom.id,
-                content: this.state.content
+            const { currentUser } = this.props
+            if(currentUser !== null) {
+                const newComment = {
+                    user_id: currentUser.id,
+                    mushroom_id: this.state.mushroom.id,
+                    content: this.state.content
+                }
+            
+                fetch(`${API_COMMENTS}`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                  },
+                  body: JSON.stringify(newComment)
+                })
+                  .then(res => res.json())
+                  .then(newComment => {
+                    this.addNewComment(newComment)
+                    // this.addNewUser(newComment.user)
+                    this.addNewUser((newComment || {}).user)
+
+                  })
+                  .then( () => this.setState({ content: '' }))
+              }
             }
         
-            fetch(`${API_COMMENTS}`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
-              body: JSON.stringify(newComment)
-            })
-              .then(res => res.json())
-              .then(newComment => {
-                this.addNewComment(newComment)
-              })
-              .then( () => this.setState({ content: '' }))
-          }
-
           toggleSources = () => {
               this.setState({ displaySources: !this.state.displaySources })
           }
+
+          componentDidMount() {
+            this.getMushAndHB()
+            this.getSources()
+            this.getComments()
+            this.getUsers()
+        }
 
     render() {
         console.log(this.state.comments)
@@ -140,7 +170,7 @@ class MushShowPage extends React.Component {
         window.speechSynthesis.resume() : window.speechSynthesis.speak(utt)
     }
 
-    console.log("comments", this.state.comments)
+    // console.log("comments", this.state.comments)
 
         return(
             <div className='flex-column'>
