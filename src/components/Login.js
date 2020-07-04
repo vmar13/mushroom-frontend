@@ -9,7 +9,7 @@ const Login = ({ username, password, onChange, onSubmit }) => {
                 <input name='username' value={username} onChange={onChange} /><br></br>
                 <br></br>
                 <label>Password</label><br></br>
-                <input name='password' value={password} onChange={onChange} /><br></br>
+                <input type='password' name='password' value={password} onChange={onChange} /><br></br>
                 <br></br>
                 <input type="submit" value="Log in" />
             </form>

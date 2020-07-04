@@ -38,19 +38,102 @@
 } */
 
 
-
 body
 {
-  background: black; 
-   /* margin: 0;  */
-}  
+  margin: 0;
+  background-color: rgb(235, 220, 194);
+    /* background-image: url(https://images.unsplash.com/photo-1444724334165-e7050f2229a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80); */
+} 
 
-.filter-title {
-  color: white;
+
+.banner{
+  background-image: url("./images/F_in_Tea3.png");
+  background-size: cover;
+  background-position: 60% 70%;
+
+
+  /* width: 100vw; */
+  
+  /*
+  background-position: left;
+  padding: 0px;
+  padding-top: 0px;
+  border: none;
+  text-align: right;
+  */
+  position: relative;
+  z-index: -1;
+  height: 295px; 
+  color: transparent; 
+  top: -20px;
+  left: 0;
+  /* top: -38px;
+  left: 0;  */
+  /* opacity: .6; */
+}
+
+.card {
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  display: block;
+  width: 300px;
+  /* height: 250px; */
+  margin: 20px;
+  text-align: center;
+  color: rgb(48, 20, 20);
+
+}
+
+.comments {
+  margin: 50px;
+}
+
+
+#container {
+  /* display: grid; */
+  /* grid-template-columns: auto 1090px; */
+  /* position: absolute; */
+  padding: 11px;
+  margin-top: 20px;
+  margin-left: 40px;
+  width: 100%;
+  grid-gap: 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.filter-dropdown {
+  color: rgb(48, 20, 20);
+
+  /* margin-top: 10px; */
+
+  margin-left: 30px;
+  font-family: 'Shadows Into Light', cursive;;
+
+}
+
+.flex-column {
+  position: absolute;
+  color: rgb(48, 20, 20);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 40px;
+}
+
+.health-bene {
+  display: block;
+  /* width: 100%; */
+  margin: 60px 0px 0px 40px;
+  position: relative;
 }
 
 .home {
-  color: white;
+  color: rgb(48, 20, 20);
+}
+
+.listen {
+  width: auto;
+  height: 2em;
 }
 
 .main-header {
@@ -67,67 +150,158 @@ body
     clear: both;
   } 
 
-.main-nav {
-    background: #30a53f;
-    padding: 0px;
-    padding-top: 0px;
-    border: none;
-    text-align: right;
-    position: relative;
-    height: 50px;
-  }
+.nav-container {
+  position: relative;
+  height: 40px;
+  /* width: 30%; */
+  display: flex;
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: space-between;
+  /* margin-left: 950px; */
+  color: rgb(150, 132, 132);
+  background-color: rgb(51, 33, 22);
 
 
-  .card
-  {
+    /* position: relative;
+    height: 40px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 950px;
+    color: rgb(150, 132, 132);
+    background-color: rgb(51, 33, 22); */
 
-    position: relative;
-    top: 0;
-    left: 0;
-
-    display: block;
-    width: 400px;
-    height: 250px;
-    margin: 20px;
-    text-align: center;
-    color: white 
-  }
-
-  .container {
-    display: grid;
-    /* grid-template-columns: 400px 400px 400px; */
-    grid-template-columns: auto auto;
-
-    /* background-color: linear-gradient( 135deg, #FDCFCF 10%, rgb(243, 176, 176) 100%); */
-    padding: 11px;
-    margin-top: 100px;
-    grid-gap: 5px;
+    /* opacity: .9; */
+   
   }
   
+  .nav-element,
+  .nav-element:link,
+  .nav-element:active {
+    position: relative;
+    display: flex;
+    /* text-align: center; */
+    align-items: center;
+    /* list-style: none; */
+    padding: 0 5rem;
+    color: inherit;
+    text-decoration: none;
+    margin-left: auto;
+    font-size: 15px;
+
+
+
+    /* display: flex;
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+    margin-left: 13px;
+    font-size: 15px;
+    transition: all 0.5s ease-in-out; */
+    
+  }
+  
+  .nav-element:hover {
+    /* background-color: rgb(29, 23, 23); */
+    background-color: rgb(100, 42, 42);
+    color: white;
+  }
+  
+  .mush-img-container {
+    width: 300px;
+    height: 300px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+  }
 
   .mush-img {
+    width: 300px;
+    height: 202px;
+    /* box-shadow: inset 0px 0px 20px white; */
+    display: block;
+  }
+
+  .mush-index-single-mush {
     position: relative;
     top: 0;
     left: 0;
-
     display: center;
-    width: 80%;
-    height: 90%;
+    width: 300px;
+    height: 199px;
     border-radius: 4px;
+    /* box-shadow: 0px 0px 20px white; */
+    background-color: rgba(255, 255, 255, 0.548);
+    overflow: hidden;
+  }
 
+  .mushroom-iteration-container{
+    position: relative;
+    float: left;
+    display: block;
+    width: 60%;
+  
+    /* min-width: 800px;
+    max-width: 800px; */
+  }
+
+  /* .mush-cont-body {
+    background-image: url(https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=60);
+  } */
+
+  .disclaimer-container{
+    color: rgb(48, 20, 20);
+    position: relative;
+    float: left;
+    display: block;
+    min-width: 200px;
+    max-width: 70px;
+    width: 100%;  /* this will make it scale if you resize the screen but keep the mushroom container in tact since there’s a set width on it */
+    height: 100%;
+  }
+
+  .mush-info-card{
+    position: relative;
+    display: inline-block;
+    width: 500px;
+    height: 300px;
+    color: rgb(48, 20, 20);
+    padding: 0px 0px 0px 20px;
+    margin-left: 50px;
+    /* border: 1px solid white; */
+  }
+
+  .mush-show-card {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: center;
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+  }
+
+    @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+  .mush-title {
+    font-family: 'Shadows Into Light', cursive;
   }
   
   .name-container {
     padding: 2px 16px;
-  }
+    display: block;
+    margin: auto;
+    /* text-align: center; */
 
-  .listen {
-    width: auto;
-    height: 2em;
   }
   
   .popular {
-    color: white; 
+    color: rgb(48, 20, 20);
+  }
+
+  .sources {
+    margin: 50px;
   }
 /* .search {
   width: 100%;
@@ -175,3 +349,15 @@ body
   transform: translate(-50%, -50%);
 
 } */
+
+@media only screen and (max-width: 724px){
+  .mush-show-card {
+    width: 100%;
+    margin: 0px;
+
+  }
+
+  .mush-info-card {
+    width: 100%;
+  }
+}

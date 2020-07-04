@@ -58,10 +58,22 @@ class MushroomContainer extends React.Component {
 
         return(
             <div>
-                <h3 className='filter-title'>Filter by health benefit:</h3>
-                <Dropdown healthBenefits={this.state.healthBenefits} onSelectChange={this.handleSelectChange} /> <br /><br />
-                <div className='container'>
-                {this.state.mushrooms.map(mushroom => <Mushroom key={mushroom.id} {...mushroom} />)}
+                <div className='banner'>
+                    {/* <img src= './images/F_in_Tea.png'/> */}
+                    <h2>banner</h2>
+                </div>
+                <div className='mush-cont-body'>
+                    <div className='filter-dropdown'>
+                        <h1>Filter by medicinal benefit:</h1>
+                        <Dropdown healthBenefits={this.state.healthBenefits} onSelectChange={this.handleSelectChange} /> <br /><br />
+                    </div>
+                    
+                    <div id='container'>
+                        <div className='mushroom-iteration-container'>
+                            {this.state.mushrooms.map(mushroom => <Mushroom key={mushroom.id} {...mushroom} />)}
+                        </div>
+                        <div className='disclaimer-container'>disclaimer goes here</div>
+                    </div>
                 </div>
             </div>
             
