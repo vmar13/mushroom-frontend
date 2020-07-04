@@ -20,7 +20,6 @@ import MushroomContainer from '../containers/MushroomContainer'
 import Mushroom from '../components/Mushroom'
 import MushShowPage from '../components/MushShowPage'
 import BYOT from '../components/BYOT'
-import Popular from '../components/Favorites'
 import Auth from '../components/Auth'
 import Favorites from '../components/Favorites';
 
@@ -38,10 +37,6 @@ class App extends React.Component {
   updateUser = (userObj)=> {
     this.setState({ currentUser: userObj  })
   }
-
- 
-
-  
 
   addNewVideo = newVideo => { 
     this.setState({
@@ -69,6 +64,21 @@ class App extends React.Component {
       })
   }
 
+
+  deleteVideo = id => {
+    fetch(`${API_VIDEOS}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(this.setState({
+      videos: this.state.videos.filter(video => video.id !== id)
+    }))
+  }
+
   componentDidMount() {
     fetch(API_VIDEOS)
     .then(res => res.json())
@@ -80,7 +90,7 @@ class App extends React.Component {
 
 render() {
 
-  console.log(this.state.currentUser)
+  // console.log(this.state.currentUser)
 
   const { videos } = this.state
 
@@ -96,7 +106,7 @@ render() {
           <Route  path='/mushrooms' render={ (history) => <MushroomContainer />} />
           <Route  path='/mushroom' render={ () => <Mushroom />} />
           <Route  path='/byot' render={ (props) => <BYOT addPopVideo={this.addPopVideo}/>} />
-          <Route  path='/favorites' render={ (props) => <Favorites videos={this.state.videos}/>} />
+          <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} videos={this.state.videos} deleteVideo={this.deleteVideo} />} />
           <Route  path="/" render={ (routerProps) => <Auth {...routerProps} currentUser={this.state.currentUser} updateUser={this.updateUser} />} />
 
         </Switch>

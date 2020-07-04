@@ -176,24 +176,33 @@ class MushShowPage extends React.Component {
 
         return(
             <div className='flex-column'>
-                <div className='card'>
-                    <img src={mushroom.image} alt={mushroom.name} className='mush-img'/>
-                    <h3>{mushroom.name}</h3>
-                    <p><em>Scientific Name: {mushroom.scientific_name}</em></p>
-                    <img src={require("../images/listen.png")} alt="listen" className='listen' onClick={speak}/>
+                <div className='mush-img-container'>
+                    <img src={mushroom.image} alt={mushroom.name} className='mush-show-card' />
+                </div>
+
+                <div className='mush-info-card'>
+                    <h1 className='mush-title'>{mushroom.name}</h1>
+                    <p><em>Scientific Name: {mushroom.scientific_name}</em>&nbsp;    <img src={require("../images/listen.png")} alt="listen" className='listen' onClick={speak}/></p>
+                    
                     <p>Location: {mushroom.location}</p>
                     <p>Tea flavor: {mushroom.flavor}</p>
-                    <br>
-                    </br>
-                    <h3>Health Benefits</h3>
+                </div>
+                   
+                <div className='health-bene'>
+                    <h3>Medicinal Benefits</h3>
                     {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)} <br /><br />
-                    {/* {this.state.sources.map(source => <p>{source}</p>)} */}
+                </div>
+                    
+                <div className='sources'>
                     <h3>Sources</h3>
                     <button onClick={this.toggleSources}>{this.state.displaySources ? '-' : '+' }</button>
                     {this.state.displaySources ? 
                     <SourcesContainer 
                     sources={this.state.sources} 
                     /> : null}
+                </div>
+                    
+                <div className='comments'>
                     <CommentForm 
                     content={this.state.content} 
                     handleChange={this.handleChange} 
@@ -201,7 +210,9 @@ class MushShowPage extends React.Component {
                     />
                     <br /><br />
                     <CommentsContainer currentUser={this.props.currentUser} comments={this.state.comments} />
-                 </div>
+                </div>
+                    
+                    
             </div>
         )
     }

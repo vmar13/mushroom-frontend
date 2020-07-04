@@ -20,7 +20,7 @@ class Dropdown extends React.Component {
             )
         return (
             <select className="custom-search-select" onChange={this.props.onSelectChange}>
-                <option value=''>Select Item</option>
+                <option value=''>All</option>
                 {options}
            </select>
         )

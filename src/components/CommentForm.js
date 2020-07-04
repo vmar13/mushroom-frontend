@@ -10,7 +10,7 @@ const CommentForm = (props) => {
                             <br></br>
                             <br></br>
                             <h3>Comments</h3>
-                            <textarea name='content' value={content} placeholder="Share your opinion" onChange={handleChange} />
+                            <textarea name='content' value={content} placeholder="Share your opinion" onChange={handleChange} /><br></br>
                             <input type="submit" value="Submit" />
                         </div>
                     </form>

@@ -7,10 +7,14 @@ class Mushroom extends React.Component {
         const { id, name, image_url } = this.props
 
         return(
-            <div className='card' >
-                <Link to = {`/mushrooms/${id}`}> <img src={'http://localhost:3000' + image_url} alt={name} className='mush-img'/> </Link>
+            <div className='card'>
+                <div className='mush-index-single-mush'>
+                    <Link to = {`/mushrooms/${id}`}> <img src={'http://localhost:3000' + image_url} alt={name} className='mush-img'/> </Link>
+                    
+                </div>
+
                 <div className='name-container'>
-                    <h3>{name}</h3>
+                <h3>{name}</h3>
                 </div>
             
             </div>
