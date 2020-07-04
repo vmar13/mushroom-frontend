@@ -92,15 +92,16 @@ body
 
 
 #container {
-  /* display: grid; */
-  /* grid-template-columns: auto 1090px; */
-  /* position: absolute; */
   padding: 11px;
-  margin-top: 20px;
-  margin-left: 40px;
-  width: 100%;
+  /* margin-top: 20px; */
+  /* margin-left: 40px; */
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 100%; */
   grid-gap: 5px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: rgb(128, 53, 88);
+
 }
 
 .filter-dropdown {
@@ -233,15 +234,19 @@ body
     height: 199px;
     border-radius: 4px;
     /* box-shadow: 0px 0px 20px white; */
-    background-color: rgba(255, 255, 255, 0.548);
+    /* background-color: rgba(255, 255, 255, 0.548); */
     overflow: hidden;
   }
 
   .mushroom-iteration-container{
     position: relative;
-    float: left;
+    /* float: left; */
     display: block;
-    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(110, 148, 103);
+    
+    /* width: 60%; */
   
     /* min-width: 800px;
     max-width: 800px; */
@@ -251,16 +256,16 @@ body
     background-image: url(https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=60);
   } */
 
-  .disclaimer-container{
+  /* .disclaimer-container{
     color: rgb(48, 20, 20);
     position: relative;
     float: left;
     display: block;
     min-width: 200px;
     max-width: 70px;
-    width: 100%;  /* this will make it scale if you resize the screen but keep the mushroom container in tact since there’s a set width on it */
+    width: 100%;  
     height: 100%;
-  }
+  } */
 
   .mush-info-card{
     position: relative;
