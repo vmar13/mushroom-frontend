@@ -41,7 +41,7 @@
 body
 {
   margin: 0;
-  background-color: rgb(235, 220, 194);
+  background-color: rgb(250, 235, 209);
     /* background-image: url(https://images.unsplash.com/photo-1444724334165-e7050f2229a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80); */
 } 
 
@@ -82,7 +82,9 @@ body
   /* height: 250px; */
   margin: 20px;
   text-align: center;
-  color: rgb(48, 20, 20);
+  /* color: rgb(48, 20, 20); */
+  /* background-color: rgb(100, 42, 42); */
+
 
 }
 
@@ -90,17 +92,20 @@ body
   margin: 50px;
 }
 
-
 #container {
-  padding: 11px;
+  position: relative;
+  /* padding-bottom: 11px; */
   /* margin-top: 20px; */
   /* margin-left: 40px; */
+  /* height: fit-content; */
   margin-left: auto;
   margin-right: auto;
-  /* width: 100%; */
+  width: 100%;
   grid-gap: 5px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: rgb(128, 53, 88);
+  /* background-color: rgb(128, 53, 88); */
+  background-color: rgb(100, 42, 42);
+  /* background-color: rgb(209, 135, 50); */
 
 }
 
@@ -119,12 +124,13 @@ body
   color: rgb(48, 20, 20);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin: 40px;
+  /* background-color: rgb(181, 228, 189); */
 }
 
 .health-bene {
   display: block;
   /* width: 100%; */
-  margin: 60px 0px 0px 40px;
+  margin: 70px 0px 0px 40px;
   position: relative;
 }
 
@@ -156,7 +162,7 @@ body
   height: 40px;
   /* width: 30%; */
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   /* align-content: center; */
   justify-content: space-between;
   /* margin-left: 950px; */
@@ -184,13 +190,14 @@ body
     position: relative;
     display: flex;
     /* text-align: center; */
-    align-items: center;
+    /* align-items: center; */
     /* list-style: none; */
     padding: 0 5rem;
     color: inherit;
     text-decoration: none;
-    margin-left: auto;
+    /* margin-left: auto; */
     font-size: 15px;
+    border-radius: 4pt;
 
 
 
@@ -205,8 +212,9 @@ body
   }
   
   .nav-element:hover {
-    /* background-color: rgb(29, 23, 23); */
     background-color: rgb(100, 42, 42);
+    /* background-color: rgb(128, 53, 88); */
+
     color: white;
   }
   
@@ -229,7 +237,7 @@ body
     position: relative;
     top: 0;
     left: 0;
-    display: center;
+    display: inline-block;
     width: 300px;
     height: 199px;
     border-radius: 4px;
@@ -239,15 +247,18 @@ body
   }
 
   .mushroom-iteration-container{
-    position: relative;
+    position: absolute;
     /* float: left; */
+    /* height: 100%; */
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(110, 148, 103);
-    
-    /* width: 60%; */
-  
+    background-color: rgb(100, 42, 42);
+    border-radius: 4px;
+    left: 30px;
+    width: 95%;
+    padding-top: 15px;
+    margin-bottom: 40px;
     /* min-width: 800px;
     max-width: 800px; */
   }
@@ -271,11 +282,13 @@ body
     position: relative;
     display: inline-block;
     width: 500px;
-    height: 300px;
+    /* height: 300px; */
     color: rgb(48, 20, 20);
     padding: 0px 0px 0px 20px;
     margin-left: 50px;
     /* border: 1px solid white; */
+    background-color: rgb(233, 185, 173);
+    border-radius: 4px;
   }
 
   .mush-show-card {
@@ -285,7 +298,7 @@ body
     display: center;
     width: 300px;
     height: auto;
-    border-radius: 5px;
+    border-radius: 4px;
   }
 
     @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
