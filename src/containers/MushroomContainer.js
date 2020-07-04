@@ -72,7 +72,7 @@ class MushroomContainer extends React.Component {
                         <div className='mushroom-iteration-container'>
                             {this.state.mushrooms.map(mushroom => <Mushroom key={mushroom.id} {...mushroom} />)}
                         </div>
-                        <div className='disclaimer-container'>disclaimer goes here</div>
+                        {/* <div className='disclaimer-container'>disclaimer goes here</div> */}
                     </div>
                 </div>
             </div>
