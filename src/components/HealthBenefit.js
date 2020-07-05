@@ -11,7 +11,7 @@ class HealthBenefit extends React.Component {
         // console.log(this.props)
         return(
             <div>
-                {name}
+                <li>{name}</li><br></br>
             </div>
         )
     }

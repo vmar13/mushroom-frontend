@@ -4,7 +4,9 @@ const Login = ({ username, password, onChange, onSubmit }) => {
     return(
         <div className='login-container'>
             <img src={require('../images/turkey_tail_login_edited.jpg')} alt='cover' className='login-image' />
-            
+            <img src={require("../images/F_in_Tea5.png")} alt="logo" className='logo-title' />
+
+
             <div className='login-form'>
                 <h2>Login</h2>
                 <form onSubmit={onSubmit}>

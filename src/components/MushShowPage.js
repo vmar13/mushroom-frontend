@@ -191,8 +191,9 @@ class MushShowPage extends React.Component {
                 <div className='health-bene'>
                     <h3>Medicinal Benefits</h3>
                     {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)} <br /><br />
-                </div>
-                    
+                    <img src={require("../images/mush-dancing.gif")} alt="listen" className='mush-dancing' onClick={speak}/>
+                </div>    
+
                 <div className='sources'>
                     <h3>Sources</h3>
                     <button onClick={this.toggleSources}>{this.state.displaySources ? '-' : '+' }</button>
