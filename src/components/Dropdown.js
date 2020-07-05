@@ -19,8 +19,8 @@ class Dropdown extends React.Component {
                 </option>
             )
         return (
-            <select className="custom-search-select" onChange={this.props.onSelectChange}>
-                <option value=''>All</option>
+            <select className="dropdown-select" onChange={this.props.onSelectChange}>
+                <option value='' className='dropdown-individual-option'>All</option>
                 {options}
            </select>
         )
