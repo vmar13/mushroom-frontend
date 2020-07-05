@@ -41,7 +41,9 @@
 body
 {
   margin: 0;
-  background-color: rgb(250, 235, 209);
+  /* background-color: rgb(250, 235, 209); */
+  background-color: rgb(252, 238, 214);
+
     /* background-image: url(https://images.unsplash.com/photo-1444724334165-e7050f2229a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80); */
 } 
 
@@ -51,6 +53,7 @@ body
   background-size: cover;
   background-position: 60% 70%;
 
+    box-shadow: 0px 0px 22px rgb(77, 38, 7);
 
   /* width: 100vw; */
   
@@ -94,6 +97,18 @@ body
 
 .comments {
   margin: 50px;
+  border: 2px solid rgb(48, 20, 20);
+  padding: 10px 20px 20px 40px; 
+  border-radius: 5px;
+  max-width: 400px;
+}
+
+.comment-input {
+  background-color: rgba(226, 162, 137, 0.575);
+
+  color: rgb(48, 20, 20);
+  max-width: 400px;
+
 }
 
 #container {
@@ -135,9 +150,10 @@ body
   color: rgb(48, 20, 20);
 
   /* margin-top: 10px; */
-
+  margin-top: 70px;
   margin-left: 30px;
-  font-family: 'Shadows Into Light', cursive;;
+  /* font-family: 'Shadows Into Light', cursive;; */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
 
@@ -178,10 +194,13 @@ body
   position: absolute;
   /* background-color: rgb(216, 191, 216); */
   /* background-color: rgba(226, 162, 137, 0.623); */
-  background-color: rgba(226, 162, 137, 0.651);
-  padding: 10px 20px;
+  /* background-color: rgba(226, 162, 137, 0.651); */
+  background-color: rgba(226, 162, 137, 0.575);
+
+  /* padding: 10px 20px; */
+  padding: 120px 20px 10px 20px;
   /* opacity: .6; */
-  top:30%;
+  top:20%;
   left:70%;
   right: 0;
   margin: 20px;
@@ -204,11 +223,13 @@ input[type=text]:focus, input[type=password]:focus {
 } 
 
 .logo-title {
-  position: absolute;
-  top:-100%;
-  left:25%;
-  width: auto;
+  position: relative;
+  top:-1170px;
+  left:883px;
+  /* width: auto; */
   /* height: 20em; */
+  width: 1010px;
+  height: 602px;
 }
 
 .listen {
@@ -324,7 +345,7 @@ input[type=text]:focus, input[type=password]:focus {
     display: inline-block;
     width: 300px;
     height: 199px;
-    border-radius: 4px;
+    border-radius: 5px;
     /* box-shadow: 0px 0px 20px white; */
     /* background-color: rgba(255, 255, 255, 0.548); */
     overflow: hidden;
@@ -339,7 +360,7 @@ input[type=text]:focus, input[type=password]:focus {
     margin-right: auto;
     background-color: rgb(100, 42, 42);
 
-    border-radius: 4px;
+    border-radius: 5px;
     left: 30px;
     width: 95%;
     padding-top: 15px;
@@ -374,14 +395,14 @@ input[type=text]:focus, input[type=password]:focus {
 
     margin-left: 50px;
     /* border: 1px solid white; */
-    background-color: rgb(233, 185, 173);
+    /* background-color: rgb(233, 185, 173); */
 
     border-radius: 4px;
   }
 
   .mush-show-card {
     position: relative;
-    top: 0;
+    top: 20px;
     left: 0;
     display: center;
     width: 300px;
@@ -393,6 +414,12 @@ input[type=text]:focus, input[type=password]:focus {
     @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
   .mush-title {
     font-family: 'Shadows Into Light', cursive;
+  }
+
+  .mush-show-and-info-card {
+    background-color: rgba(226, 162, 137, 0.575);
+    max-width: 1000px;
+    border-radius: 5px;
   }
   
   .name-container {
@@ -412,7 +439,8 @@ input[type=text]:focus, input[type=password]:focus {
     margin-left: 50px;
     margin-right: 170px;
     padding: 10px 20px 20px 40px; 
-    background-color: rgb(170, 156, 126);
+    background-color: rgb(219, 144, 115);
+    border-radius: 5px;
   }
 /* .search {
   width: 100%;

@@ -176,22 +176,23 @@ class MushShowPage extends React.Component {
 
         return(
             <div className='flex-column'>
-                <div className='mush-img-container'>
-                    <img src={mushroom.image} alt={mushroom.name} className='mush-show-card' />
-                </div>
+                <div className='mush-show-and-info-card'>
+                    <div className='mush-img-container'>
+                        <img src={mushroom.image} alt={mushroom.name} className='mush-show-card' />
+                    </div>
 
-                <div className='mush-info-card'>
-                    <h1 className='mush-title'>{mushroom.name}</h1>
-                    <p><em>Scientific Name: {mushroom.scientific_name}</em>&nbsp;    <img src={require("../images/listen.png")} alt="listen" className='listen' onClick={speak}/></p>
-                    
-                    <p>Location: {mushroom.location}</p>
-                    <p>Tea flavor: {mushroom.flavor}</p>
-                </div>
-                   
+                    <div className='mush-info-card'>
+                        <h1 className='mush-title'>{mushroom.name}</h1>
+                        <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;    <img src={require("../images/listen.png")} alt="listen" className='listen' onClick={speak}/></p>
+                        
+                        <p><strong>Location: </strong>{mushroom.location}</p>
+                        <p><strong>Tea flavor: </strong>{mushroom.flavor}</p>
+                    </div>
+                </div>   
                 <div className='health-bene'>
                     <h3>Medicinal Benefits</h3>
                     {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)} <br /><br />
-                    <img src={require("../images/mush-dancing.gif")} alt="listen" className='mush-dancing' onClick={speak}/>
+                    {/* <img src={require("../images/mush-dancing.gif")} alt="listen" className='mush-dancing' onClick={speak}/> */}
                 </div>    
 
                 <div className='sources'>
