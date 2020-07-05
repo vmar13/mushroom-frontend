@@ -457,6 +457,12 @@ input[type=text]:focus, input[type=password]:focus {
     border-radius: 5px;
   }
 
+  .sources-and-toggle-btn {
+    position: relative;
+    display: inline-block;
+    margin-bottom: -20px;
+  }
+
   .username-and-teacup {
     position: relative;
     display: inline-block;
