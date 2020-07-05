@@ -97,19 +97,26 @@ body
 
 .comments {
   margin: 50px;
+  margin-left: 30px;
   border: 2px solid rgb(48, 20, 20);
   padding: 10px 20px 20px 40px; 
   border-radius: 5px;
   max-width: 400px;
+  background-color: rgba(226, 162, 137, 0.575);
+
+}
+
+.comment-content {
+  margin-top: 5px;
 }
 
 .comment-input {
   background-color: rgba(226, 162, 137, 0.575);
-
   color: rgb(48, 20, 20);
   max-width: 400px;
-
+  border-radius: 5px;
 }
+
 
 #container {
   position: relative;
@@ -205,7 +212,7 @@ body
   right: 0;
   margin: 20px;
   max-width: 300px;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 /* Full-width input fields */
@@ -215,6 +222,7 @@ input[type=text], input[type=password] {
   margin: 5px 0 22px 0;
   border: none;
   background: rgba(250, 214, 199, 0.507);
+  border-radius: 5px;
 } 
 
 input[type=text]:focus, input[type=password]:focus {
@@ -417,6 +425,7 @@ input[type=text]:focus, input[type=password]:focus {
   }
 
   .mush-show-and-info-card {
+    margin-left: 30px;
     background-color: rgba(226, 162, 137, 0.575);
     max-width: 1000px;
     border-radius: 5px;
@@ -435,12 +444,23 @@ input[type=text]:focus, input[type=password]:focus {
     color: rgb(48, 20, 20);
   }
 
+  .teacup{
+    width: auto;
+    height: 2em;
+  }
+
   .sources {
-    margin-left: 50px;
+    margin-left: 30px;
     margin-right: 170px;
     padding: 10px 20px 20px 40px; 
     background-color: rgb(219, 144, 115);
     border-radius: 5px;
+  }
+
+  .username-and-teacup {
+    position: relative;
+    display: inline-block;
+    margin: -20px 0;
   }
 /* .search {
   width: 100%;

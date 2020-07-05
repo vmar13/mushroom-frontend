@@ -210,7 +210,6 @@ class MushShowPage extends React.Component {
                     handleChange={this.handleChange} 
                     handleSubmit={this.handleSubmit}
                     />
-                    <br /><br />
                     <CommentsContainer currentUser={this.props.currentUser} comments={this.state.comments} />
                 </div>
                     
