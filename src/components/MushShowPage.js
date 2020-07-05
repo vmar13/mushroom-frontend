@@ -183,7 +183,7 @@ class MushShowPage extends React.Component {
 
                     <div className='mush-info-card'>
                         <h1 className='mush-title'>{mushroom.name}</h1>
-                        <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;    <img src={require("../images/listen.png")} alt="listen" className='listen' onClick={speak}/></p>
+                        <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;&nbsp; <img src={require("../images/speaker.png")} alt="listen" className='listen' onClick={speak}/></p>
                         
                         <p><strong>Location: </strong>{mushroom.location}</p>
                         <p><strong>Tea flavor: </strong>{mushroom.flavor}</p>
@@ -196,8 +196,10 @@ class MushShowPage extends React.Component {
                 </div>    
 
                 <div className='sources'>
-                    <h3>Sources</h3>
-                    <button onClick={this.toggleSources}>{this.state.displaySources ? '-' : '+' }</button>
+                    <div className='sources-and-toggle-btn'>
+                        <h3>Sources&nbsp;&nbsp;<button onClick={this.toggleSources} className='login-btn'><strong>{this.state.displaySources ? '–' : '+' }</strong></button></h3>
+                    </div>
+
                     {this.state.displaySources ? 
                     <SourcesContainer 
                     sources={this.state.sources} 
