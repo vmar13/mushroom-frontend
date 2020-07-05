@@ -8,7 +8,7 @@ const CommentForm = (props) => {
                     <form onSubmit={handleSubmit}>
                         <div className='form-group'>
                             <h3>Comments</h3>
-                            <input type='text' name='content' value={content} className='comment-input' placeholder="Share your opinion" onChange={handleChange} /><br></br>
+                            <input type='text' name='content' value={content} className='comment-input' onChange={handleChange} /><br></br>
                             <input type="submit" value="Submit" className='login-btn' />
                         </div>
                     </form>
