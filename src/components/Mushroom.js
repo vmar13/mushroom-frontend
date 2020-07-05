@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom'
 
 class Mushroom extends React.Component {
 
+    state = {
+        showMug: false
+    }
+
     handleMouseOver = e => {
-        if(e.target.className === 'mush-img') {
-            document.querySelector('.coffee').style.opacity = '1'
-        }
+        this.setState({ showMug: true })
+        
     }
 
     handleMouseOut = e => {
-        if(e.target.className === 'mush-img') {
-            document.querySelector('.coffee').style.opcacity = '0'
-            console.log('out')
-        }
+        this.setState({ showMug: false })
     }
 
     render() {
@@ -23,13 +23,13 @@ class Mushroom extends React.Component {
         return(
             <div className='card'>
                 <div className='mush-index-single-mush' >
-                    <Link to = {`/mushrooms/${id}`}> <img src={'http://localhost:3000' + image_url} alt={name} className='mush-img' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}  /> </Link>
+                    <Link to = {`/mushrooms/${id}`}> <img src={'http://localhost:3000' + image_url} alt={name} className='mush-img' onMouseEnter={this.handleMouseOver} onMouseLeave={this.handleMouseOut}  /> </Link>
                     
                 </div>
 
                 <div className='name-container'>
                 <h3>{name}</h3>
-                <iframe src="https://giphy.com/embed/L3KJjjqtoyzCuIVF7e" width="480" height="480" frameBorder="0" className='coffee' allowFullScreen></iframe><p><a href="https://giphy.com/stickers/selfcare-mindfulness-caylinperry-L3KJjjqtoyzCuIVF7e"></a></p>
+                {this.state.showMug ? <iframe src="https://giphy.com/embed/L3KJjjqtoyzCuIVF7e" width="480" height="480" frameBorder="0" className='coffee' allowFullScreen></iframe>: null} <p><a href="https://giphy.com/stickers/selfcare-mindfulness-caylinperry-L3KJjjqtoyzCuIVF7e"></a></p> 
 
                 </div>
             
