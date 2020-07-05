@@ -47,7 +47,7 @@ body
 
 
 .banner{
-  background-image: url("./images/F_in_Tea3.png");
+  background-image: url("./images/F_in_Tea4.png");
   background-size: cover;
   background-position: 60% 70%;
 
@@ -152,8 +152,11 @@ body
 .health-bene {
   display: block;
   /* width: 100%; */
-  margin: 70px 0px 0px 40px;
+  margin: 70px 140px 10px 30px;
   position: relative;
+  /* background-color: rgb(233, 185, 173); */
+  padding: 30px 20px 0px 40px;
+
 }
 
 .login-btn {
@@ -200,6 +203,13 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 } 
 
+.logo-title {
+  position: absolute;
+  top:-100%;
+  left:25%;
+  width: auto;
+  /* height: 20em; */
+}
 
 .listen {
   width: auto;
@@ -297,6 +307,7 @@ input[type=text]:focus, input[type=password]:focus {
     float: left;
     position: relative;
     overflow: hidden;
+    margin-left: 50px;
   }
 
   .mush-img {
@@ -358,10 +369,13 @@ input[type=text]:focus, input[type=password]:focus {
     width: 500px;
     /* height: 300px; */
     color: rgb(48, 20, 20);
-    padding: 0px 0px 0px 20px;
+    /* padding: 20px 20px 20px 20px; */
+    padding: 10px 20px 20px 40px;
+
     margin-left: 50px;
     /* border: 1px solid white; */
     background-color: rgb(233, 185, 173);
+
     border-radius: 4px;
   }
 
@@ -373,6 +387,7 @@ input[type=text]:focus, input[type=password]:focus {
     width: 300px;
     height: auto;
     border-radius: 4px;
+    /* margin-left: 27px; */
   }
 
     @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
@@ -384,7 +399,7 @@ input[type=text]:focus, input[type=password]:focus {
     padding: 2px 16px;
     display: block;
     margin: auto;
-    color: rgb(163, 156, 156);
+    color: rgb(228, 204, 204);
     /* text-align: center; */
 
   }
@@ -394,7 +409,10 @@ input[type=text]:focus, input[type=password]:focus {
   }
 
   .sources {
-    margin: 50px;
+    margin-left: 50px;
+    margin-right: 170px;
+    padding: 10px 20px 20px 40px; 
+    background-color: rgb(170, 156, 126);
   }
 /* .search {
   width: 100%;
