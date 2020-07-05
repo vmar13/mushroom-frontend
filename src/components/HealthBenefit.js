@@ -10,8 +10,10 @@ class HealthBenefit extends React.Component {
 
         // console.log(this.props)
         return(
-            <div>
-                <li>{name}</li><br></br>
+            <div className='health-bene-item'>
+                {/* <li>{name}</li><br></br> */}
+                {name}
+
             </div>
         )
     }

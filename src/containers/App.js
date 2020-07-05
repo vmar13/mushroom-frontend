@@ -97,7 +97,7 @@ render() {
   return (
 
       <div className='app'>
-        <NavBar />
+        {this.state.currentUser === null ? null : <NavBar />}
         <Switch>
         
           <Route  path='/mushrooms/:id' render={ (routerProps) => {

@@ -50,6 +50,19 @@ class MushroomContainer extends React.Component {
             
     }
 
+    handleMouseOver = e => {
+        if(e.target.className === 'mush-img') {
+            document.querySelector('.coffee').style.opacity = '1'
+        }
+    }
+
+    handleMouseOut = e => {
+        if(e.target.className === 'mush-img') {
+            document.querySelector('.coffee').style.opcacity = '0'
+            console.log('out')
+        }
+    }
+
 
     render() {
         // console.log(this.state)
@@ -70,7 +83,7 @@ class MushroomContainer extends React.Component {
                     
                     <div id='container'>
                         <div className='mushroom-iteration-container'>
-                            {this.state.mushrooms.map(mushroom => <Mushroom key={mushroom.id} {...mushroom} />)}
+                            {this.state.mushrooms.map(mushroom => <Mushroom key={mushroom.id} {...mushroom} onMouseEnter={this.handleMouseOver} onMouseLeave={this.handleMouseOut} />)}
                         </div>
                         {/* <div className='disclaimer-container'>disclaimer goes here</div> */}
                     </div>

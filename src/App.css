@@ -93,6 +93,7 @@ body
   width: 60px;
   height: 50px; 
   position: relative;
+  opacity: 0;
 }
 
 .comments {
@@ -182,6 +183,15 @@ body
 
 }
 
+.health-bene-item{
+  position: relative;
+  border: 2px solid rgb(48, 20, 20);
+  border-radius: 50%;
+  width: 200px;
+  height: 170px;
+  margin: 10px;
+}
+
 .login-btn {
   background-color: rgb(51, 33, 22);
   color: rgb(199, 190, 190);
@@ -238,6 +248,7 @@ input[type=text]:focus, input[type=password]:focus {
   /* height: 20em; */
   width: 1010px;
   height: 602px;
+  z-index: 999;
 }
 
 .listen {
@@ -460,7 +471,7 @@ input[type=text]:focus, input[type=password]:focus {
   .sources-and-toggle-btn {
     position: relative;
     display: inline-block;
-    margin-bottom: -20px;
+    margin-bottom: -40px;
   }
 
   .username-and-teacup {
