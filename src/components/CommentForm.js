@@ -7,11 +7,9 @@ const CommentForm = (props) => {
             <div className="modal-guts">
                     <form onSubmit={handleSubmit}>
                         <div className='form-group'>
-                            <br></br>
-                            <br></br>
                             <h3>Comments</h3>
-                            <textarea name='content' value={content} placeholder="Share your opinion" onChange={handleChange} /><br></br>
-                            <input type="submit" value="Submit" />
+                            <input type='text' name='content' value={content} className='comment-input' placeholder="Share your opinion" onChange={handleChange} /><br></br>
+                            <input type="submit" value="Submit" className='login-btn' />
                         </div>
                     </form>
             </div>

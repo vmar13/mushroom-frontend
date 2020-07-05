@@ -64,7 +64,7 @@ class MushroomContainer extends React.Component {
                 </div>
                 <div className='mush-cont-body'>
                     <div className='filter-dropdown'>
-                        <h1>Filter by medicinal benefit:</h1>
+                        <h3>Filter by medicinal benefit:</h3>
                         <Dropdown healthBenefits={this.state.healthBenefits} onSelectChange={this.handleSelectChange} /> <br /><br />
                     </div>
                     
