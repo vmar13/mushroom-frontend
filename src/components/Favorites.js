@@ -3,7 +3,7 @@ import FavVideoItem from '../components/FavVideoItem'
 
 class Favorites extends React.Component {
 
-   
+//map over each videoId and place inside an embed url?   
 
     render() {
 
@@ -13,7 +13,7 @@ class Favorites extends React.Component {
         return(
             <div className='popular'>
                 <h2>My Favorites</h2>
-                {this.props.videos.map(video => <FavVideoItem key={video.id} video={video} deleteVideo={deleteVideo} />)}
+                {this.props.favVideos.map(video => <FavVideoItem key={video.id} video={video} deleteVideo={deleteVideo} />)}
             </div>
         )
     }

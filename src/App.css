@@ -193,8 +193,8 @@ body
   display: block;
   width: 200px;
   /* height: 350px; */
-  margin: 10px;
-  margin-top: 30px;
+  margin: 30px 5px;
+  /* margin-top: 30px; */
   text-align: center;
   /* border: 2px solid rgb(48, 20, 20); */
   display: flex; 
@@ -494,7 +494,8 @@ input[type=text]:focus, input[type=password]:focus {
   .sources-and-toggle-btn {
     position: relative;
     display: inline-block;
-    margin-bottom: -40px;
+    margin-top: -10px;
+    margin-bottom: -60px;
   }
 
   .username-and-teacup {

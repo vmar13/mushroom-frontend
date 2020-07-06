@@ -39,7 +39,7 @@ class BYOT extends React.Component {
                                 <SearchBar  onSubmit={this.handleSubmit} />
                             </Grid>
                             <Grid item xs={8}>
-                                <VideoDetail video={this.state.selectedVideo} addPopVideo={this.props.addPopVideo}/>
+                                <VideoDetail video={this.state.selectedVideo} addFavVideo={this.props.addFavVideo} currentUser={this.props.currentUser}/>
                             </Grid>
                             <Grid item xs={4}>
                                 <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />

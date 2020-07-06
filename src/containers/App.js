@@ -1,17 +1,3 @@
-// import React from 'react';
-// import '../App.css';
-// import {
-//   BrowserRouter as Router,
-//   Route, Switch
-// } from 'react-router-dom'
-// import NavBar from '../components/NavBar'
-// import Home from './Home'
-// import MushroomContainer from '../containers/MushroomContainer'
-// import Mushroom from '../components/Mushroom'
-// import MushShowPage from '../components/MushShowPage'
-// import BYOT from '../components/BYOT'
-// import Popular from '../components/Popular'
-
 import React from 'react';
 import '../App.css';
 import { Route, Switch } from 'react-router-dom'
@@ -23,13 +9,13 @@ import BYOT from '../components/BYOT'
 import Auth from '../components/Auth'
 import Favorites from '../components/Favorites';
 
-const API_VIDEOS = `http://localhost:3000/api/v1/videos`
+const API_FAV_VIDEOS = `http://localhost:3000/api/v1/fav_videos`
 const usersURL =  `http://localhost:3000/api/v1/users`
 
 class App extends React.Component {
 
   state = {
-    videos: [],
+    favVideos: [],
     users: [],
     currentUser: null
   }
@@ -38,59 +24,83 @@ class App extends React.Component {
     this.setState({ currentUser: userObj  })
   }
 
-  addNewVideo = newVideo => { 
+  addNewVideo = newFavVideo => { 
     this.setState({
-      videos: [...this.state.videos, newVideo]
+      favVideos: [...this.state.favVideos, newFavVideo]
     })
   }
-  
-  addPopVideo = (vidTitle, vidUrl) => {
-   const newVideo = {
-     title: vidTitle,
-     url: vidUrl
+
+  addFavVideo = (userId, vidUrl, vidTitle) => {
+    const newFavVideo = {
+      userId: this.state.currentUser.id,
+      url: vidUrl,
+      title: vidTitle
+    }
+ 
+     fetch(API_FAV_VIDEOS, {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+         'Accept': 'application/json'
+       },
+       body: JSON.stringify(newFavVideo)
+     })
+       .then(res => res.json())
+       .then(newFavVideo => {
+         this.addNewVideo(newFavVideo)
+       })
    }
+ 
+  
+  // addPopVideo = (vidTitle, vidUrl) => {
+  //  const newVideo = {
+  //    title: vidTitle,
+  //    url: vidUrl
+  //  }
 
-    fetch(API_VIDEOS, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(newVideo)
-    })
-      .then(res => res.json())
-      .then(newVideo => {
-        this.addNewVideo(newVideo)
-      })
-  }
+  //   fetch(API_VIDEOS, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //     },
+  //     body: JSON.stringify(newVideo)
+  //   })
+  //     .then(res => res.json())
+  //     .then(newVideo => {
+  //       this.addNewVideo(newVideo)
+  //     })
+  // }
 
 
-  deleteVideo = id => {
-    fetch(`${API_VIDEOS}/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(this.setState({
-      videos: this.state.videos.filter(video => video.id !== id)
-    }))
-  }
+  // deleteVideo = id => {
+  //   fetch(`${API_VIDEOS}/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //     }
+  //   })
+  //   .then(res => res.json())
+  //   .then(this.setState({
+  //     videos: this.state.videos.filter(video => video.id !== id)
+  //   }))
+  // }
 
   componentDidMount() {
-    fetch(API_VIDEOS)
+    fetch(API_FAV_VIDEOS)
     .then(res => res.json())
     // .then(console.log)
     .then(videoData => {
-      this.setState({ videos: videoData })
+      let userFavVids = videoData.filter(favVideo => favVideo.user_id === this.state.currentUser.id)
+
+      this.setState({ favVideos: userFavVids })
     }) 
   }
 
 render() {
 
-  // console.log(this.state.currentUser)
+  console.log(this.state.currentUser)
 
   const { videos } = this.state
 
@@ -105,8 +115,8 @@ render() {
             return  <MushShowPage {...routerProps} mushId={mushId} currentUser={this.state.currentUser} />} }/>
           <Route  path='/mushrooms' render={ (history) => <MushroomContainer />} />
           <Route  path='/mushroom' render={ () => <Mushroom />} />
-          <Route  path='/byot' render={ (props) => <BYOT addPopVideo={this.addPopVideo}/>} />
-          <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} videos={this.state.videos} deleteVideo={this.deleteVideo} />} />
+          <Route  path='/byot' render={ (props) => <BYOT addFavVideo={this.addFavVideo}/>} />
+          <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} favVideos={this.state.favVideos} deleteVideo={this.deleteVideo} />} />
           <Route  path="/" render={ (routerProps) => <Auth {...routerProps} currentUser={this.state.currentUser} updateUser={this.updateUser} />} />
 
         </Switch>

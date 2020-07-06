@@ -31,7 +31,7 @@ class VideoDetail extends React.Component {
                     <Typography variant='subtitle1'>{this.props.video.snippet.channelTitle}</Typography>
                     <Typography variant='subtitle2'>{this.props.video.snippet.description}</Typography>
                 </Paper>
-                <button onClick={(event) => this.props.addPopVideo(this.props.video.snippet.title, videoSrc)}>Add to Favorites </button>
+                <button onClick={(event) => this.props.addFavVideo(this.props.currentUser, videoSrc, this.props.video.snippet.title)}>Add to Favorites </button>
             </React.Fragment>
         );
     }
