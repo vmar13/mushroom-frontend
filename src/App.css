@@ -175,23 +175,43 @@ body
   /* background-color: rgb(181, 228, 189); */
 }
 
-.health-bene {
+.health-bene-container {
   display: block;
   /* width: 100%; */
-  margin: 70px 140px 10px 30px;
+  margin: 70px 140px 10px 10px;
   position: relative;
   /* background-color: rgb(233, 185, 173); */
-  padding: 30px 20px 0px 40px;
+  padding: 30px 20px 0px 30px;
 
 }
 
 .health-bene-item{
   position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  display: block;
+  width: 200px;
+  /* height: 350px; */
+  margin: 10px;
+  margin-top: 30px;
+  text-align: center;
   /* border: 2px solid rgb(48, 20, 20); */
-  /* border-radius: 50%; */
-  /* width: 200px; */
-  /* height: 170px; */
-  /* margin: 10px; */
+  display: flex; 
+  flex-direction: column-reverse;
+}
+
+.health-bene-name {
+  padding: 2px 16px;
+  /* display: block; */
+}
+
+.icon {
+  width: 6em;
+  height: 6em;
+  margin-left: 52px;
+  margin-bottom: 22px;
+  /* display: block; */
 }
 
 .login-btn {
@@ -276,7 +296,7 @@ input[type=text]:focus, input[type=password]:focus {
   min-height: 90px;
   padding: 1em 2em;
   border-radius: 0 0 5px 5px;
-    background: rgb(8, 12, 39);
+  background: rgb(8, 12, 39);
 }
   .main-header:after {
     content: " ";
@@ -392,9 +412,6 @@ input[type=text]:focus, input[type=password]:focus {
     max-width: 800px; */
   }
 
-  /* .mush-cont-body {
-    background-image: url(https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=60);
-  } */
 
   /* .disclaimer-container{
     color: rgb(48, 20, 20);
@@ -465,6 +482,8 @@ input[type=text]:focus, input[type=password]:focus {
   }
 
   .sources {
+    position: relative;
+    margin-top: 20em;
     margin-left: 30px;
     margin-right: 170px;
     padding: 10px 20px 20px 40px; 

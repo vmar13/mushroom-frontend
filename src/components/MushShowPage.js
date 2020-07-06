@@ -189,15 +189,14 @@ class MushShowPage extends React.Component {
                         <p><strong>Tea flavor: </strong>{mushroom.flavor}</p>
                     </div>
                 </div>   
-                <div className='health-bene'>
-                    <h3>Medicinal Benefits</h3>
+                <div className='health-bene-container'>
+                    <h1 className='mush-title'>Medicinal Benefits</h1>
                     {healthBenefits.map(healthBenefit => <HealthBenefit key={healthBenefit.id} healthBenefit={healthBenefit} />)} <br /><br />
-                    {/* <img src={require("../images/mush-dancing.gif")} alt="listen" className='mush-dancing' onClick={speak}/> */}
                 </div>    
 
                 <div className='sources'>
                     <div className='sources-and-toggle-btn'>
-                        <h3>Sources&nbsp;&nbsp;<button onClick={this.toggleSources} className='login-btn'><strong>{this.state.displaySources ? '–' : '+' }</strong></button></h3>
+                        <h2 className='mush-title'>Sources&nbsp;&nbsp;<button onClick={this.toggleSources} className='login-btn'><strong>{this.state.displaySources ? '–' : '+' }</strong></button></h2>
                     </div>
 
                     {this.state.displaySources ? 
