@@ -31,11 +31,12 @@ class BYOT extends React.Component {
     render() {
         // console.log(this.state.selectedVideo)
         return(
-            
+            <div className='byot-background'>
                 <Grid justify='center' container spacing={10}>
                     <Grid item xs={12}>
                         <Grid container spacing={10}>
-                            <Grid item xs={12}>
+                            <h1 className='byot-title'>Brew Your Own Tea</h1>
+                            <Grid item sm={12}>
                                 <SearchBar  onSubmit={this.handleSubmit} />
                             </Grid>
                             <Grid item xs={8}>
@@ -47,6 +48,7 @@ class BYOT extends React.Component {
                         </Grid>
                     </Grid>
                 </Grid>
+            </div>
         )
     }
 }

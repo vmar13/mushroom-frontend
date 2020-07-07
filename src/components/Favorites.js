@@ -12,7 +12,7 @@ class Favorites extends React.Component {
 
         return(
             <div className='popular'>
-                <h2>My Favorites</h2>
+                <h1 className='favorites-title'>My Favorites</h1>
                 {this.props.videos.map(video => <FavVideoItem key={video.id} video={video} deleteVideo={deleteVideo} />)}
             </div>
         )
