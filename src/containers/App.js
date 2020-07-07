@@ -64,20 +64,28 @@ class App extends React.Component {
       })
   }
 
+    deleteVideo = id => {
+      fetch(`${API_VIDEOS}/${id}`, {
+        method: 'DELETE',
+      })
+      this.setState({
+        videos: this.state.videos.filter(video => video.id !== id)
+      })
+    }
 
-  deleteVideo = id => {
-    fetch(`${API_VIDEOS}/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(this.setState({
-      videos: this.state.videos.filter(video => video.id !== id)
-    }))
-  }
+  // deleteVideo = id => {
+  //   fetch(`${API_VIDEOS}/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //     }
+  //   })
+  //   .then(res => res.json())
+  //   .then(this.setState({
+  //     videos: this.state.videos.filter(video => video.id !== id)
+  //   }))
+  // }
 
   componentDidMount() {
     fetch(API_VIDEOS)

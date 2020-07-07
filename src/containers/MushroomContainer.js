@@ -70,7 +70,7 @@ class MushroomContainer extends React.Component {
         // console.log(history)
 
         return(
-            <div>
+            <div className='mush-index-body'>
                 <div className='banner'>
                     {/* <img src= './images/F_in_Tea.png'/> */}
                     <h2>banner</h2>

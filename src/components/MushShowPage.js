@@ -17,7 +17,7 @@ class MushShowPage extends React.Component {
         comments: [],
         users: [],
         content: '',
-        displaySources: true,
+        displaySources: false,
         currentComment: ''
     }
 
@@ -196,7 +196,7 @@ class MushShowPage extends React.Component {
 
                 <div className='sources'>
                     <div className='sources-and-toggle-btn'>
-                        <h2 className='mush-title'>Sources&nbsp;&nbsp;<button onClick={this.toggleSources} className='login-btn'><strong>{this.state.displaySources ? '–' : '+' }</strong></button></h2>
+                        <h3 className='sources-title'>Sources&nbsp;&nbsp;<button onClick={this.toggleSources} className='login-btn'><strong>{this.state.displaySources ? '–' : '+' }</strong></button></h3>
                     </div>
 
                     {this.state.displaySources ? 
@@ -214,6 +214,7 @@ class MushShowPage extends React.Component {
                     <CommentsContainer currentUser={this.props.currentUser} comments={this.state.comments} />
                 </div>
                     
+                <img src={require("../images/mushdancing_cropped.gif")} alt="listen" className='dancing-mush' />
                     
             </div>
         )

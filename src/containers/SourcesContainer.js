@@ -6,7 +6,7 @@ const SourcesContainer = (props) => {
     const { sources } = props
 // console.log(props.sources)
         return(
-            <div>
+            <div className='sources-list'>
                 {sources.map(sourceArr => sourceArr.map(sourceObj => <Source key={sourceObj.id} {...sourceObj} />))}   
             </div>
         )
