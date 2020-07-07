@@ -282,9 +282,6 @@ body
   border: none;
 }
 
-.login-container {
-  overflow-y: hidden;
-}
 
 .login-form {
   position: absolute;
@@ -292,6 +289,7 @@ body
   /* background-color: rgba(226, 162, 137, 0.623); */
   /* background-color: rgba(226, 162, 137, 0.651); */
   background-color: rgba(226, 162, 137, 0.575);
+
 
   /* padding: 10px 20px; */
   padding: 120px 20px 10px 20px;
@@ -328,9 +326,11 @@ input[type=text]:focus, input[type=password]:focus {
   color: rgb(82, 63, 57);
 }
 
+
+
 .logo-title {
   position: relative;
-  top: -47em;
+  top: 11.5em;
   left: 66em;
   /* border: solid white; */
   /* width: auto; */

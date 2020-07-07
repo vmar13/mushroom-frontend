@@ -7,9 +7,9 @@ import { render } from '@testing-library/react'
 
 class VideoDetail extends React.Component {
 
-    // state = {
-    //     btnClicked: false
-    // }
+    state = {
+        favorited: false
+    }
 
     // handleBtnClick = () => {
 
@@ -37,7 +37,7 @@ class VideoDetail extends React.Component {
                     <Typography variant='subtitle1'>{this.props.video.snippet.channelTitle}</Typography>
                     <Typography variant='subtitle2'>{this.props.video.snippet.description}</Typography>
                 </Paper>
-                <button onClick={(event) => this.props.addPopVideo(this.props.video.snippet.title, videoSrc)} className='login-btn'>Add to Favorites </button>
+                <button onClick={(event) => this.props.addPopVideo(this.props.video.snippet.title, videoSrc)} className='login-btn'>Add to Favorites "♡" </button>
             </React.Fragment>
         );
     }
