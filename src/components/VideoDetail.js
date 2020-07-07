@@ -1,5 +1,7 @@
 import React from 'react'
 import { Paper, Typography } from '@material-ui/core'
+import { spacing } from '@material-ui/system';
+import { sizing } from '@material-ui/system';
 import { render } from '@testing-library/react'
 
 
@@ -17,21 +19,25 @@ class VideoDetail extends React.Component {
 
         // const { videoId, title, channelTitle, description } = this.props
 
-        if(!this.props.video) return <div>Loading...</div>
+        if(!this.props.video) return <div className='loading'>Loading...</div>
 
         const videoSrc = `https://www.youtube.com/embed/${this.props.video.id.videoId}`
 
+        // const theme = {
+        //     spacing: 8,
+        //   }
+
         return(
             <React.Fragment>
-                <Paper elevation={6} style={{ height: '50%' }}>
-                    <iframe frameBorder='0' height='80%' width='100%' title='Video Player' src={videoSrc} />
+                <Paper elevation={6} style={{ height: '70%' }} >
+                    <iframe frameBorder='0' height='100%' width='100%'  title='Video Player' src={videoSrc} />
                 </Paper>
-                <Paper elevation={6} style={{ padding: '5px' }}>
+                <Paper elevation={6} style={{ padding: '5px' }} >
                     <Typography variant='h4'>{this.props.video.snippet.title} - {this.props.video.snippet.channelTitle}</Typography>
                     <Typography variant='subtitle1'>{this.props.video.snippet.channelTitle}</Typography>
                     <Typography variant='subtitle2'>{this.props.video.snippet.description}</Typography>
                 </Paper>
-                <button onClick={(event) => this.props.addPopVideo(this.props.video.snippet.title, videoSrc)}>Add to Favorites </button>
+                <button onClick={(event) => this.props.addPopVideo(this.props.video.snippet.title, videoSrc)} className='login-btn'>Add to Favorites </button>
             </React.Fragment>
         );
     }
