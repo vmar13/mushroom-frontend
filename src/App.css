@@ -364,8 +364,8 @@ input[type=text]:focus, input[type=password]:focus {
   /* object-fit: contain; */
   background-position: center;
   background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
+  background-size: cover;
+  position: fixed;
   margin: 0;
   padding: 0;
 }
