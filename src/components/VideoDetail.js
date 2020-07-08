@@ -29,7 +29,7 @@ class VideoDetail extends React.Component {
 
         return(
             <React.Fragment>
-                <Paper elevation={6} style={{ height: '70%' }} >
+                <Paper elevation={6} style={{ height: '80%' }} >
                     <iframe frameBorder='0' height='100%' width='100%'  title='Video Player' src={videoSrc} />
                 </Paper>
                 <Paper elevation={6} style={{ padding: '5px' }} >
@@ -37,7 +37,7 @@ class VideoDetail extends React.Component {
                     <Typography variant='subtitle1'>{this.props.video.snippet.channelTitle}</Typography>
                     <Typography variant='subtitle2'>{this.props.video.snippet.description}</Typography>
                 </Paper>
-                <button onClick={(event) => this.props.addPopVideo(this.props.video.snippet.title, videoSrc)} className='login-btn'>Add to Favorites "♡" </button>
+                <button onClick={(event) => this.props.addPopVideo(this.props.video.snippet.title, videoSrc)} className='favorite-btn'>Add to Favorites {this.state.favorited ? '💚' : '♡'}</button>
             </React.Fragment>
         );
     }
