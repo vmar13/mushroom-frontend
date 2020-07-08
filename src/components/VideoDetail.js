@@ -7,12 +7,12 @@ import { render } from '@testing-library/react'
 
 class VideoDetail extends React.Component {
 
-    state = {
-        favorited: false
-    }
+    // state = {
+    //     favorited: false
+    // }
 
-    // handleBtnClick = () => {
-
+    // toggleHeart = () => {
+    //     this.setState({ favorited: !this.state.favorited })
     // }
 
     render(){
@@ -23,9 +23,6 @@ class VideoDetail extends React.Component {
 
         const videoSrc = `https://www.youtube.com/embed/${this.props.video.id.videoId}`
 
-        // const theme = {
-        //     spacing: 8,
-        //   }
 
         return(
             <React.Fragment>
@@ -37,7 +34,14 @@ class VideoDetail extends React.Component {
                     <Typography variant='subtitle1'>{this.props.video.snippet.channelTitle}</Typography>
                     <Typography variant='subtitle2'>{this.props.video.snippet.description}</Typography>
                 </Paper>
-                <button onClick={(event) => this.props.addPopVideo(this.props.video.snippet.title, videoSrc)} className='favorite-btn'>Add to Favorites {this.state.favorited ? '💚' : '♡'}</button>
+                {/* <button onClick={(event) => this.props.addFavVideo(this.props.video.snippet.title, videoSrc)} className='favorite-btn' toggleHeart={this.toggleHeart}>Add to Favorites {this.state.favorited ? '💚' : '♡'}</button> */}
+                <button onClick={(event) => {
+                    this.props.addFavVideo(this.props.video.snippet.title, videoSrc)
+                    this.props.toggleFavorited()
+                    }} className='favorite-btn'>
+                    Add to Favorites {this.props.favorited ? '💚' : '♡'}
+                </button>
+
             </React.Fragment>
         );
     }
