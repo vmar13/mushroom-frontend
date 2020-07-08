@@ -83,7 +83,10 @@ body
   font-family: 'Shadows Into Light', cursive;
   margin-top: 70px;
   margin-left: 80px;
-  color: rgb(199, 178, 173);
+  /* color: rgb(199, 178, 173); */
+  /* color: rgb(199, 183, 173); */
+  color: rgb(212, 197, 187);
+
 }
 
 .card {
@@ -157,7 +160,6 @@ body
 
 .dancing-mush {
   position: absolute;
-  /* float: left; */
   margin-top: -25%;
   margin-left: 53%;
   width: auto;
@@ -183,19 +185,34 @@ body
   color: rgb(105, 38, 38);
 }
 
+.favorite-btn {
+  background-color: rgb(51, 33, 22);
+  color: rgb(199, 190, 190);
+  border-radius: 4px;
+  margin-top: 25px;
+  margin-left: 59.8em;
+  margin-bottom: 42px;
+  padding: 7px 10px;
+  border: none;
+}
+
 .favorites-title {
   font-family: 'Shadows Into Light', cursive;
   margin: 60px 40px;
 }
 
 .fav-delete-btn {
+  position: relative;
+  display: flex;
   margin-top: 30px;
-  margin-left: 502px;
+  margin-left: 463px;
   background-color: rgb(51, 33, 22);
   color: rgb(199, 190, 190);
   border-radius: 4px;
-  padding: 7px 10px;
+  padding: 11px 10px;
   border: none;
+  /* box-shadow: 0px 0px 10px rgb(126, 119, 114); */
+
 }
 
 .fav-video-item {
@@ -448,6 +465,16 @@ input[type=text]:focus, input[type=password]:focus {
   .MuiGrid-root .MuiGrid-container{
     margin-bottom: -90px;
   }
+
+  .mush-excited {
+    margin-top: -13%;
+    margin-left: 70%;
+    width: auto;
+    height: 12em;
+    position: relative;
+    top: -1em;
+    left: 1em
+  }
  
   .mush-img-container {
     width: 300px;
@@ -570,10 +597,30 @@ input[type=text]:focus, input[type=password]:focus {
   }
 
   .search {
-    margin-top: 1px;
+    position: relative;
+    margin-top: 0px;
+    /* margin-left: 40px; */
     margin-left: 40px;
-    width: 70%;
+    width: 66%;
     padding: 0px;
+    /* float: left; */
+  }
+
+  .search-magnifying-glass {
+    position: relative;
+    top: 0.8em;
+    margin-top: 5px;
+    margin-left: -36px;
+    width: auto;
+    height: 1.5em;
+    /* background-color: rgba(243, 225, 217, 0.541); */
+    background-color: rgba(235, 208, 196, 0.781);
+
+    padding: 6px;
+    padding-top: 7px;
+    /* border-radius: 5px; */
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 
   .sources {
@@ -609,6 +656,17 @@ input[type=text]:focus, input[type=password]:focus {
 
   .sources-title {
     z-index: 999;
+  }
+
+  .trash {
+    position: relative;
+    display: flex;
+    width: auto;
+    height: 1.5em;
+    margin-top: -5px;
+    margin-left: 1em;
+    /* padding-left: 2em; */
+    /* float: left; */
   }
 
   .username-and-teacup {

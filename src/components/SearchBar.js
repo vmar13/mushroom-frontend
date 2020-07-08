@@ -22,14 +22,14 @@ class SearchBar extends React.Component {
 
     render() {
         return(
-
-                // <Paper elevation={6} style={{ padding: '25px' }}>
+            <>
                     <form onSubmit={this.handleSubmit}  className='search'>
                         {/* <TextField style={{ padding: '1px 40px' }} fullWidth onChange={this.handleChange} /> */}
                         <input type='text' placeholder='Search...' onChange={this.handleChange} />
+                        <img src={require("../images/search.png")} alt="listen" className='search-magnifying-glass' />
                     </form>
-                // </Paper>
-          
+                    <img src={require("../images/mush-excited.gif")} alt="listen" className='mush-excited' />
+            </>
         )
     }
 }
