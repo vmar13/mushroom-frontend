@@ -19,10 +19,10 @@ class HealthBenefit extends React.Component {
                 {name === 'anti-viral effects' ? <img src={require("../images/antiviral.png")} alt="icon" className='icon' /> : null}
                 {name === 'blood glucose regulation' ? <img src={require("../images/diabetes.png")} alt="icon" className='icon' /> : null}
                 {name === 'lower cholesterol' ? <img src={require("../images/cholesterol.png")} alt="icon" className='icon' /> : null}
-                {name === 'improved brain function' ? <img src={require("../images/speaker.png")} alt="icon" className='icon' /> : null}
-                {name === 'reduced depression & anxiety' ? <img src={require("../images/speaker.png")} alt="icon" className='icon' /> : null}
-                {name === 'liver health' ? <img src={require("../images/speaker.png")} alt="icon" className='icon' /> : null}
-                {name === 'performance-enhancing effects' ? <img src={require("../images/speaker.png")} alt="icon" className='icon' /> : null}
+                {name === 'improved brain function' ? <img src={require("../images/brain.png")} alt="icon" className='icon' /> : null}
+                {name === 'reduced depression & anxiety' ? <img src={require("../images/sunrise.png")} alt="icon" className='icon' /> : null}
+                {name === 'liver health' ? <img src={require("../images/liver.png")} alt="icon" className='icon' /> : null}
+                {name === 'performance-enhancing effects' ? <img src={require("../images/speed.png")} alt="icon" className='icon' /> : null}
                 {name === 'asthma relief' ? <img src={require("../images/speaker.png")} alt="icon" className='icon' /> : null}
                 {name === 'gut health' ? <img src={require("../images/speaker.png")} alt="icon" className='icon' /> : null}
                 {name === 'HPV-fighting effects' ? <img src={require("../images/speaker.png")} alt="icon" className='icon' /> : null}

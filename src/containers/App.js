@@ -31,7 +31,8 @@ class App extends React.Component {
   state = {
     videos: [],
     users: [],
-    currentUser: null
+    currentUser: null,
+    favorited: false
   }
 
   updateUser = (userObj)=> {
@@ -44,7 +45,11 @@ class App extends React.Component {
     })
   }
   
-  addPopVideo = (vidTitle, vidUrl) => {
+  toggleFavorited = () => {
+    this.setState({ favorited: !this.state.favorited })
+  }
+
+  addFavVideo = (vidTitle, vidUrl) => {
    const newVideo = {
      title: vidTitle,
      url: vidUrl
@@ -73,20 +78,6 @@ class App extends React.Component {
       })
     }
 
-  // deleteVideo = id => {
-  //   fetch(`${API_VIDEOS}/${id}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json'
-  //     }
-  //   })
-  //   .then(res => res.json())
-  //   .then(this.setState({
-  //     videos: this.state.videos.filter(video => video.id !== id)
-  //   }))
-  // }
-
   componentDidMount() {
     fetch(API_VIDEOS)
     .then(res => res.json())
@@ -98,6 +89,7 @@ class App extends React.Component {
 
 render() {
 
+  console.log(this.state.videos)
   // console.log(this.state.currentUser)
 
   const { videos } = this.state
@@ -113,7 +105,7 @@ render() {
             return  <MushShowPage {...routerProps} mushId={mushId} currentUser={this.state.currentUser} />} }/>
           <Route  path='/mushrooms' render={ (history) => <MushroomContainer />} />
           <Route  path='/mushroom' render={ () => <Mushroom />} />
-          <Route  path='/byot' render={ (props) => <BYOT addPopVideo={this.addPopVideo}/>} />
+          <Route  path='/byot' render={ (props) => <BYOT addFavVideo={this.addFavVideo} videos={this.state.videos} toggleFavorited={this.toggleFavorited} favorited={this.state.favorited} />}/>
           <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} videos={this.state.videos} deleteVideo={this.deleteVideo} />} />
           <Route  path="/" render={ (routerProps) => <Auth {...routerProps} currentUser={this.state.currentUser} updateUser={this.updateUser} />} />
 
