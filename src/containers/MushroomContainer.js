@@ -59,7 +59,7 @@ class MushroomContainer extends React.Component {
     handleMouseOut = e => {
         if(e.target.className === 'mush-img') {
             document.querySelector('.coffee').style.opcacity = '0'
-            console.log('out')
+            // console.log('out')
         }
     }
 
@@ -87,6 +87,11 @@ class MushroomContainer extends React.Component {
                         </div>
                         {/* <div className='disclaimer-container'>disclaimer goes here</div> */}
                     </div>
+
+                    {/* <div className='disclaimer-container'>
+                        <h4>Disclaimer</h4>
+                        <p>Always speak with your healthcare provider before making any changes to your diet.</p>
+                    </div> */}
                 </div>
             </div>
             

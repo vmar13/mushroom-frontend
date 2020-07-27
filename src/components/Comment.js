@@ -15,6 +15,8 @@ const Comment = (props) => {
                 <div className='comment-content'>
                     <p>{props.comment.content}</p>   
                 </div>
+
+                {/* <button onClick={() => props.deleteComment(props.comment.id)}>Delete</button> */}
             </div>
         )
     }

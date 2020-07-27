@@ -4,12 +4,12 @@ import Comment from '../components/Comment'
 class CommentsContainer extends React.Component {
     render() {
 
-        const { comments, currentUser } = this.props
+        const { comments, currentUser, deleteComment } = this.props
 
         return(
             <div className='comments-container'>
             {   
-               comments.map(comment => <Comment key={comment.id} comment={comment} currentUser={currentUser} />)
+               comments.map(comment => <Comment key={comment.id} comment={comment} currentUser={currentUser} deleteComment={deleteComment}/>)
             }
             </div>
         )
