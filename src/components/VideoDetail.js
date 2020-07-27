@@ -42,6 +42,7 @@ class VideoDetail extends React.Component {
                     Add to Favorites {this.props.favorited ? '💚' : '♡'}
                 </button>
 
+
             </React.Fragment>
         );
     }

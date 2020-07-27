@@ -35,7 +35,7 @@ class MushShowPage extends React.Component {
     }
 
     getComments = () => {
-        fetch('http://localhost:3000/api/v1/comments')
+        fetch(API_COMMENTS)
         .then(res => res.json())
         .then(commentsData => {
             let commentArr = commentsData.filter(comment => {
@@ -48,6 +48,13 @@ class MushShowPage extends React.Component {
             })
             this.setState({ comments: commentArr })
         })
+    }
+
+    deleteComment = id => {
+        fetch(`${API_COMMENTS}/${id}`, {
+            method: 'DELETE',
+        })
+        this.setState({ comments: this.state.comments.filter(comment => comment.id !== id)})
     }
 
     getUsers = () => {
@@ -211,7 +218,7 @@ class MushShowPage extends React.Component {
                     handleChange={this.handleChange} 
                     handleSubmit={this.handleSubmit}
                     />
-                    <CommentsContainer currentUser={this.props.currentUser} comments={this.state.comments} />
+                    <CommentsContainer currentUser={this.props.currentUser} comments={this.state.comments} deleteComment={this.deleteComment}/>
                 </div>
                     
                 <img src={require("../images/mushdancing_cropped.gif")} alt="listen" className='dancing-mush' />
