@@ -1,3 +1,18 @@
+# F in Tea
+
+F in Tea (or "Fungi in Tea") was designed to teach users about the medicinal benefits of mushroom teas. You can sign in, browse mushrooms by medicinal benefit, search for videos on YouTube on how to brew your own tea, and add them to your favorites. Watch the video demo: https://youtu.be/l5ohSkA93hI   
+
+**NOTE: This is the frontend repository. You can view the backend here:** https://github.com/vmar13/mushroom-backend
+
+*Frontend developed with React*
+
+## Getting Started
+
+1. Start the backend using the link **above**
+2. Clone down and cd into this repo
+3. Run "npm install" to install dependencies
+4. Run "npm start" to open the app in browser
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
