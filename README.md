@@ -4,7 +4,7 @@ F in Tea (or "Fungi in Tea") was designed to teach users about the medicinal ben
 
 **NOTE: This is the frontend repository. You can view the backend here:** https://github.com/vmar13/mushroom-backend
 
-*Frontend developed with React*
+*Frontend developed with React, HTML, CSS, and Google's YouTube API & Speech Synthesis API*
 
 ## Getting Started
 
