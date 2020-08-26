@@ -1,7 +1,5 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
-// import { fade, makeStyles } from '@material-ui/core/styles';
-// import SearchIcon from '@material-ui/icons/Search';
 import SearchBar from '../components/SearchBar'
 import VideoDetail from '../components/VideoDetail'
 import VideoList from '../components/VideoList'

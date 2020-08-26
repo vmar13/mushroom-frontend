@@ -17,8 +17,3 @@ const NavBar = () => {
 
 export default NavBar
 
-
-
-{/* <Link to='/mushrooms'>Mushroom Teas</Link>
-<Link to='/byot'>BYOT</Link> 
-<Link to='/popular'>Popular</Link> */}

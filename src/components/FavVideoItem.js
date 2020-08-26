@@ -1,10 +1,6 @@
 import React from 'react';
 
 
-// import trash from '../images/trash.png'
-
-// const trashIcon = trash
-
 
 const FavVideoItem = ({ video, deleteVideo }) => {
 
