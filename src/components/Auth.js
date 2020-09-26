@@ -38,11 +38,11 @@ class Auth extends React.Component {
     
 
 //when hit login, consider if that user exists with a find_by (which returns object)
-  //when you hit login, setState of currentUser with user object (username AND password)
-  //after hit login, link to mush index page
-  //if user doesn't exist OR wrong info, create alert 
-  //create sign up page =>  /signup
-  //signup page will create a user (POST request)
+//when you hit login, setState of currentUser with user object (username AND password)
+//after hit login, link to mush index page
+//if user doesn't exist OR wrong info, create alert 
+//create sign up page =>  /signup
+//signup page will create a user (POST request)
 
     render(){
         return(

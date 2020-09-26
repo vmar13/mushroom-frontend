@@ -1,5 +1,5 @@
-import React from 'react';
-import '../App.css';
+import React from 'react'
+import '../App.css'
 import { Route, Switch } from 'react-router-dom'
 import NavBar from '../components/NavBar'
 import MushroomContainer from '../containers/MushroomContainer'
@@ -7,7 +7,7 @@ import Mushroom from '../components/Mushroom'
 import MushShowPage from '../components/MushShowPage'
 import BYOT from '../components/BYOT'
 import Auth from '../components/Auth'
-import Favorites from '../components/Favorites';
+import Favorites from '../components/Favorites'
 
 const API_VIDEOS = `http://localhost:3000/api/v1/videos`
 const usersURL =  `http://localhost:3000/api/v1/users`
@@ -103,25 +103,4 @@ render() {
 }
 }
   
-export default App;
-
-// const App = (props) => {
-//   return (
-//     <Router>
-//       <div className='app'>
-//         <NavBar />
-//         <Switch>
-//           <Route exact path="/" component={Home} />
-//           <Route exact path='/mushrooms' component={MushroomContainer} />
-//           <Route exact path='/mushroom' component={Mushroom} />
-//           <Route exact path='/mushrooms/:id' component={MushShowPage} />
-//           <Route exact path='/byot' component={BYOT} />
-//           <Route exact path='/popular' component={Popular} />
-//         </Switch>
-
-//       </div>
-//     </Router>
-//   );
-// }
-
-// export default App;
+export default App
