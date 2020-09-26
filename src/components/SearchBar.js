@@ -35,14 +35,3 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar
-
-// style={{ "textAlign": "center", "background": "gray", "padding": "35px" }}
-
-  {/* <div className="wrap">
-                    <div className="search">
-                    <input type="text" className="searchTerm" placeholder="Search for videos" />
-                    <button type="submit" className="searchButton">
-                        <i className="fa fa-search"></i>
-                    </button>
-                    </div>
-                </div> */}

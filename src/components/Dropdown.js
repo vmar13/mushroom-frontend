@@ -2,11 +2,6 @@ import React from 'react'
 
 class Dropdown extends React.Component {
 
-    // handleChange = event => {
-    //     let selectedValue = event.target.value;
-    //     this.props.onSelectChange(selectedValue);
-    // }
-
     render() {
 
         let healthBenefits = this.props.healthBenefits

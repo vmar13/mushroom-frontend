@@ -39,5 +39,3 @@ class Mushroom extends React.Component {
 }
 
 export default Mushroom
-
-{/* <div className='card' onClick={() => sendToMushShowPage(id)}> */}
