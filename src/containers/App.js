@@ -10,7 +10,6 @@ import Auth from '../components/Auth'
 import Favorites from '../components/Favorites'
 
 const API_VIDEOS = `http://localhost:3000/api/v1/videos`
-const usersURL =  `http://localhost:3000/api/v1/users`
 
 class App extends React.Component {
 
@@ -75,10 +74,8 @@ class App extends React.Component {
 
 render() {
 
-  console.log(this.state.videos)
+  // console.log(this.state.videos)
   // console.log(this.state.currentUser)
-
-  const { videos } = this.state
 
   return (
 

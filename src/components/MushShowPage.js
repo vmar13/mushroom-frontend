@@ -127,7 +127,6 @@ class MushShowPage extends React.Component {
                       .then(newComment => {
                         this.addNewComment(newComment)
                         this.addNewUser((newComment || {}).user)
-    
                       })
                       .then( () => this.setState({ content: '' }))
                   }
@@ -147,7 +146,7 @@ class MushShowPage extends React.Component {
         }
 
     render() {
-        console.log(this.state.comments)
+        // console.log(this.state.comments)
 
         const { mushroom, healthBenefits } = this.state
 

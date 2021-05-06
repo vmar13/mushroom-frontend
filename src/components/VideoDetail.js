@@ -1,19 +1,9 @@
 import React from 'react'
 import { Paper, Typography } from '@material-ui/core'
-import { spacing } from '@material-ui/system';
-import { sizing } from '@material-ui/system';
-import { render } from '@testing-library/react'
 
 
 class VideoDetail extends React.Component {
 
-    // state = {
-    //     favorited: false
-    // }
-
-    // toggleHeart = () => {
-    //     this.setState({ favorited: !this.state.favorited })
-    // }
 
     render(){
 

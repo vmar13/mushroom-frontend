@@ -18,7 +18,7 @@ class Mushroom extends React.Component {
 
     render() {
 
-        const { id, name, image_url, onMouseEnter, onMouseLeave } = this.props
+        const { id, name, image_url } = this.props
 
         return(
             <div className='card'>
@@ -29,7 +29,7 @@ class Mushroom extends React.Component {
 
                 <div className='name-container'>
                 <h3>{name}</h3>
-                {this.state.showMug ? <iframe src="https://giphy.com/embed/L3KJjjqtoyzCuIVF7e" width="480" height="480" frameBorder="0" className='coffee' allowFullScreen></iframe>: null} <p><a href="https://giphy.com/stickers/selfcare-mindfulness-caylinperry-L3KJjjqtoyzCuIVF7e"></a></p> 
+                {this.state.showMug ? <iframe title='frame' src="https://giphy.com/embed/L3KJjjqtoyzCuIVF7e" width="480" height="480" frameBorder="0" className='coffee' allowFullScreen></iframe>: null} <p><a href="https://giphy.com/stickers/selfcare-mindfulness-caylinperry-L3KJjjqtoyzCuIVF7e"></a></p> 
 
                 </div>
             

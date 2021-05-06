@@ -1,5 +1,4 @@
 import React from 'react'
-import { Paper, TextField } from '@material-ui/core'
 
 class SearchBar extends React.Component {
 
@@ -24,7 +23,6 @@ class SearchBar extends React.Component {
         return(
             <>
                     <form onSubmit={this.handleSubmit}  className='search'>
-                        {/* <TextField style={{ padding: '1px 40px' }} fullWidth onChange={this.handleChange} /> */}
                         <input type='text' placeholder='Search...' onChange={this.handleChange} />
                         <img src={require("../images/search.png")} alt="listen" className='search-magnifying-glass' />
                     </form>
