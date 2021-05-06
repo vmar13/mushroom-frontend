@@ -24,6 +24,7 @@ class Auth extends React.Component {
     }
 
     handleLogin = e => {
+        e.preventDefault()
         const { username, password } = this.state;
 
         let currentUser = this.state.users.find(user => {
