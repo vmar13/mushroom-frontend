@@ -16,7 +16,7 @@ const Login = ({ username, password, onChange, onSubmit }) => {
                     <label><strong>Password</strong></label><br></br>
                     <input type='password' name='password' value={password} onChange={onChange} /><br></br>
                     <input type="submit" value="Log in" className='login-btn' />
-                    <a href='#' className='fake-signup'>Don't have an account? Sign up</a>
+                    {/* <a href='#' className='fake-signup'>Don't have an account? Sign up</a> */}
                 </form>
             </div>
         </div>

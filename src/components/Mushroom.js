@@ -29,7 +29,8 @@ class Mushroom extends React.Component {
 
                 <div className='name-container'>
                 <h3>{name}</h3>
-                {this.state.showMug ? <iframe title='frame' src="https://giphy.com/embed/L3KJjjqtoyzCuIVF7e" width="480" height="480" frameBorder="0" className='coffee' allowFullScreen></iframe>: null} <p><a href="https://giphy.com/stickers/selfcare-mindfulness-caylinperry-L3KJjjqtoyzCuIVF7e"></a></p> 
+                {/* {this.state.showMug ? <iframe title='frame' src="https://giphy.com/embed/L3KJjjqtoyzCuIVF7e" width="480" height="480" frameBorder="0" className='coffee' allowFullScreen></iframe>: null} <p><a href="https://giphy.com/stickers/selfcare-mindfulness-caylinperry-L3KJjjqtoyzCuIVF7e"></a></p>  */}
+                {this.state.showMug ? <img src={require("../images/white-mug.gif")} width="480" height="480" className='coffee' /> : null} 
 
                 </div>
             

@@ -129,6 +129,7 @@ class MushShowPage extends React.Component {
                         this.addNewUser((newComment || {}).user)
                       })
                       .then( () => this.setState({ content: '' }))
+                      .catch((error) => console.log(`Error: ${error.message}`))
                   }
                 } 
 
