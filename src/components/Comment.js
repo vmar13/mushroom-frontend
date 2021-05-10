@@ -13,7 +13,7 @@ const Comment = (props) => {
                     <p>{props.comment.content}</p>   
                 </div>
 
-                {/* <button onClick={() => props.deleteComment(props.comment.id)}>Delete</button> */}
+                <button onClick={() => props.deleteComment(props.comment.id)}>Delete</button>
             </div>
         )
     }

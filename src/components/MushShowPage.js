@@ -1,5 +1,4 @@
 import React from 'react'
-// import Mushroom from '../components/Mushroom'
 import HealthBenefit from '../components/HealthBenefit'
 import SourcesContainer from '../containers/SourcesContainer'
 import CommentForm from './CommentForm'
@@ -18,7 +17,8 @@ class MushShowPage extends React.Component {
         users: [],
         content: '',
         displaySources: false,
-        currentComment: ''
+        currentComment: '',
+        errors: {}
     }
 
     //fetch mushroomANDHealthBenes
@@ -77,7 +77,7 @@ class MushShowPage extends React.Component {
     //comment.mushroom.id === this.props.mushId
     //comment.user.username
 
-      getSources = () => {
+    getSources = () => {
         fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
         .then(res => res.json())
         .then(mushHealthBenes => {
@@ -89,57 +89,78 @@ class MushShowPage extends React.Component {
         })
     }
 
-        addNewUser = newUser => {
-            this.setState({
-                users: [...this.state.users, newUser]
-            })
+    addNewUser = newUser => {
+        this.setState({
+            users: [...this.state.users, newUser]
+        })
+    }
+
+    addNewComment = newComment => { 
+        this.setState({
+            comments: [...this.state.comments, newComment]
+        })
         }
 
-        addNewComment = newComment => { 
-            this.setState({
-              comments: [...this.state.comments, newComment]
-            })
-          }
+    handleChange = event => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
 
-        handleChange = event => {
-            this.setState({ [event.target.name]: event.target.value })
+    validateForm = () => {
+        let errors = {};
+        let formIsValid = true;
+
+        if (!this.state.content) {
+            formIsValid = false;
+            errors['content'] = 'Please write a comment.'
         }
+        this.setState({ errors })
+        return formIsValid;
+    }
 
-            handleSubmit = event => {
-                event.preventDefault()
-                const { currentUser } = this.props
-                if(currentUser !== null) {
-                    const newComment = {
-                        user_id: currentUser.id,
-                        mushroom_id: this.state.mushroom.id,
-                        content: this.state.content
-                    }
-                
-                    fetch(`${API_COMMENTS}`, {
-                      method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                      },
-                      body: JSON.stringify(newComment)
+    //This creates a comment
+    handleSubmit = event => {
+        event.preventDefault()
+        if (this.validateForm()) {
+            const { currentUser } = this.props
+            if(currentUser !== null) {
+                const newComment = {
+                    user_id: currentUser.id,
+                    mushroom_id: this.state.mushroom.id,
+                    content: this.state.content
+                }
+            
+                fetch(`${API_COMMENTS}`, {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(newComment)
+                })
+                    .then(res => {
+                        if(res.error) {
+                            let errors = {};
+                            errors['content'] = res.error
+                            this.setState({ errors })
+                        } else {
+                            res.json()
+                            .then(newComment => {
+                            this.addNewComment(newComment)
+                            this.addNewUser((newComment || {}).user)
+                            })
+                            .then( () => this.setState({ content: '' }))
+                        }
                     })
-                      .then(res => res.json())
-                      .then(newComment => {
-                        this.addNewComment(newComment)
-                        this.addNewUser((newComment || {}).user)
-                      })
-                      .then( () => this.setState({ content: '' }))
-                      .catch((error) => console.log(`Error: ${error.message}`))
-                  }
-                } 
-
-
+                
+            }
+        } 
+    }
         
-          toggleSources = () => {
-              this.setState({ displaySources: !this.state.displaySources })
-          }
+        toggleSources = () => {
+            this.setState({ displaySources: !this.state.displaySources })
+        }
 
-          componentDidMount() {
+        componentDidMount() {
             this.getMushAndHB()
             this.getSources()
             this.getComments()
@@ -217,6 +238,7 @@ class MushShowPage extends React.Component {
                     content={this.state.content} 
                     handleChange={this.handleChange} 
                     handleSubmit={this.handleSubmit}
+                    errors={this.state.errors}
                     />
                     <CommentsContainer currentUser={this.props.currentUser} comments={this.state.comments} deleteComment={this.deleteComment}/>
                 </div>
