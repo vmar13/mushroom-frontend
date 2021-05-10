@@ -3,7 +3,7 @@ import React from 'react'
 const Comment = (props) => {
 
         return(
-            <div>
+            <div className='comment-box'>
                 {/* <h4>{((props.comment || {}).user || {}).username}</h4> */}
                 <div className='username-and-teacup'>
                     <h4>{props.comment.user ? props.comment.user.username : props.currentUser.username}&nbsp; <img src={require("../images/teacup.png")} alt="teacup" className='teacup' /></h4>

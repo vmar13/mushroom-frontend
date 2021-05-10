@@ -117,7 +117,7 @@ class MushShowPage extends React.Component {
         return formIsValid;
     }
 
-    //This creates a comment
+    //This creates a comment OR throws an error if content input is missing in form
     handleSubmit = event => {
         event.preventDefault()
         if (this.validateForm()) {

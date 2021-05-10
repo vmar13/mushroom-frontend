@@ -33,7 +33,7 @@ class BYOT extends React.Component {
     }
     
     render() {
-        console.log(this.props.videos)
+        // console.log(this.props.videos)
         // console.log(this.state.selectedVideo)
         return(
             <div className='byot-background'>
