@@ -72,7 +72,6 @@ class MushroomContainer extends React.Component {
         return(
             <div className='mush-index-body'>
                 <div className='banner'>
-                    {/* <img src= './images/F_in_Tea.png'/> */}
                     <h2>banner</h2>
                 </div>
                 <div className='mush-cont-body'>

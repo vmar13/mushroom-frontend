@@ -75,14 +75,14 @@ class App extends React.Component {
 render() {
 
   // console.log(this.state.videos)
-  // console.log(this.state.currentUser)
+  console.log(this.state.currentUser)
 
   return (
 
       <div className='app'>
-        {this.state.currentUser === null ? null : <NavBar />}
+        <p>Practice test</p>
+        {this.state.currentUser === null ? null : <NavBar /> }
         <Switch>
-        
           <Route  path='/mushrooms/:id' render={ (routerProps) => {
             const mushId = parseInt(routerProps.match.params.id)
             return  <MushShowPage {...routerProps} mushId={mushId} currentUser={this.state.currentUser} />} }/>
@@ -91,7 +91,6 @@ render() {
           <Route  path='/byot' render={ (props) => <BYOT addFavVideo={this.addFavVideo} videos={this.state.videos} toggleFavorited={this.toggleFavorited} favorited={this.state.favorited} />}/>
           <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} videos={this.state.videos} deleteVideo={this.deleteVideo} />} />
           <Route  path="/" render={ (routerProps) => <Auth {...routerProps} currentUser={this.state.currentUser} updateUser={this.updateUser} />} />
-
         </Switch>
 
       </div>
