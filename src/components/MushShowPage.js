@@ -181,14 +181,14 @@ class MushShowPage extends React.Component {
         timeout = setTimeout(myTimer, 10000000)
     }
 
-    window.speechSynthesis.cancel();
+    // window.speechSynthesis.cancel();
     timeout = setTimeout(myTimer, 10000000)
-    let voices = window.speechSynthesis.getVoices()
+    // let voices = window.speechSynthesis.getVoices()
     let toSpeak = this.state.mushroom.scientific_name
   
 
-    let utt = new SpeechSynthesisUtterance(toSpeak);
-    utt.onend =  () => { clearTimeout(timeout) }
+    // let utt = new SpeechSynthesisUtterance(toSpeak);
+    // utt.onend =  () => { clearTimeout(timeout) }
 
     let speak = () => {
         utt.voice = voices[28]
