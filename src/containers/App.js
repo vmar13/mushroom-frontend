@@ -80,7 +80,6 @@ render() {
   return (
 
       <div className='app'>
-        <p>Practice test</p>
         {this.state.currentUser === null ? null : <NavBar /> }
         <Switch>
           <Route  path='/mushrooms/:id' render={ (routerProps) => {

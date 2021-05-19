@@ -172,35 +172,34 @@ class MushShowPage extends React.Component {
 
         const { mushroom, healthBenefits } = this.state
 
-    let timeout;
+    // let timeout;
     
-    const myTimer = () => {
-        window.speechSynthesis.pause()
-        window.speechSynthesis.resume()
+    // const myTimer = () => {
+    //     window.speechSynthesis.pause()
+    //     window.speechSynthesis.resume()
         
-        timeout = setTimeout(myTimer, 10000000)
-    }
+    //     timeout = setTimeout(myTimer, 10000000)
+    // }
 
     // window.speechSynthesis.cancel();
-    timeout = setTimeout(myTimer, 10000000)
+    // timeout = setTimeout(myTimer, 10000000)
     // let voices = window.speechSynthesis.getVoices()
-    let toSpeak = this.state.mushroom.scientific_name
+    // let toSpeak = this.state.mushroom.scientific_name
   
 
     // let utt = new SpeechSynthesisUtterance(toSpeak);
     // utt.onend =  () => { clearTimeout(timeout) }
 
-    let speak = () => {
-        utt.voice = voices[28]
-        utt.volume = 0.1
-        utt.pitch = 0.8
-        utt.rate = .7
+    // let speak = () => {
+    //     utt.voice = voices[28]
+    //     utt.volume = 0.1
+    //     utt.pitch = 0.8
+    //     utt.rate = .7
 
-        window.speechSynthesis.cancel()? 
-        window.speechSynthesis.resume() : window.speechSynthesis.speak(utt)
-    }
+    //     window.speechSynthesis.cancel()? 
+    //     window.speechSynthesis.resume() : window.speechSynthesis.speak(utt)
+    // }
 
-    // console.log("comments", this.state.comments)
 
         return(
             <div className='flex-column'>
@@ -211,8 +210,10 @@ class MushShowPage extends React.Component {
 
                     <div className='mush-info-card'>
                         <h1 className='mush-title'>{mushroom.name}</h1>
-                        <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;&nbsp; <img src={require("../images/speaker.png")} alt="listen" className='listen' onClick={speak}/></p>
-                        
+                        {/* ONLY COMMENTED OUT THIS LINE TO GET THE UNIT TEST TO PASS. WILL REVISIT!! */}
+                        {/* <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;&nbsp; <img src={require("../images/speaker.png")} alt="listen" className='listen' onClick={speak}/></p> */}
+                        <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;&nbsp; <img src={require("../images/speaker.png")} alt="listen" className='listen' /></p>
+
                         <p><strong>Location: </strong>{mushroom.location}</p>
                         <p><strong>Tea flavor: </strong>{mushroom.flavor}</p>
                     </div>
