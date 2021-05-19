@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { getByText, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import MushShowPage from './MushShowPage';
 
 //Use describe function to group all unit tests belonging to 
@@ -28,3 +29,19 @@ describe('renders mushroom info card', () => {
     });
 })
 
+test('renders plus sign if NOT clicked', () => {
+    render(<MushShowPage />);
+    const plusBtn = screen.getByText('+');
+    expect(plusBtn).toBeInTheDocument();
+})
+
+// test('renders minus sign if clicked', () => {
+//     //Arrange
+//     render(<MushShowPage />);
+//     //Act
+//     const plusBtn = screen.getByText('+');
+//     userEvent.click(plusBtn)
+//     //Assert
+//     const minusBtn = screen.getByText('-');
+//     expect(minusBtn).toBeInTheDocument();
+// })
