@@ -1,5 +1,5 @@
 import React from 'react';
-import { getByText, render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import MushShowPage from './MushShowPage';
 
@@ -35,14 +35,17 @@ describe('renders mushroom info card', () => {
 //     expect(plusBtn).toBeInTheDocument();
 // })
 
-test('button has correct initial text', () => {
+test('source button has correct initial text', () => {
     render(<MushShowPage />);
     const plusBtn = screen.getByRole('button', { name: '+'})
     expect(plusBtn).toBeInTheDocument();
 });
 
-test('button turns light brown when clicked', () => {
-
+test('source button turns to minus sign when clicked', () => {
+    render(<MushShowPage />);
+    const plusBtn = screen.getByRole('button', { name: '+'});
+    fireEvent.click(plusBtn);
+    expect(plusBtn.textContent).toBe('–');
 });
 
 // test('renders minus sign if clicked', () => {
