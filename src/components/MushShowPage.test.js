@@ -29,11 +29,21 @@ describe('renders mushroom info card', () => {
     });
 })
 
-test('renders plus sign if NOT clicked', () => {
+// test('renders plus sign if NOT clicked', () => {
+//     render(<MushShowPage />);
+//     const plusBtn = screen.getByText('+');
+//     expect(plusBtn).toBeInTheDocument();
+// })
+
+test('button has correct initial text', () => {
     render(<MushShowPage />);
-    const plusBtn = screen.getByText('+');
+    const plusBtn = screen.getByRole('button', { name: '+'})
     expect(plusBtn).toBeInTheDocument();
-})
+});
+
+test('button turns light brown when clicked', () => {
+
+});
 
 // test('renders minus sign if clicked', () => {
 //     //Arrange
