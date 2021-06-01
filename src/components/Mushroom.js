@@ -23,7 +23,7 @@ class Mushroom extends React.Component {
         return(
             <div className='card'>
                 <div className='mush-index-single-mush' >
-                    <Link to = {`/mushrooms/${id}`}> <img src={'http://localhost:3000' + image_url} alt={name} className='mush-img' onMouseEnter={this.handleMouseOver} onMouseLeave={this.handleMouseOut}  /> </Link>
+                    <Link to = {`/mushrooms/${id}`}> <img src={'http://localhost:3000' + image_url} alt='mush-img' className='mush-img' onMouseEnter={this.handleMouseOver} onMouseLeave={this.handleMouseOut}  /> </Link>
                     
                 </div>
 

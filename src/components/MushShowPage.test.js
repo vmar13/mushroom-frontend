@@ -37,7 +37,7 @@ describe('renders mushroom info card', () => {
 
 test('source button has correct initial text', () => {
     render(<MushShowPage />);
-    const plusBtn = screen.getByRole('button', { name: '+'})
+    const plusBtn = screen.getByRole('button', { name: '+'})  //Use name to specify which btn you want
     expect(plusBtn).toBeInTheDocument();
 });
 

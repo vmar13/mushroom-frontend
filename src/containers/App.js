@@ -15,13 +15,17 @@ class App extends React.Component {
 
   state = {
     videos: [],
-    users: [],
-    currentUser: null,
+    username: '',
+    loggedIn: false,
     favorited: false
   }
 
-  updateUser = (userObj)=> {
-    this.setState({ currentUser: userObj  })
+  updateUsername = username => {
+    this.setState({username})
+  }
+
+  toggleLoggedIn = () => {
+    this.setState({loggedIn: !this.state.loggedIn})
   }
 
   addNewVideo = newVideo => { 
@@ -80,7 +84,7 @@ render() {
   return (
 
       <div className='app'>
-        {this.state.currentUser === null ? null : <NavBar /> }
+        {this.state.loggedIn ? <NavBar /> : null }
         <Switch>
           <Route  path='/mushrooms/:id' render={ (routerProps) => {
             const mushId = parseInt(routerProps.match.params.id)
@@ -89,7 +93,7 @@ render() {
           <Route  path='/mushroom' render={ () => <Mushroom />} />
           <Route  path='/byot' render={ (props) => <BYOT addFavVideo={this.addFavVideo} videos={this.state.videos} toggleFavorited={this.toggleFavorited} favorited={this.state.favorited} />}/>
           <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} videos={this.state.videos} deleteVideo={this.deleteVideo} />} />
-          <Route  path="/" render={ (routerProps) => <Auth {...routerProps} currentUser={this.state.currentUser} updateUser={this.updateUser} />} />
+          <Route  path="/" render={ () => <SignUp updateUsername={this.updateUsername} toggleLoggedIn={this.toggleLoggedIn} loggedIn={this.state.loggedIn}/>} />
         </Switch>
 
       </div>
