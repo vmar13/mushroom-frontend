@@ -57,21 +57,23 @@ class MushShowPage extends React.Component {
         this.setState({ comments: this.state.comments.filter(comment => comment.id !== id)})
     }
 
-    getUsers = () => {
-        fetch('http://localhost:3000/api/v1/users')
-        .then(res => res.json())
-        .then(usersData => {
-            let userArr
-            userArr = usersData.filter(user => {
-                if (user.mushrooms.map(mushroom => mushroom.id === this.props.mushId)) {
-                    return userArr
-                } else {
-                    return null
-                }
-            })
-            this.setState({ users: userArr })
-        })
-    }
+    //MIGHT BE ABLE TO DELETE THIS WHOLE FUNCTION. COME BACK LATER
+    // getUsers = () => {
+    //     fetch('http://localhost:3000/api/v1/users')
+    //     .then(res => res.json())
+    //     .then(data => console.log(data))
+    //     // .then(usersData => {
+    //     //     let userArr
+    //     //     userArr = usersData.filter(user => {
+    //     //         if (user.mushrooms.map(mushroom => mushroom.id === this.props.mushId)) {
+    //     //             return userArr
+    //     //         } else {
+    //     //             return null
+    //     //         }
+    //     //     })
+    //     //     this.setState({ users: userArr })
+    //     // })
+    // }
 
     //fetch all comments and map comment that matches mushroom_id
     //comment.mushroom.id === this.props.mushId
@@ -164,7 +166,7 @@ class MushShowPage extends React.Component {
             this.getMushAndHB()
             this.getSources()
             this.getComments()
-            this.getUsers()
+            // this.getUsers()
         }
 
     render() {

@@ -52,6 +52,7 @@ class SignUp extends React.Component {
     render(){
 
         const { username, password } = this.state
+        console.log(this.props.loggedIn)
 
         return(
             <>
