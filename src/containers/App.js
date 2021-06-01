@@ -7,6 +7,7 @@ import Mushroom from '../components/Mushroom'
 import MushShowPage from '../components/MushShowPage'
 import BYOT from '../components/BYOT'
 import Auth from '../components/Auth'
+import SignUp from '../components/SignUp'
 import Favorites from '../components/Favorites'
 
 const API_VIDEOS = `http://localhost:3000/api/v1/videos`
@@ -79,7 +80,6 @@ class App extends React.Component {
 render() {
 
   // console.log(this.state.videos)
-  console.log(this.state.currentUser)
 
   return (
 
