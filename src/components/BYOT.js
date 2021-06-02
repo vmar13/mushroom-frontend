@@ -34,7 +34,7 @@ class BYOT extends React.Component {
     
     render() {
         const { videos, selectedVideo } = this.state;
-        const { addFavVideo, favorited, toggleFavorited } = this.props;
+        const { createFavVideo, favorited, toggleFavorited } = this.props;
 
       
         return(
@@ -47,7 +47,7 @@ class BYOT extends React.Component {
                                 <SearchBar  onSubmit={this.handleSubmit} onChange={this.handleChange} />
                             </Grid>
                             <Grid item xs={8}>
-                                <VideoDetail video={selectedVideo} addFavVideo={addFavVideo} favorited={favorited} toggleFavorited={toggleFavorited}/>
+                                <VideoDetail video={selectedVideo} createFavVideo={createFavVideo} favorited={favorited} toggleFavorited={toggleFavorited}/>
                             </Grid>
                             <Grid item xs={4}>
                                 <VideoList videos={videos} onVideoSelect={this.onVideoSelect} />

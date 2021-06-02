@@ -65,10 +65,7 @@ class MushroomContainer extends React.Component {
 
 
     render() {
-        console.log(this.props.loggedIn)
      
-        // console.log(history)
-
         return(
             <div className='mush-index-body'>
                 <div className='banner'>

@@ -11,7 +11,7 @@ import Login from '../components/Login'
 import Favorites from '../components/Favorites'
 import Logout from '../components/Logout'
 
-const API_VIDEOS = `http://localhost:3000/api/v1/videos`
+const API_FAVORITES = `http://localhost:3000/api/v1/favorites`;
 
 class App extends React.Component {
 
@@ -48,7 +48,7 @@ class App extends React.Component {
     this.toggleLoggedIn()
   }
 
-  addNewVideo = newVideo => { 
+  addNewVideoToArr = newVideo => { 
     this.setState({
       videos: [...this.state.videos, newVideo]
     })
@@ -58,13 +58,15 @@ class App extends React.Component {
     this.setState({ favorited: !this.state.favorited })
   }
 
-  addFavVideo = (vidTitle, vidUrl) => {
-   const newVideo = {
-     title: vidTitle,
-     url: vidUrl
-   }
+  createFavVideo = (vidTitle, vidUrl) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const newVideo = {
+      user_id: user.id,
+      title: vidTitle,
+      url: vidUrl
+    }
 
-    fetch(API_VIDEOS, {
+    fetch(API_FAVORITES, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -74,12 +76,12 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(newVideo => {
-        this.addNewVideo(newVideo)
+        this.addNewVideoToArr(newVideo)
       })
   }
 
     deleteVideo = id => {
-      fetch(`${API_VIDEOS}/${id}`, {
+      fetch(`${API_FAVORITES}/${id}`, {
         method: 'DELETE',
       })
       this.setState({
@@ -87,16 +89,30 @@ class App extends React.Component {
       })
     }
 
-    getVideos = () => {
-      fetch(API_VIDEOS)
+    getFavorites = () => {
+      const user = JSON.parse(localStorage.getItem('user'));
+
+      if (user) {
+        fetch(API_FAVORITES, {
+          method: 'GET',
+          headers: {Authorization: `Bearer ${user.token}`}
+        })
         .then(res => res.json())
-        .then(videoData => {
-          this.setState({ videos: videoData })
-      }) 
+        .then(favData => {
+          if (favData.length > 0) {
+            let userVideos = favData.filter(fav => fav.user_id === user.id)
+            this.setState({ videos: userVideos })
+          } else {
+            return
+          }
+      })
+      } else {
+        return
+      }
     }
 
   componentDidMount() {
-    this.getVideos()
+    this.getFavorites()
     this.stayLoggedIn()
   }
 
@@ -114,7 +130,7 @@ render() {
             return  <MushShowPage {...routerProps} mushId={mushId} currentUser={this.state.currentUser} />} }/>
           <Route  path='/mushrooms' render={ (history) => <MushroomContainer loggedIn={this.state.loggedIn}/>} />
           <Route  path='/mushroom' render={ () => <Mushroom />} />
-          <Route  path='/byot' render={ (props) => <BYOT addFavVideo={this.addFavVideo} videos={this.state.videos} toggleFavorited={this.toggleFavorited} favorited={this.state.favorited} />}/>
+          <Route  path='/byot' render={ (props) => <BYOT createFavVideo={this.createFavVideo} videos={this.state.videos} toggleFavorited={this.toggleFavorited} favorited={this.state.favorited} />}/>
           <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} videos={this.state.videos} deleteVideo={this.deleteVideo} />} />
           <Route path='/login' render={ () => <Login updateUsername={this.updateUsername} toggleLoggedIn={this.toggleLoggedIn} loggedIn={this.state.loggedIn} />} />
           <Route path='/logout' render={ () => <Logout loggedIn={this.state.loggedIn} clearUser={this.clearUser} />} />

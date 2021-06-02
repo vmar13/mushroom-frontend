@@ -1,22 +1,22 @@
-import React from 'react'
-import FavVideoItem from '../components/FavVideoItem'
+import React from 'react';
+import FavVideoItem from '../components/FavVideoItem';
 
-class Favorites extends React.Component {
+const Favorites = (props) => {
+    const { videos, deleteVideo } = props;
 
-   
-
-    render() {
-
-        const { deleteVideo } = this.props
-        // console.log(this.props.videos)
-
-        return(
-            <div className='popular'>
-                <h1 className='favorites-title'>My Favorites</h1>
-                {this.props.videos.map(video => <FavVideoItem key={video.id} video={video} deleteVideo={deleteVideo} />)}
-            </div>
-        )
+    let noFavs;
+    if (videos.length === 0) {
+        noFavs = 'You don\'t have any favorites yet, so head over to "BYOT" and add some!'
     }
+    
+    return(
+        <div className='popular'>
+            <h1 className='favorites-title'>My Favorites</h1>
+            <p>{noFavs}</p>
+            {videos.map(video => <FavVideoItem key={video.id} video={video} deleteVideo={deleteVideo} />)}
+        </div>
+    )
+
 }
 
-export default Favorites
+export default Favorites;
