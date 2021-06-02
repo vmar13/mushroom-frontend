@@ -24,7 +24,6 @@ class VideoDetail extends React.Component {
                     <Typography variant='subtitle1'>{this.props.video.snippet.channelTitle}</Typography>
                     <Typography variant='subtitle2'>{this.props.video.snippet.description}</Typography>
                 </Paper>
-                {/* <button onClick={(event) => this.props.addFavVideo(this.props.video.snippet.title, videoSrc)} className='favorite-btn' toggleHeart={this.toggleHeart}>Add to Favorites {this.state.favorited ? '💚' : '♡'}</button> */}
                 <button onClick={(event) => {
                     this.props.createFavVideo(this.props.video.snippet.title, videoSrc)
                     this.props.toggleFavorited()

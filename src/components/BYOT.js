@@ -50,7 +50,7 @@ class BYOT extends React.Component {
                                 <VideoDetail video={selectedVideo} createFavVideo={createFavVideo} favorited={favorited} toggleFavorited={toggleFavorited}/>
                             </Grid>
                             <Grid item xs={4}>
-                                <VideoList videos={videos} onVideoSelect={this.onVideoSelect} />
+                                <VideoList videos={videos} onVideoSelect={this.onVideoSelect} toggleFavorited={toggleFavorited} />
                             </Grid>
                         </Grid>
                     </Grid>
