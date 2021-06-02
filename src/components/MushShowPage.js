@@ -34,6 +34,7 @@ class MushShowPage extends React.Component {
         })
     }
 
+    //Fetch all comments and filter for only that mushroom's comments
     getComments = () => {
         fetch(API_COMMENTS)
         .then(res => res.json())
@@ -91,11 +92,12 @@ class MushShowPage extends React.Component {
         })
     }
 
-    addNewUser = newUser => {
-        this.setState({
-            users: [...this.state.users, newUser]
-        })
-    }
+//MIGHT BE ABLE TO DELETE. COME BACK LATER
+    // addNewUser = newUser => {
+    //     this.setState({
+    //         users: [...this.state.users, newUser]
+    //     })
+    // }
 
     addNewComment = newComment => { 
         this.setState({
@@ -123,10 +125,9 @@ class MushShowPage extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
         if (this.validateForm()) {
-            const { currentUser } = this.props
-            if(currentUser !== null) {
+            const user = JSON.parse(localStorage.getItem('user'));
                 const newComment = {
-                    user_id: currentUser.id,
+                    user_id: user.id,
                     mushroom_id: this.state.mushroom.id,
                     content: this.state.content
                 }
@@ -148,13 +149,12 @@ class MushShowPage extends React.Component {
                             res.json()
                             .then(newComment => {
                             this.addNewComment(newComment)
-                            this.addNewUser((newComment || {}).user)
+                            this.getComments()
+                            // this.addNewUser((newComment || {}).user)
                             })
                             .then( () => this.setState({ content: '' }))
                         }
                     })
-                
-            }
         } 
     }
         
@@ -243,7 +243,7 @@ class MushShowPage extends React.Component {
                     handleSubmit={this.handleSubmit}
                     errors={this.state.errors}
                     />
-                    <CommentsContainer currentUser={this.props.currentUser} comments={this.state.comments} deleteComment={this.deleteComment}/>
+                    <CommentsContainer comments={this.state.comments} deleteComment={this.deleteComment}/>
                 </div>
                     
                 <img src={require("../images/mushdancing_cropped.gif")} alt="listen" className='dancing-mush' />
