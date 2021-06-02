@@ -21,8 +21,9 @@ class BYOT extends React.Component {
         fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&q=${searchTerm}&key=${REACT_APP_YOUTUBE_API_KEY}`)
             .then(res => res.json())
             .then(data => {
-                this.setState({ videos: data.items, selectedVideo: data.items[0], searchTerm: ''})
-                console.log(data.items)
+                console.log(data)
+                // this.setState({ videos: data.items, selectedVideo: data.items[0], searchTerm: ''})
+                // console.log(data.items)
             })
         }
            

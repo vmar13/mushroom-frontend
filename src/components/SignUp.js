@@ -61,12 +61,11 @@ class SignUp extends React.Component {
             <img src={require("../images/F_in_Tea5.png")} alt="logo" className='logo-title' />
 
                 <div className='login-form'>
-                    <h2>Sign Up</h2>
                     <form onSubmit={this.handleSubmit}>
                         <input type='text' name='username' value={username} onChange={this.handleChange} placeholder='Username'/><br/>
                         <input type='password' name='password'value={password} onChange={this.handleChange} placeholder='Password'/><br/>
                         <input type='submit' value='Sign Up' className='login-btn' /><br/><br/>
-                        {/* <p className='fake-signup'>Already have an account? <a href='/login'>Login</a></p> */}
+                        <p className='auth'>Already have an account? <a href='/login'>Log In</a></p>
 
                     </form>
                     {this.props.loggedIn ? <Redirect to='/mushrooms' /> : null}

@@ -7,6 +7,14 @@ body
     /* background-image: url(https://images.unsplash.com/photo-1444724334165-e7050f2229a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80); */
 } 
 
+.auth {
+  position: absolute;
+  margin-top: -30px;
+  margin-left: 5px;
+  font-size: 13px;
+  color: rgb(105, 38, 38);
+}
+
 .banner{
   background-image: url("./images/F_in_Tea4.png");
   background-size: cover;
@@ -132,14 +140,6 @@ body
   ;
 }
 
-.fake-signup {
-  position: absolute;
-  margin-top: 55px;
-  margin-left: 5px;
-  font-size: 13px;
-  color: rgb(105, 38, 38);
-}
-
 .favorite-btn {
   background-color: rgb(51, 33, 22);
   color: rgb(199, 190, 190);
@@ -253,6 +253,7 @@ body
   margin-bottom: 42px;
   padding: 7px 10px;
   border: none;
+  width: 100%;
 }
 
 
@@ -272,12 +273,13 @@ body
   right: 0;
   margin: 20px;
   max-width: 300px;
+  height: 30%;
   border-radius: 5px;
 }
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-  width: 80%;
+  width: 92%;
   padding: 10px;
   margin: 5px 0 22px 0;
   border: none;

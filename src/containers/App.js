@@ -6,8 +6,8 @@ import MushroomContainer from '../containers/MushroomContainer'
 import Mushroom from '../components/Mushroom'
 import MushShowPage from '../components/MushShowPage'
 import BYOT from '../components/BYOT'
-import Auth from '../components/Auth'
 import SignUp from '../components/SignUp'
+import Login from '../components/Login'
 import Favorites from '../components/Favorites'
 import Logout from '../components/Logout'
 
@@ -116,6 +116,7 @@ render() {
           <Route  path='/mushroom' render={ () => <Mushroom />} />
           <Route  path='/byot' render={ (props) => <BYOT addFavVideo={this.addFavVideo} videos={this.state.videos} toggleFavorited={this.toggleFavorited} favorited={this.state.favorited} />}/>
           <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} videos={this.state.videos} deleteVideo={this.deleteVideo} />} />
+          <Route path='/login' render={ () => <Login updateUsername={this.updateUsername} toggleLoggedIn={this.toggleLoggedIn} loggedIn={this.state.loggedIn} />} />
           <Route path='/logout' render={ () => <Logout loggedIn={this.state.loggedIn} clearUser={this.clearUser} />} />
           <Route  path='/' render={ () => <SignUp updateUsername={this.updateUsername} toggleLoggedIn={this.toggleLoggedIn} loggedIn={this.state.loggedIn}/>} />
         </Switch>
