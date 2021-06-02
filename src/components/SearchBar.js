@@ -1,8 +1,6 @@
 import React from 'react';
 
-const SearchBar = (props) => {
-    const { onSubmit, onChange } = props; 
-
+const SearchBar = ({ onSubmit, onChange }) => {
     return(
         <>
             <form onSubmit={onSubmit}  className='search'>
@@ -11,8 +9,7 @@ const SearchBar = (props) => {
             </form>
             <img src={require("../images/mush-excited.gif")} alt="listen" className='mush-excited' />
         </>
-    )
-
-}
+    );
+};
 
 export default SearchBar;

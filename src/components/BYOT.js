@@ -12,11 +12,11 @@ class BYOT extends React.Component {
         videos: [],
         selectedVideo: null,
         searchTerm: ''
-    }
+    };
 
     handleChange = (event) => {
         this.setState({ searchTerm: event.target.value });
-    }
+    };
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -25,18 +25,16 @@ class BYOT extends React.Component {
             .then(data => {
                 this.setState({ videos: data.items, selectedVideo: data.items[0], searchTerm: ''});
             })
-        }
-           
+    };    
         
     onVideoSelect = (video) => {
         this.setState({ selectedVideo: video });
-    }
+    };
     
     render() {
         const { videos, selectedVideo } = this.state;
         const { createFavVideo, favorited, toggleFavorited } = this.props;
 
-      
         return(
             <div className='byot-background'>
                 <Grid justify='center' container spacing={0}>
@@ -56,8 +54,8 @@ class BYOT extends React.Component {
                     </Grid>
                 </Grid>
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
 export default BYOT;

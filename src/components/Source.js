@@ -1,14 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Source = (props) => {
-
-    const { citation } = props
-
+const Source = ({ citation }) => {
         return(
             <div>
                 <p>{citation}</p>  
             </div>
-        )
-    }
+        );
+};
 
-export default Source
+export default Source;

@@ -1,6 +1,5 @@
-import React from 'react'
-import { Redirect } from 'react-router'
-
+import React from 'react';
+import { Redirect } from 'react-router';
 
 class SignUp extends React.Component {
 
@@ -8,14 +7,14 @@ class SignUp extends React.Component {
         username: '',
         password: '',
         displayError: ''
-    }
+    };
 
     handleChange = e =>  {
-        this.setState({ [e.target.name]: e.target.value })
-    } 
+        this.setState({ [e.target.name]: e.target.value });
+    };
 
     handleSubmit = e => {
-        e.preventDefault()
+        e.preventDefault();
 
         fetch('http://localhost:3000/api/v1/users', {
             method: 'POST',
@@ -32,27 +31,23 @@ class SignUp extends React.Component {
             .then(res => res.json())
             .then(data => {
                 if(!data.jwt){
-                    this.setState({ displayError: data.error })
+                    this.setState({ displayError: data.error });
                 } else {
-                    console.log(data)
-                    this.props.updateUsername(data.user.username)
-                    localStorage.clear()
+                    this.props.updateUsername(data.user.username);
+                    localStorage.clear();
                     const userInfo = {
                         'id': data.user.id,
                         'username': data.user.username,
                         'token': data.jwt
                     }
-                    localStorage.setItem('user', JSON.stringify(userInfo))
-                    this.props.toggleLoggedIn()
-                }
-            })
-    }
+                    localStorage.setItem('user', JSON.stringify(userInfo));
+                    this.props.toggleLoggedIn();
+                };
+            });
+    };
     
-
     render(){
-
-        const { username, password } = this.state
-        console.log(this.props.loggedIn)
+        const { username, password, displayError } = this.state;
 
         return(
             <>
@@ -66,16 +61,15 @@ class SignUp extends React.Component {
                         <input type='password' name='password'value={password} onChange={this.handleChange} placeholder='Password'/><br/>
                         <input type='submit' value='Sign Up' className='login-btn' /><br/><br/>
                         <p className='auth'>Already have an account? <a href='/login'>Log In</a></p>
-
                     </form>
-                    {this.props.loggedIn ? <Redirect to='/mushrooms' /> : null}
-                    {this.state.displayError ? <p className='error-message'>{this.state.displayError}</p> : null }
-                </div>
-            </div>
-                
-            </>
-            )
-    }
-}
 
-export default SignUp
+                    {this.props.loggedIn ? <Redirect to='/mushrooms' /> : null}
+                    {displayError ? <p className='error-message'>{displayError}</p> : null }
+                </div>
+            </div>  
+            </>
+        );
+    };
+};
+
+export default SignUp;

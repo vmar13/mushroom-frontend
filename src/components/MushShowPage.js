@@ -1,11 +1,11 @@
-import React from 'react'
-import HealthBenefit from '../components/HealthBenefit'
-import SourcesContainer from '../containers/SourcesContainer'
-import CommentForm from './CommentForm'
-import CommentsContainer from '../containers/CommentsContainer'
+import React from 'react';
+import HealthBenefit from '../components/HealthBenefit';
+import SourcesContainer from '../containers/SourcesContainer';
+import CommentForm from './CommentForm';
+import CommentsContainer from '../containers/CommentsContainer';
 
-const API_MUSHROOMS = `http://localhost:3000/api/v1/mushrooms`
-const API_COMMENTS = `http://localhost:3000/api/v1/comments`
+const API_MUSHROOMS = `http://localhost:3000/api/v1/mushrooms`;
+const API_COMMENTS = `http://localhost:3000/api/v1/comments`;
 
 class MushShowPage extends React.Component {
 
@@ -14,14 +14,12 @@ class MushShowPage extends React.Component {
         healthBenefits: [],
         sources: [],
         comments: [],
-        users: [],
         content: '',
         displaySources: false,
-        currentComment: '',
         errors: {}
-    }
+    };
 
-    //fetch mushroomANDHealthBenes
+    //Fetch mushroomANDHealthBenefits
     getMushAndHB = () => {
         fetch(`${API_MUSHROOMS}/${this.props.mushId}`)
         .then(res => res.json())
@@ -29,10 +27,9 @@ class MushShowPage extends React.Component {
             this.setState({ 
                 mushroom: mushObj,
                 healthBenefits: mushObj.health_benefits
-                // comments: mushObj.comments
-            })
-        })
-    }
+            });
+        });
+    };
 
     //Fetch all comments and filter for only that mushroom's comments
     getComments = () => {
@@ -42,43 +39,20 @@ class MushShowPage extends React.Component {
             let commentArr = commentsData.filter(comment => {
                 if (comment.mushroom_id === this.props.mushId) {
                 return comment
-            
                 } else {
-                    return null 
+                    return null
                 }
             })
-            this.setState({ comments: commentArr })
-        })
-    }
+            this.setState({ comments: commentArr });
+        });
+    };
 
     deleteComment = id => {
         fetch(`${API_COMMENTS}/${id}`, {
             method: 'DELETE',
         })
-        this.setState({ comments: this.state.comments.filter(comment => comment.id !== id)})
-    }
-
-    //MIGHT BE ABLE TO DELETE THIS WHOLE FUNCTION. COME BACK LATER
-    // getUsers = () => {
-    //     fetch('http://localhost:3000/api/v1/users')
-    //     .then(res => res.json())
-    //     .then(data => console.log(data))
-    //     // .then(usersData => {
-    //     //     let userArr
-    //     //     userArr = usersData.filter(user => {
-    //     //         if (user.mushrooms.map(mushroom => mushroom.id === this.props.mushId)) {
-    //     //             return userArr
-    //     //         } else {
-    //     //             return null
-    //     //         }
-    //     //     })
-    //     //     this.setState({ users: userArr })
-    //     // })
-    // }
-
-    //fetch all comments and map comment that matches mushroom_id
-    //comment.mushroom.id === this.props.mushId
-    //comment.user.username
+        this.setState({ comments: this.state.comments.filter(comment => comment.id !== id)});
+    };
 
     getSources = () => {
         fetch(`http://localhost:3000/api/v1/mush_health_benefits`)
@@ -88,26 +62,19 @@ class MushShowPage extends React.Component {
             let sourcesAoA = mushHB.map(mushHealthObj => mushHealthObj.sources)  
             let citAoA = sourcesAoA.map(arr => arr.map(arrObj => arrObj)) 
 
-            this.setState({ sources: citAoA }) 
-        })
-    }
-
-//MIGHT BE ABLE TO DELETE. COME BACK LATER
-    // addNewUser = newUser => {
-    //     this.setState({
-    //         users: [...this.state.users, newUser]
-    //     })
-    // }
+            this.setState({ sources: citAoA }); 
+        });
+    };
 
     addNewComment = newComment => { 
         this.setState({
             comments: [...this.state.comments, newComment]
-        })
-        }
+        });
+    };
 
     handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value })
-    }
+        this.setState({ [event.target.name]: event.target.value });
+    };
 
     validateForm = () => {
         let errors = {};
@@ -119,11 +86,11 @@ class MushShowPage extends React.Component {
         }
         this.setState({ errors })
         return formIsValid;
-    }
+    };
 
     //This creates a comment OR throws an error if content input is missing in form
     handleSubmit = event => {
-        event.preventDefault()
+        event.preventDefault();
         if (this.validateForm()) {
             const user = JSON.parse(localStorage.getItem('user'));
                 const newComment = {
@@ -150,58 +117,39 @@ class MushShowPage extends React.Component {
                             .then(newComment => {
                             this.addNewComment(newComment)
                             this.getComments()
-                            // this.addNewUser((newComment || {}).user)
                             })
                             .then( () => this.setState({ content: '' }))
                         }
                     })
-        } 
-    }
+        }; 
+    };
         
-        toggleSources = () => {
-            this.setState({ displaySources: !this.state.displaySources })
-        }
+    toggleSources = () => {
+        this.setState({ displaySources: !this.state.displaySources });
+    };
 
-        componentDidMount() {
-            this.getMushAndHB()
-            this.getSources()
-            this.getComments()
-            // this.getUsers()
-        }
+    componentDidMount() {
+        this.getMushAndHB();
+        this.getSources();
+        this.getComments();
+    };
 
     render() {
-        // console.log(this.state.comments)
+        const { mushroom, healthBenefits, displaySources, sources, content, errors, comments } = this.state;
 
-        const { mushroom, healthBenefits } = this.state
+        //****** This handles the Speech Synthensis API *****//
+        let voices = window.speechSynthesis.getVoices();
+        let toSpeak = this.state.mushroom.scientific_name;
+        let utt = new SpeechSynthesisUtterance(toSpeak);
 
-    // let timeout;
-    
-    // const myTimer = () => {
-    //     window.speechSynthesis.pause()
-    //     window.speechSynthesis.resume()
-        
-    //     timeout = setTimeout(myTimer, 10000000)
-    // }
-
-    // window.speechSynthesis.cancel();
-    // timeout = setTimeout(myTimer, 10000000)
-    // let voices = window.speechSynthesis.getVoices()
-    // let toSpeak = this.state.mushroom.scientific_name
-  
-
-    // let utt = new SpeechSynthesisUtterance(toSpeak);
-    // utt.onend =  () => { clearTimeout(timeout) }
-
-    // let speak = () => {
-    //     utt.voice = voices[28]
-    //     utt.volume = 0.1
-    //     utt.pitch = 0.8
-    //     utt.rate = .7
-
-    //     window.speechSynthesis.cancel()? 
-    //     window.speechSynthesis.resume() : window.speechSynthesis.speak(utt)
-    // }
-
+        let speak = () => {
+            utt.voice = voices[28];
+            utt.volume = 0.1;
+            utt.pitch = 0.8;
+            utt.rate = .7;
+            window.speechSynthesis.speak(utt);
+        };
+        //*************************************************//
 
         return(
             <div className='flex-column'>
@@ -212,10 +160,7 @@ class MushShowPage extends React.Component {
 
                     <div className='mush-info-card'>
                         <h1 className='mush-title'>{mushroom.name}</h1>
-                        {/* ONLY COMMENTED OUT THIS LINE TO GET THE UNIT TEST TO PASS. WILL REVISIT!! */}
-                        {/* <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;&nbsp; <img src={require("../images/speaker.png")} alt="listen" className='listen' onClick={speak}/></p> */}
-                        <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;&nbsp; <img src={require("../images/speaker.png")} alt="listen" className='listen' /></p>
-
+                        <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;&nbsp; <img src={require("../images/speaker.png")} alt="listen" className='listen' onClick={speak}/></p>
                         <p><strong>Location: </strong>{mushroom.location}</p>
                         <p><strong>Tea flavor: </strong>{mushroom.flavor}</p>
                     </div>
@@ -227,30 +172,30 @@ class MushShowPage extends React.Component {
 
                 <div className='sources'>
                     <div className='sources-and-toggle-btn'>
-                        <h3 className='sources-title'>Sources&nbsp;&nbsp;<button onClick={this.toggleSources} className='login-btn'><strong>{this.state.displaySources ? '–' : '+' }</strong></button></h3>
+                        <h3 className='sources-title'>Sources&nbsp;&nbsp;<button onClick={this.toggleSources} className='login-btn'><strong>{displaySources ? '–' : '+' }</strong></button></h3>
                     </div>
 
-                    {this.state.displaySources ? 
+                    {displaySources ? 
                     <SourcesContainer 
-                    sources={this.state.sources} 
+                    sources={sources} 
                     /> : null}
                 </div>
                     
                 <div className='comments'>
                     <CommentForm 
-                    content={this.state.content} 
+                    content={content} 
                     handleChange={this.handleChange} 
                     handleSubmit={this.handleSubmit}
-                    errors={this.state.errors}
+                    errors={errors}
                     />
-                    <CommentsContainer comments={this.state.comments} deleteComment={this.deleteComment}/>
+                    <CommentsContainer comments={comments} deleteComment={this.deleteComment}/>
                 </div>
                     
                 <img src={require("../images/mushdancing_cropped.gif")} alt="listen" className='dancing-mush' />
                     
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
-export default MushShowPage
+export default MushShowPage;

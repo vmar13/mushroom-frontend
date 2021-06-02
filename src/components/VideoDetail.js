@@ -1,18 +1,10 @@
-import React from 'react'
-import { Paper, Typography } from '@material-ui/core'
+import React from 'react';
+import { Paper, Typography } from '@material-ui/core';
 
+const VideoDetail = ({ video, createFavVideo, toggleFavorited, favorited }) => {
+        if(!video) return <div className='loading'>Loading...</div>
 
-class VideoDetail extends React.Component {
-
-
-    render(){
-
-        // const { videoId, title, channelTitle, description } = this.props
-
-        if(!this.props.video) return <div className='loading'>Loading...</div>
-
-        const videoSrc = `https://www.youtube.com/embed/${this.props.video.id.videoId}`
-
+        const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
 
         return(
             <React.Fragment>
@@ -20,22 +12,19 @@ class VideoDetail extends React.Component {
                     <iframe frameBorder='0' height='100%' width='100%'  title='Video Player' src={videoSrc} />
                 </Paper>
                 <Paper elevation={6} style={{ padding: '5px' }} >
-                    <Typography variant='h4'>{this.props.video.snippet.title} - {this.props.video.snippet.channelTitle}</Typography>
-                    <Typography variant='subtitle1'>{this.props.video.snippet.channelTitle}</Typography>
-                    <Typography variant='subtitle2'>{this.props.video.snippet.description}</Typography>
+                    <Typography variant='h4'>{video.snippet.title} - {video.snippet.channelTitle}</Typography>
+                    <Typography variant='subtitle1'>{video.snippet.channelTitle}</Typography>
+                    <Typography variant='subtitle2'>{video.snippet.description}</Typography>
                 </Paper>
                 <button onClick={(event) => {
-                    this.props.createFavVideo(this.props.video.snippet.title, videoSrc)
-                    this.props.toggleFavorited()
+                    createFavVideo(video.snippet.title, videoSrc);
+                    toggleFavorited();
                     }} className='favorite-btn'>
-                    Add to Favorites {this.props.favorited ? '💚' : '♡'}
+                    Add to Favorites {favorited ? '💚' : '♡'}
                 </button>
-
-
             </React.Fragment>
         );
-    }
-}
+};
 
 
-export default VideoDetail
+export default VideoDetail;

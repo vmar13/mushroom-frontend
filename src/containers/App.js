@@ -1,15 +1,15 @@
-import React from 'react'
-import '../App.css'
-import { Route, Switch } from 'react-router-dom'
-import NavBar from '../components/NavBar'
-import MushroomContainer from '../containers/MushroomContainer'
-import Mushroom from '../components/Mushroom'
-import MushShowPage from '../components/MushShowPage'
-import BYOT from '../components/BYOT'
-import SignUp from '../components/SignUp'
-import Login from '../components/Login'
-import Favorites from '../components/Favorites'
-import Logout from '../components/Logout'
+import React from 'react';
+import '../App.css';
+import { Route, Switch } from 'react-router-dom';
+import NavBar from '../components/NavBar';
+import MushroomContainer from '../containers/MushroomContainer';
+import Mushroom from '../components/Mushroom';
+import MushShowPage from '../components/MushShowPage';
+import BYOT from '../components/BYOT';
+import SignUp from '../components/SignUp';
+import Login from '../components/Login';
+import Favorites from '../components/Favorites';
+import Logout from '../components/Logout';
 
 const API_FAVORITES = `http://localhost:3000/api/v1/favorites`;
 
@@ -20,10 +20,10 @@ class App extends React.Component {
     username: '',
     loggedIn: false,
     favorited: false
-  }
+  };
 
   stayLoggedIn = () => {
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage.getItem('user'));
     if (!user) {
       return
     } else {
@@ -32,31 +32,31 @@ class App extends React.Component {
         loggedIn: true
       })
     }
-  }
+  };
 
   updateUsername = username => {
-    this.setState({username})
-  }
+    this.setState({username});
+  };
 
   toggleLoggedIn = () => {
-    this.setState({loggedIn: !this.state.loggedIn})
-  }
+    this.setState({loggedIn: !this.state.loggedIn});
+  };
 
   clearUser = () => {
-    localStorage.clear()
-    this.updateUsername('')
-    this.toggleLoggedIn()
-  }
+    localStorage.clear();
+    this.updateUsername('');
+    this.toggleLoggedIn();
+  };
 
   addNewVideoToArr = newVideo => { 
     this.setState({
       videos: [...this.state.videos, newVideo]
-    })
-  }
+    });
+  };
   
   toggleFavorited = () => {
-    this.setState({ favorited: !this.state.favorited })
-  }
+    this.setState({ favorited: !this.state.favorited });
+  };
 
   createFavVideo = (vidTitle, vidUrl) => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -64,7 +64,7 @@ class App extends React.Component {
       user_id: user.id,
       title: vidTitle,
       url: vidUrl
-    }
+    };
 
     fetch(API_FAVORITES, {
       method: 'POST',
@@ -76,9 +76,9 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(newVideo => {
-        this.addNewVideoToArr(newVideo)
-      })
-  }
+        this.addNewVideoToArr(newVideo);
+      });
+  };
 
     deleteVideo = id => {
       fetch(`${API_FAVORITES}/${id}`, {
@@ -86,8 +86,8 @@ class App extends React.Component {
       })
       this.setState({
         videos: this.state.videos.filter(video => video.id !== id)
-      })
-    }
+      });
+    };
 
     getFavorites = () => {
       const user = JSON.parse(localStorage.getItem('user'));
@@ -103,44 +103,39 @@ class App extends React.Component {
             let userVideos = favData.filter(fav => fav.user_id === user.id)
             this.setState({ videos: userVideos })
           } else {
-            return
+            return;
           }
       })
       } else {
-        return
+        return;
       }
-    }
+    };
 
-  componentDidMount() {
-    this.getFavorites()
-    this.stayLoggedIn()
-  }
+    componentDidMount() {
+      this.getFavorites();
+      this.stayLoggedIn();
+    };
 
-render() {
+    render() {
 
-  // console.log(this.state.videos)
-
-  return (
-
-      <div className='app'>
-        {this.state.loggedIn ? <NavBar /> : null }
-        <Switch>
-          <Route  path='/mushrooms/:id' render={ (routerProps) => {
-            const mushId = parseInt(routerProps.match.params.id)
-            return  <MushShowPage {...routerProps} mushId={mushId} currentUser={this.state.currentUser} />} }/>
-          <Route  path='/mushrooms' render={ (history) => <MushroomContainer loggedIn={this.state.loggedIn}/>} />
-          <Route  path='/mushroom' render={ () => <Mushroom />} />
-          <Route  path='/byot' render={ (props) => <BYOT createFavVideo={this.createFavVideo} videos={this.state.videos} toggleFavorited={this.toggleFavorited} favorited={this.state.favorited} />}/>
-          <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} videos={this.state.videos} deleteVideo={this.deleteVideo} />} />
-          <Route path='/login' render={ () => <Login updateUsername={this.updateUsername} toggleLoggedIn={this.toggleLoggedIn} loggedIn={this.state.loggedIn} />} />
-          <Route path='/logout' render={ () => <Logout loggedIn={this.state.loggedIn} clearUser={this.clearUser} />} />
-          <Route  path='/' render={ () => <SignUp updateUsername={this.updateUsername} toggleLoggedIn={this.toggleLoggedIn} loggedIn={this.state.loggedIn}/>} />
-        </Switch>
-
-      </div>
-
-  );
-}
-}
+    return (
+        <div className='app'>
+          {this.state.loggedIn ? <NavBar /> : null }
+          <Switch>
+            <Route  path='/mushrooms/:id' render={ (routerProps) => {
+              const mushId = parseInt(routerProps.match.params.id)
+              return  <MushShowPage {...routerProps} mushId={mushId} currentUser={this.state.currentUser} />} }/>
+            <Route  path='/mushrooms' render={ (history) => <MushroomContainer loggedIn={this.state.loggedIn}/>} />
+            <Route  path='/mushroom' render={ () => <Mushroom />} />
+            <Route  path='/byot' render={ (props) => <BYOT createFavVideo={this.createFavVideo} videos={this.state.videos} toggleFavorited={this.toggleFavorited} favorited={this.state.favorited} />}/>
+            <Route  path='/favorites' render={ (routerProps) => <Favorites {...routerProps} videos={this.state.videos} deleteVideo={this.deleteVideo} />} />
+            <Route path='/login' render={ () => <Login updateUsername={this.updateUsername} toggleLoggedIn={this.toggleLoggedIn} loggedIn={this.state.loggedIn} />} />
+            <Route path='/logout' render={ () => <Logout loggedIn={this.state.loggedIn} clearUser={this.clearUser} />} />
+            <Route  path='/' render={ () => <SignUp updateUsername={this.updateUsername} toggleLoggedIn={this.toggleLoggedIn} loggedIn={this.state.loggedIn}/>} />
+          </Switch>
+        </div>
+    );
+  };
+};
   
-export default App
+export default App;

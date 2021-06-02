@@ -1,19 +1,14 @@
-import React from 'react'
-import Comment from '../components/Comment'
+import React from 'react';
+import Comment from '../components/Comment';
 
-class CommentsContainer extends React.Component {
-    render() {
+const CommentsContainer = ({ comments, deleteComment }) => {
+    return(
+        <div className='comments-container'>
+        {   
+            comments.map(comment => <Comment key={comment.id} comment={comment} deleteComment={deleteComment}/>)
+        }
+        </div>
+    );
+};
 
-        const { comments, deleteComment } = this.props
-
-        return(
-            <div className='comments-container'>
-            {   
-               comments.map(comment => <Comment key={comment.id} comment={comment} deleteComment={deleteComment}/>)
-            }
-            </div>
-        )
-    }
-}
-
-export default CommentsContainer
+export default CommentsContainer;

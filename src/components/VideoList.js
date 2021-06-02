@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid } from '@material-ui/core'
-import VideoItem from '../components/VideoItem'
+import { Grid } from '@material-ui/core';
+import VideoItem from '../components/VideoItem';
 
 const VideoList = ({ videos, onVideoSelect, toggleFavorited }) => {
 
@@ -9,7 +9,7 @@ const VideoList = ({ videos, onVideoSelect, toggleFavorited }) => {
         <Grid container spacing={2}>
             {listOfVideos}
         </Grid>
-    ) 
-}
+    ); 
+};
 
-export default VideoList
+export default VideoList;

@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react'
-import { Redirect } from 'react-router'
+import React, { useEffect } from 'react';
+import { Redirect } from 'react-router';
 
 const Logout = ({ clearUser, loggedIn }) => {
   useEffect(() => {
-    clearUser()
+    clearUser();
   })
 
   return (
     <>
-        
-        {loggedIn ? <Redirect to='/login' /> : null}
+      {loggedIn ? <Redirect to='/login' /> : null}
     </>
-  )
-}
+  );
+};
 
-export default Logout
+export default Logout;

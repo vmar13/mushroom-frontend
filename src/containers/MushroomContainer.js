@@ -1,9 +1,9 @@
-import React from 'react'
-import Mushroom from '../components/Mushroom'
-import Dropdown from '../components/Dropdown'
+import React from 'react';
+import Mushroom from '../components/Mushroom';
+import Dropdown from '../components/Dropdown';
 
-const API_mushrooms =  'http://localhost:3000/api/v1/mushrooms'
-const API_health_benefits = 'http://localhost:3000/api/v1/health_benefits'
+const API_mushrooms =  'http://localhost:3000/api/v1/mushrooms';
+const API_health_benefits = 'http://localhost:3000/api/v1/health_benefits';
 
 class MushroomContainer extends React.Component {
 
@@ -12,7 +12,7 @@ class MushroomContainer extends React.Component {
         healthBenefits: [],
         selectedValue: '',
         filter: 'Select Item'
-    }
+    };
 
     componentDidMount() {
         fetch(API_mushrooms)
@@ -25,14 +25,9 @@ class MushroomContainer extends React.Component {
         .then(healthBenes => {
             this.setState({ healthBenefits: healthBenes })
         }))
-    }
-
-    // sendToMushShowPage = mushId => {
-    //     this.props.history.push(`/mushrooms/${mushId}`)
-    // }
+    };
 
     handleSelectChange = event => {
-        // console.log(event.target.value)
         if(event.target.value === '') { 
             return (
             fetch(API_mushrooms)
@@ -44,25 +39,21 @@ class MushroomContainer extends React.Component {
             fetch(`${API_health_benefits}/${event.target.value}`)
             .then(res => res.json())
             .then(healthBene => {
-                // console.log(healthBene)
                 this.setState({ mushrooms: healthBene.mushrooms })
-        })
-            
-    }
+        })      
+    };
 
     handleMouseOver = e => {
         if(e.target.className === 'mush-img') {
             document.querySelector('.coffee').style.opacity = '1'
         }
-    }
+    };
 
     handleMouseOut = e => {
         if(e.target.className === 'mush-img') {
             document.querySelector('.coffee').style.opcacity = '0'
-            // console.log('out')
         }
-    }
-
+    };
 
     render() {
      
@@ -90,12 +81,10 @@ class MushroomContainer extends React.Component {
                     </div> */}
                 </div>
             </div>
-            
-            )
-    }
-}
+        );
+    };
+};
 
-export default MushroomContainer
+export default MushroomContainer;
 
-// {this.state.mushrooms.map(mushroom => <Mushroom key={mushroom.id} {...mushroom} sendToMushShowPage={this.sendToMushShowPage}/>)}
 

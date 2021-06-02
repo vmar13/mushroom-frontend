@@ -1,12 +1,10 @@
 import React from 'react';
 import FavVideoItem from '../components/FavVideoItem';
 
-const Favorites = (props) => {
-    const { videos, deleteVideo } = props;
-
+const Favorites = ({ videos, deleteVideo }) => {
     let noFavs;
     if (videos.length === 0) {
-        noFavs = 'You don\'t have any favorites yet, so head over to "BYOT" and add some!'
+        noFavs = 'It looks like you don\'t have any favorites yet. You can head over to "BYOT" and add some!'
     }
     
     return(
@@ -15,8 +13,7 @@ const Favorites = (props) => {
             <p>{noFavs}</p>
             {videos.map(video => <FavVideoItem key={video.id} video={video} deleteVideo={deleteVideo} />)}
         </div>
-    )
-
-}
+    );
+};
 
 export default Favorites;
