@@ -66,14 +66,27 @@ body
 }
 
 .comments {
+  position: absolute;
   margin: 50px;
   margin-left: 55px;
+  margin-bottom: 20%;
   border: 2px solid rgb(48, 20, 20);
   padding: 10px 20px 20px 40px; 
   border-radius: 5px;
   max-width: 400px;
-  /* background-color: rgba(226, 162, 137, 0.575); */
   background-color: rgba(226, 162, 137, 0.712);
+}
+
+.highfive-mush {
+  position: absolute;
+  right: 17%;
+  width: auto;
+  height: 17em;
+}
+
+.comments-and-mush-highfive {
+  position: relative;
+  width: 100%;
 }
 
 .comment-content {
@@ -102,15 +115,6 @@ body
   /* background-color: rgb(128, 53, 88); */
   background-color: rgb(100, 42, 42);
   /* background-color: rgb(209, 135, 50); */
-
-}
-
-.dancing-mush {
-  position: absolute;
-  margin-top: -25%;
-  margin-left: 53%;
-  width: auto;
-  height: 18em;
 
 }
 
@@ -204,8 +208,7 @@ body
 
 .health-bene-container {
   display: block;
-  /* width: 100%; */
-  margin: 70px 140px 10px 40px;
+  margin: 45px 140px 10px 40px;
   position: relative;
   /* background-color: rgb(233, 185, 173); */
   padding: 30px 20px 0px 30px;
@@ -535,25 +538,31 @@ input[type=text]:focus, input[type=password]:focus {
     margin-right: 240px;
     margin-bottom: 85px;
     padding: 10px 20px 20px 40px; 
-    /* background-color: rgb(219, 144, 115); */
-    /* background-color: rgba(219, 144, 115, 0.774); */
     background-color: rgba(139, 78, 75, 0.281);
-
     border-radius: 5px;
+  }
 
+  .sources-btn {
+      background-color: rgb(51, 33, 22);
+      color: rgb(199, 190, 190);
+      border-radius: 4px;
+      margin-top: 10px;
+      margin-left: 5%;
+      margin-bottom: 42px;
+      padding: 7px 10px;
+      border: none;
+      display: inline-block;
+      width: 10%;
   }
 
   .sources-list {
     padding: 20px 25px 20px 20px;
-    /* color: rgba(48, 20, 20, 0.63); */
     color: rgba(48, 20, 20, 0.507);
-
-
   }
 
   .sources-and-toggle-btn {
     position: relative;
-    display: inline-block;
+    display: center;
     margin-top: -15px;
     margin-bottom: -65px;
     margin-right: 300px;

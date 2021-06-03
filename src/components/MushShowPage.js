@@ -172,7 +172,7 @@ class MushShowPage extends React.Component {
 
                 <div className='sources'>
                     <div className='sources-and-toggle-btn'>
-                        <h3 className='sources-title'>Sources&nbsp;&nbsp;<button onClick={this.toggleSources} className='login-btn'><strong>{displaySources ? '–' : '+' }</strong></button></h3>
+                        <h3 className='sources-title'>Sources<button onClick={this.toggleSources} className='sources-btn'><strong>{displaySources ? '–' : '+' }</strong></button></h3>
                     </div>
 
                     {displaySources ? 
@@ -181,18 +181,19 @@ class MushShowPage extends React.Component {
                     /> : null}
                 </div>
                     
-                <div className='comments'>
-                    <CommentForm 
-                    content={content} 
-                    handleChange={this.handleChange} 
-                    handleSubmit={this.handleSubmit}
-                    errors={errors}
-                    />
-                    <CommentsContainer comments={comments} deleteComment={this.deleteComment}/>
-                </div>
-                    
-                <img src={require("../images/mushdancing_cropped.gif")} alt="listen" className='dancing-mush' />
-                    
+                <div className='comments-and-mush-highfive'>
+                    <div className='comments'>
+                        <CommentForm 
+                        content={content} 
+                        handleChange={this.handleChange} 
+                        handleSubmit={this.handleSubmit}
+                        errors={errors}
+                        />
+                        <CommentsContainer comments={comments} deleteComment={this.deleteComment}/>
+                    </div>
+                        
+                    <img src={require("../images/mushdancing_cropped.gif")} alt="listen" className='highfive-mush' />
+                </div>  
             </div>
         );
     };
