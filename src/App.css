@@ -217,7 +217,7 @@ body
 
 @import url('https://kit.fontawesome.com/5940aff8d7.js');
 .hamburger {
-  background-color: transparent;
+  background-color: red;
   border: 0;
   color: rgb(150, 132, 132);
   cursor: pointer;
@@ -385,6 +385,15 @@ input[type=text]:focus, input[type=password]:focus {
     clear: both;
   } 
 
+.nav {
+  position: relative;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(150, 132, 132);
+  background-color: rgb(51, 33, 22);
+}
 .nav-container {
   position: relative;
   height: 40px;
@@ -626,4 +635,19 @@ input[type=text]:focus, input[type=password]:focus {
   .mush-info-card {
     width: 100%;
   }
+}
+
+@media screen and (max-width: 767px) {
+  .nav-container {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    justify-content: flex-end;
+  }
+
 }
