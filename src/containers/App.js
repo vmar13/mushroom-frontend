@@ -111,6 +111,11 @@ class App extends React.Component {
       }
     };
 
+    toggleNavElements = () => {
+      let navElements = document.querySelector('.nav-elements');
+        navElements.classList.toggle('show');
+    };
+
     componentDidMount() {
       this.getFavorites();
       this.stayLoggedIn();
@@ -120,7 +125,7 @@ class App extends React.Component {
 
     return (
         <div className='app'>
-          {this.state.loggedIn ? <NavBar /> : null }
+          {this.state.loggedIn ? <NavBar toggleNavElements={this.toggleNavElements} /> : null }
           <Switch>
             <Route  path='/mushrooms/:id' render={ (routerProps) => {
               const mushId = parseInt(routerProps.match.params.id)
