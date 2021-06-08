@@ -1,11 +1,11 @@
-body
-{
+body {
   margin: 0;
-  /* background-color: rgb(250, 235, 209); */
   background-color: rgb(252, 238, 214);
-
-    /* background-image: url(https://images.unsplash.com/photo-1444724334165-e7050f2229a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80); */
 } 
+
+html {
+  scroll-behavior: smooth;
+}
 
 .auth {
   position: absolute;
@@ -216,15 +216,16 @@ body
 }
 
 @import url('https://kit.fontawesome.com/5940aff8d7.js');
-.hamburger {
-  background-color: red;
+#hamburger {
+  background-color: transparent;
+  display: none;    /* This is the desktop view */
   border: 0;
   color: rgb(150, 132, 132);
   cursor: pointer;
-  font-size: 10px;
+  font-size: 2em;
 }
 
-.hamburger:focus {
+#hamburger:focus {
   outline: none;
 }
 
@@ -326,8 +327,6 @@ input[type=text]:focus, input[type=password]:focus {
 ::placeholder {
   color: rgb(82, 63, 57);
 }
-
-
 
 .logo-title {
   position: relative;
@@ -642,7 +641,7 @@ input[type=text]:focus, input[type=password]:focus {
     display: none;
   }
 
-  .hamburger {
+  #hamburger {
     display: block;
   }
 
