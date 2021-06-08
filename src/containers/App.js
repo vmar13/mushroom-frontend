@@ -113,7 +113,7 @@ class App extends React.Component {
 
     toggleNavElements = () => {
       let navElements = document.querySelector('.nav-elements');
-        navElements.classList.toggle('show');
+        navElements.classList.toggle('show');      
     };
 
     componentDidMount() {
