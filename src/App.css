@@ -222,7 +222,7 @@ html {
   border: 0;
   color: rgb(150, 132, 132);
   cursor: pointer;
-  font-size: 2em;
+  font-size: 4.5em;
 }
 
 #hamburger:focus {
@@ -671,7 +671,7 @@ input[type=text]:focus, input[type=password]:focus {
 
   #hamburger {
     position: absolute;
-    top: 12%;
+    top: 1%;
     right: 5%;
     display: block;
     z-index: 6;
@@ -679,6 +679,7 @@ input[type=text]:focus, input[type=password]:focus {
 
   .nav-container {
     position: fixed;
+    top: 0;
     display: flex;
     width: 100%;
     justify-content: flex-end;
