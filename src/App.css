@@ -74,8 +74,8 @@ html {
   padding: 10px 20px 20px 40px; 
   border-radius: 5px;
   max-width: 400px;
-  max-height: 100%;
-  display: flex;
+  /* max-height: 100%; */
+  /* display: flex; */
   background-color: rgba(226, 162, 137, 0.712);
 }
 
