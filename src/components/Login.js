@@ -54,10 +54,10 @@ class Login extends React.Component {
             <>
             <div className='login-container'>
             <img src={require('../images/turkey_tail_login_edited.jpg')} alt='cover' className='login-image' />
-            <img src={require("../images/F_in_Tea5.png")} alt="logo" className='logo-title' />
 
                 <div className='login-form'>
                     <form onSubmit={this.handleSubmit}>
+                        <img src={require("../images/F_in_Tea5.png")} alt="logo" className='logo-title' />
                         <input type='text' name='username' value={username} onChange={this.handleChange} placeholder='Username'/><br/>
                         <input type='password' name='password'value={password} onChange={this.handleChange} placeholder='Password'/><br/>
                         <input type='submit' value='Log In' className='login-btn' /><br/><br/>
