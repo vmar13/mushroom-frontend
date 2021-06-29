@@ -143,9 +143,9 @@ class MushShowPage extends React.Component {
         let utt = new SpeechSynthesisUtterance(toSpeak);
 
         let speak = () => {
-            utt.voice = voices[28];
-            utt.volume = 0.1;
-            utt.pitch = 0.8;
+            utt.voice = voices[26];
+            utt.volume = 0.3;
+            utt.pitch = 0.9;
             utt.rate = .7;
             window.speechSynthesis.speak(utt);
         };
