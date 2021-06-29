@@ -137,18 +137,19 @@ class MushShowPage extends React.Component {
     render() {
         const { mushroom, healthBenefits, displaySources, sources, content, errors, comments } = this.state;
 
-        //****** This handles the Speech Synthensis API *****//
+        //****** This handles the Web Speech API's Speech Synthesis *****//
         let voices = window.speechSynthesis.getVoices();
         let toSpeak = this.state.mushroom.scientific_name;
         let utt = new SpeechSynthesisUtterance(toSpeak);
 
-        let speak = () => {
+        const pronounce = () => {
             utt.voice = voices[26];
             utt.volume = 0.3;
             utt.pitch = 0.9;
             utt.rate = .7;
             window.speechSynthesis.speak(utt);
         };
+
         //*************************************************//
 
         return(
@@ -160,7 +161,7 @@ class MushShowPage extends React.Component {
 
                     <div className='mush-info-card'>
                         <h1 className='mush-title'>{mushroom.name}</h1>
-                        <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;&nbsp; <img src={require("../images/speaker.png")} alt="listen" className='listen' onClick={speak}/></p>
+                        <p><em><strong>Scientific Name:</strong> {mushroom.scientific_name}</em>&nbsp;&nbsp; <img src={require("../images/speaker.png")} alt="listen" className='listen' onClick={pronounce}/></p>
                         <p><strong>Location: </strong>{mushroom.location}</p>
                         <p><strong>Tea flavor: </strong>{mushroom.flavor}</p>
                     </div>
