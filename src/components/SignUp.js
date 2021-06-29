@@ -61,10 +61,11 @@ class SignUp extends React.Component {
                         <input type='password' name='password'value={password} onChange={this.handleChange} placeholder='Password'/><br/>
                         <input type='submit' value='Sign Up' className='login-btn' /><br/><br/>
                         <p className='auth'>Already have an account? <a href='/login'>Log In</a></p>
+                        {this.props.loggedIn ? <Redirect to='/mushrooms' /> : null}
+                        {displayError ? <p className='login-error-msg'>{displayError}</p> : null }
                     </form>
 
-                    {this.props.loggedIn ? <Redirect to='/mushrooms' /> : null}
-                    {displayError ? <p className='error-message'>{displayError}</p> : null }
+                    
                 </div>
             </div>  
             </>

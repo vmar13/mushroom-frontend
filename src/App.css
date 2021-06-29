@@ -110,6 +110,17 @@ html {
   padding: 2%;
 }
 
+.comment-btn {
+  background-color: rgb(51, 33, 22);
+  color: rgb(199, 190, 190);
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 42px;
+  padding: 7px 10px;
+  border: none;
+  width: 95%;
+}
+
 #container {
   position: relative;
   /* padding-bottom: 11px; */
@@ -211,7 +222,7 @@ html {
 }
 
 .form-error {
-  color: rgb(248, 7, 7);
+  color:  rgb(168, 11, 11);
   font-weight: bold;
 }
 
@@ -283,20 +294,21 @@ html {
   width: 97%;
 }
 
+.login-error-msg {
+  color: rgb(168, 11, 11);
+  font-weight: bold;
+}
 
 .login-form {
   position: absolute;
   display: flex;
   background-color: rgba(226, 162, 137, 0.575);
-  /* padding: 10px 20px; */
-  /* padding: 120px 20px 10px 20px; */
   padding: 3% 3% 2% 3%;
   top:20%;
   left:70%;
   right: 0;
   margin: 20px;
   width: 20%;
-  /* max-width: 300px; */
   /* height: 50%; */
   border-radius: 5px;
 }
@@ -602,8 +614,6 @@ input[type=text]:focus, input[type=password]:focus {
     height: 1.5em;
     margin-top: -5px;
     margin-left: 1em;
-    /* padding-left: 2em; */
-    /* float: left; */
   }
 
   .username-and-teacup {
