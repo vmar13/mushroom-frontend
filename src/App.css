@@ -36,8 +36,9 @@ html {
 
 .byot-title {
   font-family: 'Shadows Into Light', cursive;
-  margin-top: 70px;
+  margin-top: 6%;
   margin-left: 80px;
+  margin-bottom: 0;
   color: rgb(212, 197, 187);
 
 }
@@ -428,7 +429,7 @@ input[type=text]:focus, input[type=password]:focus {
     margin-top: -13%;
     margin-left: 70%;
     width: auto;
-    height: 12em;
+    height: 11em;
     position: relative;
     top: -1em;
     left: 1em
@@ -538,14 +539,19 @@ input[type=text]:focus, input[type=password]:focus {
     /* float: left; */
   }
 
+  .search-instructions {
+    margin-bottom: 0;
+    /* font-family: 'Shadows Into Light', cursive; */
+    color: rgb(212, 197, 187);
+  }
+
   .search-magnifying-glass {
     position: relative;
     top: 0.8em;
     margin-top: 5px;
     margin-left: -36px;
     width: auto;
-    height: 1.5em;
-    /* background-color: rgba(243, 225, 217, 0.541); */
+    height: 1.45em;
     background-color: rgba(235, 208, 196, 0.781);
 
     padding: 6px;
