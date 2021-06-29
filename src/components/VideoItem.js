@@ -7,7 +7,6 @@ const VideoItem = ({ video, onVideoSelect, toggleFavorited }) => {
             <Paper style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 
             onClick={() => {
                 onVideoSelect(video);
-                toggleFavorited();
             }}>
                 <img style={{ marginRight: '20px' }} alt='thumbnail' src={video.snippet.thumbnails.medium.url} />
                 <Typography variant='subtitle1'><b>{video.snippet.title}</b></Typography>
