@@ -8,10 +8,10 @@ const VideoDetail = ({ video, createFavVideo, toggleFavorited, favorited }) => {
 
         return(
             <React.Fragment>
-                <Paper elevation={6} style={{ height: '80%' }} >
+                <Paper elevation={6} style={{ height: '80%', marginLeft: '6%' }} >
                     <iframe frameBorder='0' height='100%' width='100%'  title='Video Player' src={videoSrc} />
                 </Paper>
-                <Paper elevation={6} style={{ padding: '5px' }} >
+                <Paper elevation={6} style={{ padding: '5px', marginLeft: '6%'}} >
                     <Typography variant='h4'>{video.snippet.title} - {video.snippet.channelTitle}</Typography>
                     <Typography variant='subtitle1'>{video.snippet.channelTitle}</Typography>
                     <Typography variant='subtitle2'>{video.snippet.description}</Typography>
