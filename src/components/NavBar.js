@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// let show = document.querySelector('.nav-element show');
+// if (show) 
+
 const NavBar = ({ toggleNavElements }) => {
   return(
       <div className='nav-container'>

@@ -672,6 +672,11 @@ input[type=text]:focus, input[type=password]:focus {
     font-size: 1.61rem;
   }
 
+  /* .nav-element.show:hover {
+    background-color: rgb(116, 78, 78);
+    color: white;
+  } */
+
   #hamburger {
     position: absolute;
     top: 1%;

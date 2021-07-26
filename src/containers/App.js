@@ -111,9 +111,14 @@ class App extends React.Component {
       }
     };
 
+    toggleHoverNavEles = () => {
+      let navElement = document.querySelector('.nav-element');
+      navElement.classList.toggle('show'); 
+    }
+
     toggleNavElements = () => {
       let navElements = document.querySelector('.nav-elements');
-        navElements.classList.toggle('show');      
+      navElements.classList.toggle('show');    
     };
 
     componentDidMount() {
